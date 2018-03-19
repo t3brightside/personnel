@@ -17,6 +17,11 @@
   "require": {
     "typo3/cms-core": ">=8.7.0,<9.0"
   },
+  "autoload": {
+    "psr-4": {
+      "Brightside\\Personnel\\": "Classes"
+    }
+  },
   "replace": {
     "personnel": "self.version",
     "typo3-ter/personnel": "self.version"

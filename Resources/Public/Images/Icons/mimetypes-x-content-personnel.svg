@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="_x31_acdc120-5d43-4326-9892-65d9dc856929"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
-	 style="enable-background:new 0 0 16 16;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;}
-	.st1{fill:#999999;}
-	.st2{fill:#663399;}
-</style>
-<title>mimetypes-x-content-galleryofpages</title>
-<path class="st0" d="M1,1h14v14H1V1z"/>
-<path class="st1" d="M1,1v14h14V1H1z M2,2h12v12H2V2z"/>
-<path class="st2" d="M6.3,7.2h3.5l3.3,5.8H3L6.3,7.2z"/>
-<circle class="st2" cx="8" cy="4.5" r="1.4"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><title>mimetypes-x-content-personnel</title><path d="M1,0.91H15v14H1v-14Z" style="fill:#fff"/><path d="M1,0.91v14H15v-14H1Zm1,1H14v12H2v-12Z" style="fill:#999"/><path d="M8,3.45A2.23,2.23,0,1,1,5.74,5.68,2.23,2.23,0,0,1,8,3.45Zm4.45,8.91H3.51V11.62c0-1.48,3-2.3,4.45-2.3s4.45,0.82,4.45,2.3v0.74Z" style="fill:#0012b5"/></svg>

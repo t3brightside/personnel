@@ -3,8 +3,8 @@
 
 ## System requirements
 
-TYPO3 8.7 LTS – 9.*
-fluid_styled_content
+- TYPO3 8.7 LTS – 9.*
+- fluid_styled_content
 
 ## Features
 - List of persons from pages

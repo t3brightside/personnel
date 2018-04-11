@@ -2,6 +2,7 @@
 **TYPO3 CMS extension for personnel list with vCard support.**
 
 ## System requirements
+
 TYPO3 8.7 LTS – 9.*
 fluid_styled_content
 

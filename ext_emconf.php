@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array (
 	'title' => 'Personnel',
-	'description' => 'Personnel records list with vCard download.',
+	'description' => 'Personnel lists with vCard download.',
 	'category' => 'fe',
 	'version' => '0.2.0',
 	'state' => 'stable',

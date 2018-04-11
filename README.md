@@ -1,5 +1,16 @@
 # ext:Personnel
-TYPO3 CMS extension for personnel records list with vCard download.
+**TYPO3 CMS extension for personnel list with vCard support.**
+
+## System requirements
+TYPO3 8.7 LTS – 9.*
+fluid_styled_content
+
+## Features
+- List of persons from pages
+- List of selected persons
+- Sort by
+- Easy to add custom templates
+
 ## Installation
 - Install from TER: **personnel** or Composer: **t3brightside/personnel**
 - Add static template

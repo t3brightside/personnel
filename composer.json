@@ -1,6 +1,6 @@
 {
   "name": "t3brightside/personnel",
-  "description": "TYPO3 CMS extension for personnel records list with vCard download.",
+  "description": "TYPO3 CMS extension for personnel lists with vCard support.",
   "type": "typo3-cms-extension",
   "version": "0.2.0",
   "keywords": ["TYPO3", "vCard", "personnel"],
@@ -15,7 +15,7 @@
       }
   ],
   "require": {
-    "typo3/cms-core": ">=8.7.0,<9.0"
+    "typo3/cms-core": ">=8.7.0,<9.99.99"
   },
   "autoload": {
     "psr-4": {

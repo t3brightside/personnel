@@ -9,9 +9,10 @@ vCardURL.data = getEnv:HTTP_HOST
 page.includeCSS.personnel = {$personnel.stylesPath}
 
 tt_content.personnel_default =< lib.contentElement
-tt_content.personnel_default.templateRootPaths.10 = {$personnel.templateRootPaths}
-tt_content.personnel_default.partialRootPaths.10 = {$personnel.partialRootPaths}
-
+tt_content.personnel_default.templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
+tt_content.personnel_default.templateRootPaths.20 = {$personnel.templateRootPaths}
+tt_content.personnel_default.partialRootPaths.10 = EXT:personnel/Resources/Private/Partials/
+tt_content.personnel_default.partialRootPaths.20 = {$personnel.partialRootPaths}
 tt_content.personnel_default.templateName = Person
 
 tt_content.personnel_selected =< tt_content.personnel_default
@@ -55,7 +56,8 @@ personnel_vCard  {
 	10 = FLUIDTEMPLATE
 	10 {
 		templateName = Vcard
-		templateRootPaths.10 = {$personnel.vCard.templateRootPaths}
+		templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
+    templateRootPaths.20 = {$personnel.vCard.templateRootPaths}
 		dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
 	  dataProcessing.10 {
       table = tx_personnel_domain_model_person

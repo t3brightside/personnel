@@ -1,4 +1,4 @@
-# ext:Personnel
+# Personnel
 **TYPO3 CMS extension for personnel list with vCard support.**
 
 ## System requirements

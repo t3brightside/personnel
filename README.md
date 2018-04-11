@@ -1,7 +1,7 @@
 # ext:Personnel
 TYPO3 CMS extension for personnel records list with vCard download.
 ## Installation
-- Install from TER and add static template to page template.
+- Install from TER **personnel** or composer **t3brightside/personnel**, add static template.
 - Set **config.absRefPrefix** in your page template in order to make base64 images work in vCard (and it shouldn't be just / but a real domain name)
 
 ## Admin
@@ -31,9 +31,9 @@ personnel.partialRootPaths = EXT:personnel/Resources/Private/Partials/
 Add new section wheres IF condition determines template nr '2' to: _Resources/Private/Templates/Personnel.html_
 ```html
 <f:if condition="{data.tx_personnel_template} == 2">
-    <f:for each="{personnel}" as="person" iteration="iterator">
-      <f:render partial="MyNewTemplate" arguments="{_all}"/>
-    </f:for>
+  <f:for each="{personnel}" as="person" iteration="iterator">
+    <f:render partial="MyNewTemplate" arguments="{_all}"/>
+  </f:for>
 </f:if>
 ```
 Create new partial: _Resources/Private/Partials/MyNewTemplate.html_

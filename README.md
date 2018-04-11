@@ -1,7 +1,8 @@
 # ext:Personnel
 TYPO3 CMS extension for personnel records list with vCard download.
 ## Installation
-- Install from TER **personnel** or composer **t3brightside/personnel**, add static template.
+- Install from TER: **personnel** or Composer: **t3brightside/personnel**
+- Add static template
 - Set **config.absRefPrefix** in your page template in order to make base64 images work in vCard (and it shouldn't be just / but a real domain name)
 
 ## Admin
@@ -24,6 +25,9 @@ Change constants:
 personnel.styles = EXT:personnel/Resources/Public/Styles/personnel.css
 personnel.templateRootPaths = EXT:personnel/Resources/Private/Templates/
 personnel.partialRootPaths = EXT:personnel/Resources/Private/Partials/
+personnel.vCard.templateRootPaths = EXT:personnel/Resources/Private/Templates/
+personnel.vCard.CompanyName = Example Company Ltd.
+
 ```
 
 **Fluid**

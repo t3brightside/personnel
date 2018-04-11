@@ -1,0 +1,5 @@
+<li>
+  <strong class="personnel-item-name">{person.data.firstname} {person.data.lastname}</strong> –
+  <f:if condition="{person.data.phone}"><a class="personnel-item-phone" href="tel:{person.data.phone}">{person.data.phone}</a> | </f:if>
+  <f:if condition="{person.data.email}"><f:link.email class="personnel-item-email" email="{person.data.email}">{person.data.email}</f:link.email></f:if>
+</li>

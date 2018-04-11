@@ -9,7 +9,9 @@ vCardURL.data = getEnv:HTTP_HOST
 page.includeCSS.personnel = {$personnel.stylesPath}
 
 tt_content.personnel_default =< lib.contentElement
-tt_content.personnel_default.templateRootPaths.200 = {$personnel.templateRootPaths}
+tt_content.personnel_default.templateRootPaths.10 = {$personnel.templateRootPaths}
+tt_content.personnel_default.partialRootPaths.10 = {$personnel.partialRootPaths}
+
 tt_content.personnel_default.templateName = Person
 
 tt_content.personnel_selected =< tt_content.personnel_default

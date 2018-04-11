@@ -1,6 +1,6 @@
 {
   "name": "t3brightside/personnel",
-  "description": "TYPO3 CMS extension to create personnel records and show lists or single records in front end.",
+  "description": "TYPO3 CMS extension for personnel records list with vCard download.",
   "type": "typo3-cms-extension",
   "version": "0.1.1",
   "keywords": ["TYPO3", "vCard", "personnel"],

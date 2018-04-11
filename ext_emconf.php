@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array (
 	'title' => 'Personnel',
-	'description' => 'Contact lists or single person record. vCard option included.',
+	'description' => 'Personnel records list with vCard download.',
 	'category' => 'fe',
 	'version' => '0.1.1',
 	'state' => 'stable',
@@ -22,23 +22,23 @@ $EM_CONF[$_EXTKEY] = array (
 	'author' => 'Tanel Põld, Nikolay Orlenko',
 	'author_email' => 'tanel@brightside.ee',
 	'author_company' => 'Brightside OÜ / t3brightside.com',
-	'constraints' => 
+	'constraints' =>
 	array (
-		'depends' => 
+		'depends' =>
 		array (
 			'typo3' => '8.7.0 - 8.7.99',
 			'fluid_styled_content' => '',
 		),
-		'conflicts' => 
+		'conflicts' =>
 		array (
 		),
-		'suggests' => 
+		'suggests' =>
 		array (
 		),
 	),
-	'autoload' => 
+	'autoload' =>
 	array (
-		'classmap' => 
+		'classmap' =>
 		array (
 			0 => 'Classes',
 		),

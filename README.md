@@ -55,4 +55,4 @@ Add new section wheres IF condition determines template nr '2' to: _Resources/Pr
 Create new partial: _Resources/Private/Partials/MyNewTemplate.html_
 
 ## Development and maintenance
-[Brightside OÜ](https://t3brightside.com/) – TYPO3 development & hosting specialized web agency
+[Brightside OÜ](https://t3brightside.com/) – TYPO3 development and hosting specialised web agency

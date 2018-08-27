@@ -224,9 +224,10 @@ $tx_personnel_domain_model_person = [
             'l10n_mode' => 'prefixLangTitle',
             'label' => 'Additional Information',
             'config' => [
-                'type' => 'text',
-		        'cols' => 60,
-		        'rows' => 6
+              'type' => 'text',
+              'enableRichtext' => true,
+		          'cols' => 60,
+		          'rows' => 6
             ]
         ],
         'phone' => [

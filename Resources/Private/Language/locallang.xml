@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels and descriptions for database tables/fields belonging to extension 'personnel'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="personnel.email.label">E-mail:</label>
+			<label index="personnel.phone.label">Phone:</label>
+			<label index="personnel.vCard.label">vCard:</label>
+			<label index="personnel.email.send">Send email</label>
+			<label index="personnel.phone.call">Call</label>
+			<label index="personnel.vcard.download">Download vCard</label>
+		</languageKey>
+	</data>
+</T3locallang>

@@ -9,6 +9,6 @@
       <f:link.page class="personnel-item-vCard" pageType="888" additionalParams="{person: '{person.data.uid}'}" additionalAttributes="{download: '{person.data.firstname}_{person.data.lastname}.vcf'}">vCard</f:link.page>
     </p>
 </div>
-<f:if condition="{iterator.isLast}!=1">
+<f:if condition="{iterator.isLast}==0">
   <div class="personnel-space"></div>
 </f:if>

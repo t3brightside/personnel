@@ -12,7 +12,7 @@
 				'personnel_selected',
 				'mimetypes-x-content-personnel'
 			),
-			
+
 		)
 	);
 	array_splice(
@@ -26,7 +26,7 @@
 				'mimetypes-x-content-personnel'
 			),
 		)
-	);	
+	);
 
 	$tempColumns = array(
     'tx_personnel' => array(
@@ -73,7 +73,7 @@
 
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
 // \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tt_content', 'EXT:personnel/Resources/Private/Language/locallang_db.xml');
-	
+
 	$GLOBALS['TCA']['tt_content']['types']['personnel_selected'] = array(
 		'showitem' => '
 			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
@@ -97,12 +97,12 @@
       --div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
     '
 	);
-		
+
 	$GLOBALS['TCA']['tt_content']['palettes']['personnelSettings']['showitem'] = '
 		tx_personnel_template,
 		tx_personnel_orderby,
 	';
-	
+
 	$GLOBALS['TCA']['tt_content']['types']['personnel_frompages'] = array(
 		'showitem' => '
 			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
@@ -128,7 +128,7 @@
       --div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
     '
 	);
-		
+
 	$GLOBALS['TCA']['tt_content']['palettes']['personnelSettings']['showitem'] = '
 		tx_personnel_template,
 		tx_personnel_orderby,

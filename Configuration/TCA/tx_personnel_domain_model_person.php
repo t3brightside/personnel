@@ -197,6 +197,9 @@ $tx_personnel_domain_model_person = [
         'type' => 'input',
         'size' => 160,
         'eval' => 'trim,required',
+        'behaviour' => [
+          'allowLanguageSynchronization' => true,
+        ],
       ]
     ],
     'lastname' => [
@@ -207,6 +210,9 @@ $tx_personnel_domain_model_person = [
         'type' => 'input',
         'size' => 160,
         'eval' => 'trim,required',
+        'behaviour' => [
+          'allowLanguageSynchronization' => true,
+        ],
       ]
     ],
     'profession' => [
@@ -235,9 +241,12 @@ $tx_personnel_domain_model_person = [
       'l10n_mode' => 'prefixLangTitle',
       'label' => 'Phone',
       'config' => [
-          'type' => 'input',
-          'size' => 160,
-          'eval' => 'trim',
+        'type' => 'input',
+        'size' => 160,
+        'eval' => 'trim',
+        'behaviour' => [
+          'allowLanguageSynchronization' => true,
+        ],
       ]
     ],
     'email' => [
@@ -248,6 +257,9 @@ $tx_personnel_domain_model_person = [
         'type' => 'input',
         'size' => 160,
         'eval' => 'trim',
+        'behaviour' => [
+          'allowLanguageSynchronization' => true,
+        ],
       ],
     ],
     'images' => [
@@ -257,8 +269,8 @@ $tx_personnel_domain_model_person = [
         'images',
         [
           'behaviour' => [
-				  	'allowLanguageSynchronization' => true,
-					],
+            'allowLanguageSynchronization' => true,
+          ],
           'appearance' => [
             'createNewRelationLinkTitle' => 'Add image',
             'showPossibleLocalizationRecords' => true,

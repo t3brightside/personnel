@@ -1,4 +1,6 @@
 <?php
+defined('TYPO3_MODE') or die();
+
 	$EM_CONF[$_EXTKEY] = array (
 		'title' => 'Personnel',
 		'description' => 'Personnel lists with vCard download.',

@@ -54,5 +54,9 @@ Add new section wheres IF condition determines template nr '2' to: _Resources/Pr
 ```
 Create new partial: _Resources/Private/Partials/MyNewTemplate.html_
 
-## Development and maintenance
-[Brightside OÜ](https://t3brightside.com/) – TYPO3 development and hosting specialised web agency
+Development and maintenance
+---------------------------
+
+[Brightside OÜ – TYPO3 development and hosting specialised web agency][ab26eed2]
+
+  [ab26eed2]: https://t3brightside.com/ "TYPO3 development and hosting specialised web agency"

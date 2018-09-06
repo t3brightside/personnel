@@ -36,7 +36,7 @@ CREATE TABLE tx_personnel_domain_model_person (
 	firstname tinytext,
   lastname tinytext,
   profession tinytext,
-  info tinytext,
+  info text,
   phone tinytext,
   email tinytext,
   images int(11) unsigned DEFAULT '0',

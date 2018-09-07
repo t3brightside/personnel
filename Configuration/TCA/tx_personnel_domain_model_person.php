@@ -259,33 +259,33 @@ $tx_personnel_domain_model_person = [
         ],
       ],
     ],
-    'images' => [
-      'exclude' => true,
-      'label' => 'Images',
+    'images' => array(
+      'exclude' => 1,
+      'label' => 'Images:',
       'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
         'images',
-        [
+        array(
           'behaviour' => [
             'allowLanguageSynchronization' => true,
           ],
-          'appearance' => [
-            'createNewRelationLinkTitle' => 'Add image',
-            'showPossibleLocalizationRecords' => true,
-            'showRemovedLocalizationRecords' => true,
-            'showAllLocalizationLink' => true,
-            'showSynchronizationLink' => true
-          ],
-          'inline' => [
-            'inlineOnlineMediaAddButtonStyle' => 'display:none'
-          ],
-          'foreign_match_fields' => [
-            'fieldname' => 'images',
-            'tablenames' => 'tx_personnel_domain_model_person',
-            'table_local' => 'sys_file',
-          ],
-        ]
+          'appearance' => array(
+            'headerThumbnail' => array(
+              'width' => '45',
+              'height' => '30',
+            ),
+            'createNewRelationLinkTitle' => 'Create new relation'
+          ),
+          'foreign_types' => array(
+            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+              'showitem' => '
+                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+              '
+            ),
+          ),
+        ),
+        'jpg,jpeg,png,gif,tiff,bmp,svg,pdf'
       )
-    ],
+    ),
     'info' => [
       'exclude' => false,
       'l10n_mode' => 'prefixLangTitle',

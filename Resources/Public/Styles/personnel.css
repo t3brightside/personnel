@@ -1,24 +1,25 @@
-/* by t3brightside.com */
+.personnel {width: 100%; float: left}
+.personnel * {box-sizing: border-box;}
 
-	.personnel {width: 100%; float: left}
-	.personnel * {box-sizing: border-box;}
-	.personnel > .card {width: 22%; float: left;}
-	.personnel > .card a {display: block}
-	.personnel > .card img.person {width: 100%; height: auto; margin-bottom: 1em}
-	.personnel > .card img.dummy {background: #eee;}
-	.personnel > .card h3 {margin: 0; padding: 0}
-	.personnel > .card-space {width: 4%; float: left; height: 2em;}
-	.personnel > .card-space:nth-child(8n) {width: 100%}
+.personnel > .card {width: 22%; float: left;}
+.personnel > .card > .person-contact a {display: block}
+.personnel > .card img.person {width: 100%; height: auto; margin-bottom: 1em}
+.personnel > .card img.dummy {background: #eee;}
+.personnel > .card .person-name {margin: 0 0 0.5em; padding: 0;}
+.personnel > .card .icon {max-height: 0.8em; max-width: 0.94em; width: auto; height: auto; margin-right: 0.5em;}
+.personnel > .card .icon path {fill: #222}
+.personnel > .card-space {width: 4%; float: left; height: 2em;}
+.personnel > .card-space:nth-child(8n) {width: 100%}
 
 /* less columns in smaller containers */
 
-	.personnel.cards.break-three > .card {width: 30%}
-	.personnel.cards.break-three > .card-space {width: 5%}
-	.personnel.cards.break-three > .card-space:nth-child(3n) {width: 100%}
+.personnel.cards.break-three > .card {width: 30%}
+.personnel.cards.break-three > .card-space {width: 5%}
+.personnel.cards.break-three > .card-space:nth-child(3n) {width: 100%}
 
-	.personnel.cards.break-two > .card {width: 47.5%}
-	.personnel.cards.break-two > .card-space {width: 5%}
-	.personnel.cards.break-two > .card-space:nth-child(4n) {width: 100%}
+.personnel.cards.break-two > .card {width: 47.5%}
+.personnel.cards.break-two > .card-space {width: 5%}
+.personnel.cards.break-two > .card-space:nth-child(4n) {width: 100%}
 
-	.personnel.cards.break-one > .card {width: 100%}
-	.personnel.cards.break-one > .card-space {width: 100%}
+.personnel.cards.break-one > .card {width: 100%}
+.personnel.cards.break-one > .card-space {width: 100%}

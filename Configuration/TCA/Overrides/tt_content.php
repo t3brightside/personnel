@@ -52,6 +52,28 @@
 				'items'    => array(), /* items set in page TsConfig */
 			),
 		),
+		'tx_personnel_images' => [
+			'exclude' => 1,
+			'label' => 'Images',
+			'config' => [
+				 'type' => 'check',
+				 'renderType' => 'check',
+				 'items' => [
+					 ['Disabled', '1'],
+				 ],
+			],
+		],
+		'tx_personnel_vcard' => [
+			'exclude' => 1,
+			'label' => 'vCard download',
+			'config' => [
+				 'type' => 'check',
+				 'renderType' => 'check',
+				 'items' => [
+					 ['Disabled', '1'],
+				 ],
+			],
+		],
 		'tx_personnel_orderby' => array(
 			'exclude' => 1,
 			'label'   => 'Sort by',
@@ -101,6 +123,8 @@
 	$GLOBALS['TCA']['tt_content']['palettes']['personnelSettings']['showitem'] = '
 		tx_personnel_template,
 		tx_personnel_orderby,
+		tx_personnel_images,
+		tx_personnel_vcard,
 	';
 
 	$GLOBALS['TCA']['tt_content']['types']['personnel_frompages'] = array(
@@ -132,4 +156,6 @@
 	$GLOBALS['TCA']['tt_content']['palettes']['personnelSettings']['showitem'] = '
 		tx_personnel_template,
 		tx_personnel_orderby,
+		tx_personnel_images,
+		tx_personnel_vcard,
 	';

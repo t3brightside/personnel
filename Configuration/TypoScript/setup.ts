@@ -21,6 +21,8 @@ tt_content.personnel_default {
     listImageWidth = {$personnel.listImageWidth}
     listImageHeight = {$personnel.listImageHeight}
     enableDummyImage = {$personnel.enableDummyImage}
+    cardNameWrap = {$personnel.cardNameWrap}
+    listNameWrap = {$personnel.listNameWrap}
   }
 }
 tt_content.personnel_selected =< tt_content.personnel_default

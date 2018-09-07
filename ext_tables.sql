@@ -33,6 +33,7 @@ CREATE TABLE tx_personnel_domain_model_person (
 	endtime int(11) DEFAULT '0' NOT NULL,
 	sorting int(11) DEFAULT '0' NOT NULL,
 	fe_group varchar(100) DEFAULT '0' NOT NULL,
+	title tinytext,
 	firstname tinytext,
   lastname tinytext,
   profession tinytext,

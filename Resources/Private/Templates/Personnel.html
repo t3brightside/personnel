@@ -1,14 +1,15 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:layout name="Default" />
 	<f:section name="Main">
-		<div class="personnel template-{data.tx_personnel_template}">
-			<f:if condition="{data.tx_personnel_template} == 0">
+		<f:if condition="{data.tx_personnel_template} == 0">
+			<div class="personnel cards template-{data.tx_personnel_template}">
 				<f:for each="{personnel}" as="person" iteration="iterator">
-					<f:render partial="ImageCards" arguments="{_all}" />
+					<f:render partial="Card" arguments="{_all}" />
 				</f:for>
-			</f:if>
+			</div>
+		</f:if>
 			<f:if condition="{data.tx_personnel_template} == 1">
-				<ul>
+				<ul class="personnel list template-{data.tx_personnel_template}">
 					<f:for each="{personnel}" as="person" iteration="iterator">
 						<f:render partial="List" arguments="{_all}" />
 					</f:for>

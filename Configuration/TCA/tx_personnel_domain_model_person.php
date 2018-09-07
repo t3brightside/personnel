@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die('Access denied.');
 $tx_personnel_domain_model_person = [
   'ctrl' => [
-    'title' => 'Person',
+    'title' => 'Personnel',
     'label' => 'lastname',
     'label_alt' => 'firstname, profession',
     'label_alt_force' => 1,
@@ -31,7 +31,7 @@ $tx_personnel_domain_model_person = [
     'searchFields' => 'uid,firstname,lastname,email,phone,profession,info',
   ],
   'interface' => [
-      'showRecordFieldList' => 'cruser_id,pid,sys_language_uid,l10n_parent,l10n_diffsource,hidden,starttime,endtime,fe_group,firstname,lastname,profession,info,phone,email,images'
+      'showRecordFieldList' => 'cruser_id,pid,sys_language_uid,l10n_parent,l10n_diffsource,hidden,starttime,endtime,fe_group,title,firstname,lastname,profession,phone,email,images,info'
   ],
 	'types' => array(
 		'0' => array(
@@ -45,7 +45,7 @@ $tx_personnel_domain_model_person = [
     )
 	),
 	'palettes' => array(
-		'person' => array('showitem' => 'firstname,--linebreak--,lastname,--linebreak--,profession,--linebreak--,info,--linebreak--,phone,--linebreak--,email,--linebreak--,images'),
+		'person' => array('showitem' => 'title,--linebreak--,firstname,--linebreak--,lastname,--linebreak--,profession,--linebreak--,phone,--linebreak--,email,--linebreak--,images,--linebreak--,info'),
 		'paletteLanguage' => [
         'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource,',
     ],
@@ -189,13 +189,24 @@ $tx_personnel_domain_model_person = [
         'foreign_table_where' => 'ORDER BY fe_groups.title',
       ],
     ],
+    'title' => [
+      'exclude' => false,
+      'label' => 'Title',
+      'config' => [
+        'type' => 'input',
+        'size' => 2,
+        'eval' => 'trim',
+        'behaviour' => [
+          'allowLanguageSynchronization' => true,
+        ],
+      ]
+    ],
     'firstname' => [
       'exclude' => false,
-      'l10n_mode' => 'prefixLangTitle',
       'label' => 'First Name',
       'config' => [
         'type' => 'input',
-        'size' => 160,
+        'size' => 20,
         'eval' => 'trim,required',
         'behaviour' => [
           'allowLanguageSynchronization' => true,
@@ -204,11 +215,10 @@ $tx_personnel_domain_model_person = [
     ],
     'lastname' => [
       'exclude' => false,
-      'l10n_mode' => 'prefixLangTitle',
       'label' => 'Last Name',
       'config' => [
         'type' => 'input',
-        'size' => 160,
+        'size' => 20,
         'eval' => 'trim,required',
         'behaviour' => [
           'allowLanguageSynchronization' => true,
@@ -225,24 +235,12 @@ $tx_personnel_domain_model_person = [
         'eval' => 'trim',
       ]
     ],
-    'info' => [
-      'exclude' => false,
-      'l10n_mode' => 'prefixLangTitle',
-      'label' => 'Additional Information',
-      'config' => [
-        'type' => 'text',
-        'enableRichtext' => true,
-        'cols' => 60,
-        'rows' => 6
-      ]
-    ],
     'phone' => [
       'exclude' => false,
-      'l10n_mode' => 'prefixLangTitle',
       'label' => 'Phone',
       'config' => [
         'type' => 'input',
-        'size' => 160,
+        'size' => 20,
         'eval' => 'trim',
         'behaviour' => [
           'allowLanguageSynchronization' => true,
@@ -251,12 +249,11 @@ $tx_personnel_domain_model_person = [
     ],
     'email' => [
       'exclude' => false,
-      'l10n_mode' => 'trim,prefixLangTitle',
       'label' => 'E-mail',
       'config' => [
         'type' => 'input',
-        'size' => 160,
-        'eval' => 'trim',
+        'size' => 20,
+        'eval' => 'trim,email',
         'behaviour' => [
           'allowLanguageSynchronization' => true,
         ],
@@ -288,6 +285,17 @@ $tx_personnel_domain_model_person = [
           ],
         ]
       )
+    ],
+    'info' => [
+      'exclude' => false,
+      'l10n_mode' => 'prefixLangTitle',
+      'label' => 'Additional Information',
+      'config' => [
+        'type' => 'text',
+        'enableRichtext' => true,
+        'cols' => 60,
+        'rows' => 6
+      ]
     ],
   ],
 ];

@@ -1,39 +1,24 @@
 /* by t3brightside.com */
 
 	.personnel {width: 100%; float: left}
-	.personnel-item {
-		box-sizing: border-box;
-		margin: 1em 0; 
-		position: relative;
-		width: 21.3%;
-		float: left;
-		transition-property:width;
-		-moz-transition-property: width;
-		-webkit-transition-property:width;
-		-o-transition-property:width;
-		transition-duration: 0.2s;
-		-moz-transition-duration: 0.2s;
-		-webkit-transition-duration: 0.2s;
-		-o-transition-duration: 0.2s;
-	}
-	.personnel-item a {display: block}
-	.personnel-item img {width: 100%; height: auto; margin-bottom: 1.4em}
-	.personnel-item h2 {font-size: 1.143em; margin: 0; padding: 0}
-	.personnel-space {width: 4.93%; float: left; height: 1em;}
-	.personnel-space:nth-child(8n) {width: 100%}
-	
-/* less columns for smaller screens */	
-	@media screen and (max-width: 1100px){
-		.personnel-item {width: 30%}
-		.personnel-space:nth-child(3n) {width: 100%}
-		.personnel-space:nth-child(8n) {width: 5%}
-	}
-	@media screen and (max-width: 760px){
-		.personnel-item {width: 47.5%}
-		.personnel-space:nth-child(2n) {width: 5%}
-		.personnel-space:nth-child(4n) {width: 100%}
-	}
-	@media screen and (max-width: 420px){
-		.personnel-item {width: 100%}
-		.personnel-space {display: block; width: 100%}
-	}
+	.personnel * {box-sizing: border-box;}
+	.personnel > .card {width: 22%; float: left;}
+	.personnel > .card a {display: block}
+	.personnel > .card img.person {width: 100%; height: auto; margin-bottom: 1em}
+	.personnel > .card img.dummy {background: #eee;}
+	.personnel > .card h3 {margin: 0; padding: 0}
+	.personnel > .card-space {width: 4%; float: left; height: 2em;}
+	.personnel > .card-space:nth-child(8n) {width: 100%}
+
+/* less columns in smaller containers */
+
+	.personnel.cards.break-three > .card {width: 30%}
+	.personnel.cards.break-three > .card-space {width: 5%}
+	.personnel.cards.break-three > .card-space:nth-child(3n) {width: 100%}
+
+	.personnel.cards.break-two > .card {width: 47.5%}
+	.personnel.cards.break-two > .card-space {width: 5%}
+	.personnel.cards.break-two > .card-space:nth-child(4n) {width: 100%}
+
+	.personnel.cards.break-one > .card {width: 100%}
+	.personnel.cards.break-one > .card-space {width: 100%}

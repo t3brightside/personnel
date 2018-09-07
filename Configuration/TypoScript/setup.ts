@@ -9,12 +9,20 @@ vCardURL.data = getEnv:HTTP_HOST
 page.includeCSS.personnel = {$personnel.stylesPath}
 
 tt_content.personnel_default =< lib.contentElement
-tt_content.personnel_default.templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
-tt_content.personnel_default.templateRootPaths.20 = {$personnel.templateRootPaths}
-tt_content.personnel_default.partialRootPaths.10 = EXT:personnel/Resources/Private/Partials/
-tt_content.personnel_default.partialRootPaths.20 = {$personnel.partialRootPaths}
-tt_content.personnel_default.templateName = Person
-
+tt_content.personnel_default {
+  templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
+  templateRootPaths.20 = {$personnel.templateRootPaths}
+  partialRootPaths.10 = EXT:personnel/Resources/Private/Partials/
+  partialRootPaths.20 = {$personnel.partialRootPaths}
+  templateName = Personnel
+  settings {
+    cardImageWidth = {$personnel.cardImageWidth}
+    cardImageHeight = {$personnel.cardImageHeight}
+    listImageWidth = {$personnel.listImageWidth}
+    listImageHeight = {$personnel.listImageHeight}
+    enableDummyImage = {$personnel.enableDummyImage}
+  }
+}
 tt_content.personnel_selected =< tt_content.personnel_default
 tt_content.personnel_selected {
   dataProcessing.10 = Brightside\Personnel\DataProcessing\DatabaseCustomQueryProcessor
@@ -71,3 +79,53 @@ personnel_vCard  {
 		}
 	}
 }
+
+[globalVar = LIT:0<{$personnel.enablejQueryBreakpoints}]
+  page.jsFooterInline {
+    109823148 = TEXT
+    109823148.value (
+  		jQuery( document ).ready(function() {
+  			jQuery('.personnel.cards').each(function() {
+          if (jQuery(this).width() < {$personnel.cardsBreakThree}){
+            jQuery(this).addClass('break-three');
+          } else {
+            jQuery(this).removeClass('break-three');
+          }
+          if (jQuery(this).width() < {$personnel.cardsBreakTwo}){
+            jQuery(this).removeClass('break-three');
+  			  	jQuery(this).addClass('break-two');
+  			  } else {
+  					jQuery(this).removeClass('break-two');
+  				}
+          if (jQuery(this).width() < {$personnel.cardsBreakOne}){
+            jQuery(this).removeClass('break-two');
+  			  	jQuery(this).addClass('break-one' );
+  			  } else {
+  					jQuery(this).removeClass('break-one');
+  				}
+  			});
+  		});
+  		jQuery(window).resize(function(){
+  		  jQuery('.personnel.cards').each(function() {
+          if (jQuery(this).width() < {$personnel.cardsBreakThree}){
+            jQuery(this).addClass('break-three');
+          } else {
+            jQuery(this).removeClass('break-three');
+          }
+          if (jQuery(this).width() < {$personnel.cardsBreakTwo}){
+            jQuery(this).removeClass('break-three');
+  			  	jQuery(this).addClass('break-two');
+  			  } else {
+  					jQuery(this).removeClass('break-two');
+  				}
+          if (jQuery(this).width() < {$personnel.cardsBreakOne}){
+            jQuery(this).removeClass('break-two');
+  			  	jQuery(this).addClass('break-one');
+  			  } else {
+  					jQuery(this).removeClass('break-one');
+  				}
+  			});
+  		});
+  	)
+  }
+[END]

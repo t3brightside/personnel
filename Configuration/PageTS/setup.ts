@@ -1,6 +1,6 @@
 TCEFORM.tt_content.tx_personnel_template.addItems {
-	0 = Name, title, person info and first image
-	1 = Simple contact list
+	0 = Cards
+	1 = List
 }
 
 mod.wizards.newContentElement.wizardItems.common {

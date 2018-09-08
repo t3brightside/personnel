@@ -76,7 +76,7 @@
 		],
 		'tx_personnel_orderby' => array(
 			'exclude' => 1,
-			'label'   => 'Sort by',
+			'label'   => 'Order by',
 			'config'  => array(
 				'type'     => 'select',
 			  'renderType' => 'selectSingle',
@@ -86,11 +86,33 @@
 					array('By the sort order', 'sorting ASC'),
 		    	array('Lastname (a → z)', 'lastname ASC'),
 					array('Lastname (z → a)', 'lastname DESC'),
+					array('First name (a → z)', 'firstname ASC'),
+					array('First name (z → a)', 'firstname DESC'),
 					array('Last updated (now → past)', 'tstamp ASC'),
 					array('Last updated (past → now)', 'tstamp DESC'),
 				),
 			),
 		),
+		'tx_personnel_paginate' => [
+			'exclude' => 1,
+			'label' => 'Pagination',
+			'config' => [
+				 'type' => 'check',
+				 'renderType' => 'check',
+				 'items' => [
+					 ['Enabled', '1'],
+				 ],
+			],
+		],
+		'tx_personnel_paginateitems' => [
+			'exclude' => 0,
+			'label' => 'Items per page',
+			'config' => array(
+				'type' => 'input',
+				'eval' => 'num,trim',
+				'size' => '1',
+			),
+		],
 	);
 
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
@@ -125,6 +147,8 @@
 		tx_personnel_orderby,
 		tx_personnel_images,
 		tx_personnel_vcard,
+		tx_personnel_paginate,
+		tx_personnel_paginateitems,
 	';
 
 	$GLOBALS['TCA']['tt_content']['types']['personnel_frompages'] = array(
@@ -158,4 +182,6 @@
 		tx_personnel_orderby,
 		tx_personnel_images,
 		tx_personnel_vcard,
+		tx_personnel_paginate,
+		tx_personnel_paginateitems,
 	';

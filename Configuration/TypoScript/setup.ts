@@ -15,6 +15,17 @@ tt_content.personnel_default {
   partialRootPaths.10 = EXT:personnel/Resources/Private/Partials/
   partialRootPaths.20 = {$personnel.partialRootPaths}
   templateName = Personnel
+  variables {
+    personnelPaginationItems = COA
+    personnelPaginationItems {
+      5 = TEXT
+      5.value = {$personnel.paginationItems}
+      5.stdWrap.if.isFalse.field = tx_personnel_paginateitems
+      10 = TEXT
+      10.value.field = tx_personnel_paginateitems
+      10.stdWrap.if.isTrue.field = tx_personnel_paginateitems
+    }
+  }
   settings {
     cardImageWidth = {$personnel.cardImageWidth}
     cardImageHeight = {$personnel.cardImageHeight}
@@ -23,6 +34,19 @@ tt_content.personnel_default {
     enableDummyImage = {$personnel.enableDummyImage}
     cardNameWrap = {$personnel.cardNameWrap}
     listNameWrap = {$personnel.listNameWrap}
+    paginationLinks = {$personnel.paginationLinks}
+  }
+  extbase {
+    pluginName = Personnel
+    controllerName = Personnel
+    controllerExtensionName = personnel
+    controllerActionName = show
+  }
+  stdWrap {
+    editIcons = tt_content: header [header_layout], pages
+    editIcons {
+      iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu
+    }
   }
 }
 tt_content.personnel_selected =< tt_content.personnel_default

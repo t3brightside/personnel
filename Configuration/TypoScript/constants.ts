@@ -31,3 +31,7 @@ personnel.enableDummyImage = 1
 personnel.cardNameWrap = h3
 # cat=Personnel/personnel; type=string; label= Person's name element in list layout (h2, h3 etc)
 personnel.listNameWrap = h3
+# cat=Personnel/personnel; type=string; label= Pagination items per page
+personnel.paginationItems = 8
+# cat=Personnel/personnel; type=string; label= Pagination links
+personnel.paginationLinks = 10

@@ -32,7 +32,7 @@
       </f:if>
     </p>
   </f:if>
-  <f:if condition="{person.data.info}">
+  <f:if condition="{person.data.info} && {data.tx_personnel_information} == 0">
     <div class="person-information">
       <f:format.raw>{person.data.info}</f:format.raw>
     </div>

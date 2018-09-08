@@ -3,6 +3,7 @@ CREATE TABLE tt_content (
 	tx_personnel_template int(11) DEFAULT '0' NOT NULL,
 	tx_personnel_images int(1) DEFAULT '0' NOT NULL,
 	tx_personnel_vcard int(1) DEFAULT '0' NOT NULL,
+	tx_personnel_information int(1) DEFAULT '0' NOT NULL,
 	tx_personnel_orderby tinytext,
 	tx_personnel_paginate int(1) DEFAULT '0' NOT NULL,
 	tx_personnel_paginateitems varchar(25),

@@ -74,6 +74,17 @@
 				 ],
 			],
 		],
+		'tx_personnel_information' => [
+			'exclude' => 1,
+			'label' => 'Information',
+			'config' => [
+				 'type' => 'check',
+				 'renderType' => 'check',
+				 'items' => [
+					 ['Disabled', '1'],
+				 ],
+			],
+		],
 		'tx_personnel_orderby' => array(
 			'exclude' => 1,
 			'label'   => 'Order by',
@@ -147,6 +158,7 @@
 		tx_personnel_orderby,
 		tx_personnel_images,
 		tx_personnel_vcard,
+		tx_personnel_information,
 		tx_personnel_paginate,
 		tx_personnel_paginateitems,
 	';
@@ -182,6 +194,7 @@
 		tx_personnel_orderby,
 		tx_personnel_images,
 		tx_personnel_vcard,
+		tx_personnel_information,
 		tx_personnel_paginate,
 		tx_personnel_paginateitems,
 	';

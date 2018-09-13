@@ -12,3 +12,5 @@ defined('TYPO3_MODE') or die();
 
   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =
       \Brightside\Personnel\Hooks\ContentPostProcessor::class . '->render';
+
+  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['personnel'] = \Brightside\Personnel\Hooks\PageLayoutView\PersonnelContentElementPreviewRenderer::class;

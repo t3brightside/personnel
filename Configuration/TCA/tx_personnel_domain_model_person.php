@@ -31,7 +31,7 @@ $tx_personnel_domain_model_person = [
     'searchFields' => 'uid,firstname,lastname,email,phone,profession,info',
   ],
   'interface' => [
-      'showRecordFieldList' => 'cruser_id,pid,sys_language_uid,l10n_parent,l10n_diffsource,hidden,starttime,endtime,fe_group,title,firstname,lastname,profession,phone,email,images,info'
+    'showRecordFieldList' => 'cruser_id,pid,sys_language_uid,l10n_parent,l10n_diffsource,hidden,starttime,endtime,fe_group,title,firstname,lastname,profession,phone,email,images,info'
   ],
 	'types' => array(
 		'0' => array(
@@ -41,11 +41,21 @@ $tx_personnel_domain_model_person = [
 				--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;paletteAccess,
         --div--;Language,
         --palette--;;paletteLanguage,
+        --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category, categories,
 			'
     )
 	),
 	'palettes' => array(
-		'person' => array('showitem' => 'title,--linebreak--,firstname,--linebreak--,lastname,--linebreak--,profession,--linebreak--,phone,--linebreak--,email,--linebreak--,images,--linebreak--,info'),
+		'person' => array('showitem' => '
+      title,--linebreak--,
+      firstname,--linebreak--,
+      lastname,--linebreak--,
+      profession,--linebreak--,
+      phone,--linebreak--,
+      email,--linebreak--,
+      images,--linebreak--,
+      info'
+    ),
 		'paletteLanguage' => [
         'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource,',
     ],
@@ -188,6 +198,11 @@ $tx_personnel_domain_model_person = [
         'foreign_table' => 'fe_groups',
         'foreign_table_where' => 'ORDER BY fe_groups.title',
       ],
+    ],
+    'categories' => [
+      'exclude' => 1,
+      'label' => 'LLL:EXT:lang/locallang_tca.xlf:sys_category.categories',
+      'config' => \TYPO3\CMS\Core\Category\CategoryRegistry::getTcaFieldConfiguration('tt_address')
     ],
     'title' => [
       'exclude' => false,

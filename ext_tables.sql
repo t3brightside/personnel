@@ -43,6 +43,7 @@ CREATE TABLE tx_personnel_domain_model_person (
   phone tinytext,
   email tinytext,
   images int(11) unsigned DEFAULT '0',
+	categories int(11) DEFAULT '0' NOT NULL,
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 	KEY sys_language_uid_l10n_parent (sys_language_uid,l10n_parent),

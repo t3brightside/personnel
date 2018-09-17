@@ -1,6 +1,8 @@
 # Personnel
 **TYPO3 CMS extension for personnel list with vCard support.**
 
+**[Front-end Demo](https://corptemplate.t3brightside.com/extensions/personnel/)**
+
 ## System requirements
 
 - TYPO3 8.7 LTS – 9.*

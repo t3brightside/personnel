@@ -56,15 +56,16 @@ $tx_personnel_domain_model_person = [
       images,--linebreak--,
       info'
     ),
-		'paletteLanguage' => [
-        'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource,',
-    ],
+
 		'paletteAccess' => [
       'showitem' => 'hidden,--linebreak--,starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
 				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
 				--linebreak--, fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
 				--linebreak--,editlock,
 			',
+    ],
+    'paletteLanguage' => [
+      'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource,',
     ],
 	),
   'columns' => [

@@ -119,6 +119,9 @@
   margin-top: -0.4em;
 }
 
+.personnel.table .image {
+  width: 50px
+}
 /* pagination */
 ul.f3-widget-paginator {
   float: left;

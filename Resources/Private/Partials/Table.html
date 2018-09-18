@@ -1,0 +1,40 @@
+<tr class="person row<f:if condition="{iterator.isLast}==1"> last</f:if>">
+  <f:if condition="{data.tx_personnel_images} == 0">
+    <td class="image">
+    <f:if condition="{person.files.0}">
+      <f:then>
+        <figure>
+          <a href="{f:uri.image(image: person.files.0, maxWidth: settings.zoomedImageMaxWidth)}" class="lightbox">
+            <f:image image="{person.files.0}" width="{settings.tableImageWidth}c" height="{settings.tableImageHeight}c" alt="{person.data.firstname} {person.data.lastname}" /></figure>
+          </a>
+      </f:then>
+      <f:else>
+        <f:if condition="{settings.enableDummyImage}">
+          <figure><f:image src="EXT:personnel/Resources/Public/Images/clear.png" class="dummy person" width="{settings.tableImageWidth}c" height="{settings.tableImageHeight}c" alt="{person.data.firstname} {person.data.lastname}" /></figure>
+        </f:if>
+      </f:else>
+    </f:if>
+  </td>
+  </f:if>
+  <td class="name">
+    {person.data.title} {person.data.firstname} {person.data.lastname}
+  </td>
+  <td class="profession">
+    {person.data.profession}
+  </td>
+  <td class="phone">
+      <f:if condition="{person.data.phone}"><a class="person-phone" href="tel:{person.data.phone}">{person.data.phone}</a></f:if>
+  </td>
+  <td class="email">
+    <f:if condition="{person.data.email}">
+      <f:link.email class="person-email" email="{person.data.email}">
+        {person.data.email}
+      </f:link.email>
+    </f:if>
+  </td>
+  <f:if condition="{data.tx_personnel_vcard} == 0">
+    <td class="vcard">
+      <f:link.page class="person-vCard" pageType="888" additionalParams="{person: '{person.data.uid}'}" additionalAttributes="{download: '{person.data.firstname}_{person.data.lastname}.vcf'}">Download</f:link.page>
+    </td>
+  </f:if>
+</tr>

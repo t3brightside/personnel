@@ -37,5 +37,43 @@
 				</f:if>
 			</div>
 		</f:if>
+		<f:if condition="{data.tx_personnel_template} == 2">
+			<div class="personnel table template-{data.tx_personnel_template}">
+				<f:if condition="{data.tx_personnel_paginate} == 1">
+					<f:then>
+						<f:widget.paginate objects="{personnel}" as="paginatedPersons" configuration="{itemsPerPage: '{personnelPaginationItems}', insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: '{settings.paginationLinks}'}">
+							<table>
+								<tr>
+									<f:if condition="{data.tx_personnel_images} == 0"><th>Image</th></f:if>
+									<th>Name</th>
+									<th>Profession</th>
+									<th>Phone</th>
+									<th>E-mail</th>
+									<f:if condition="{data.tx_personnel_vcard} == 0"><th>vCard</th></f:if>
+								</tr>
+								<f:for each="{paginatedPersons}" as="person" iteration="iterator">
+									<f:render partial="Table" arguments="{_all}" />
+								</f:for>
+							</table>
+						</f:widget.paginate>
+					</f:then>
+					<f:else>
+						<table>
+							<tr>
+								<f:if condition="{data.tx_personnel_images} == 0"><th>Image</th></f:if>
+								<th>Name</th>
+								<th>Profession</th>
+								<th>Phone</th>
+								<th>E-mail</th>
+								<f:if condition="{data.tx_personnel_vcard} == 0"><th>vCard</th></f:if>
+							</tr>
+							<f:for each="{personnel}" as="person" iteration="iterator">
+								<f:render partial="Table" arguments="{_all}" />
+							</f:for>
+						</table>
+					</f:else>
+				</f:if>
+			</div>
+		</f:if>
 	</f:section>
 </html>

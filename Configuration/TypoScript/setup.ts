@@ -31,6 +31,9 @@ tt_content.personnel_default {
     cardImageHeight = {$personnel.cardImageHeight}
     listImageWidth = {$personnel.listImageWidth}
     listImageHeight = {$personnel.listImageHeight}
+    tableImageWidth = {$personnel.tableImageWidth}
+    tableImageHeight = {$personnel.tableImageHeight}
+    zoomedImageMaxWidth = {$personnel.zoomedImageMaxWidth}
     enableDummyImage = {$personnel.enableDummyImage}
     cardNameWrap = {$personnel.cardNameWrap}
     listNameWrap = {$personnel.listNameWrap}

@@ -1,6 +1,7 @@
 TCEFORM.tt_content.tx_personnel_template.addItems {
 	0 = Cards
 	1 = List
+	2 = Table
 }
 
 mod.wizards.newContentElement.wizardItems.common {

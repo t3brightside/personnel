@@ -25,6 +25,12 @@ personnel.cardImageHeight = 400
 personnel.listImageWidth = 300
 # cat=Personnel/personnel; type=string; label= List image height (px)
 personnel.listImageHeight = 300
+# cat=Personnel/personnel; type=string; label= Table image width (px)
+personnel.tableImageWidth = 50
+# cat=Personnel/personnel; type=string; label= Table image height (px)
+personnel.tableImageHeight = 50
+# cat=Personnel/personnel; type=string; label= Zoomed image max width (px)
+personnel.zoomedImageMaxWidth = 1200
 # cat=Personnel/personnel; type=boolean; label= Enable dummy image if no image present
 personnel.enableDummyImage = 1
 # cat=Personnel/personnel; type=string; label= Person's name element in card layout (h2, h3 etc)

@@ -13,6 +13,7 @@
 - List of selected persons
 - Sort by
 - Disable from back end: images, vCard link, extra information
+- Base templates for cards, list and table
 - Easy to add custom templates
 
 ## Installation

@@ -50,7 +50,7 @@ personnel.vCard.CompanyName = Example Company Ltd.
 
 Add new section wheres IF condition determines template nr '2' to: _Resources/Private/Templates/Personnel.html_
 ```xml
-<f:if condition="{data.tx_personnel_template} == 2">
+<f:if condition="{data.tx_personnel_template} == 3">
   <f:for each="{personnel}" as="person" iteration="iterator">
     <f:render partial="MyNewTemplate" arguments="{_all}"/>
   </f:for>

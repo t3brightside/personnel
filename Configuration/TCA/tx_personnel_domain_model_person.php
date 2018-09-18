@@ -295,6 +295,7 @@ $tx_personnel_domain_model_person = [
             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
               'showitem' => '
                 --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                --palette--;;filePalette,
               '
             ),
           ),

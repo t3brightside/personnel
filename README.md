@@ -5,7 +5,7 @@
 
 ## System requirements
 
-- TYPO3 8.7 LTS – 9.*
+- TYPO3 8.7 LTS
 - fluid_styled_content
 
 ## Features

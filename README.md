@@ -12,6 +12,7 @@
 - List of persons from pages
 - List of selected persons
 - Sort by
+- Disable from back end: images, vCard link, extra information
 - Easy to add custom templates
 
 ## Installation

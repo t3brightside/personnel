@@ -17,7 +17,7 @@ defined('TYPO3_MODE') or die();
 		array (
 			'depends' =>
 			array (
-				'typo3' => '8.7.0 - 9.9.99',
+				'typo3' => '8.7.0 - 8.7.99',
 				'fluid_styled_content' => '',
 			),
 			'conflicts' =>

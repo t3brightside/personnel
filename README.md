@@ -30,7 +30,7 @@
 Add new template number '2' and name it:
 ```typoscript
 TCEFORM.tt_content.tx_personnel_template.addItems {
-  2 = My New Template
+  3 = My New Template
 }
 ```
 

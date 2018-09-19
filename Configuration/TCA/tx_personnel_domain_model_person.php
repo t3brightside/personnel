@@ -275,34 +275,35 @@ $tx_personnel_domain_model_person = [
         ],
       ],
     ],
-    'images' => array(
+    'images' => [
       'exclude' => 1,
-      'label' => 'Images:',
+      'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.images',
       'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
         'images',
-        array(
-          'behaviour' => [
-            'allowLanguageSynchronization' => true,
+        [
+          'appearance' => [
+            'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
           ],
-          'appearance' => array(
-            'headerThumbnail' => array(
-              'width' => '45',
-              'height' => '30',
-            ),
-            'createNewRelationLinkTitle' => 'Create new relation'
-          ),
-          'foreign_types' => array(
-            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
-              'showitem' => '
-                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                --palette--;;filePalette,
-              '
-            ),
-          ),
-        ),
-        'jpg,jpeg,png,gif,tiff,bmp,svg,pdf'
-      )
-    ),
+          // custom configuration for displaying fields in the overlay/reference table
+          // to use the image overlay palette instead of the basic overlay palette
+          'overrideChildTca' => [
+            'types' => [
+              '0' => [
+                'showitem' => '
+                  --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                  --palette--;;filePalette'
+              ],
+              \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                'showitem' => '
+                  --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                  --palette--;;filePalette'
+              ],
+            ],
+          ],
+        ],
+        $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+      ),
+    ],
     'info' => [
       'exclude' => false,
       'l10n_mode' => 'prefixLangTitle',

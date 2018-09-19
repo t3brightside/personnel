@@ -47,11 +47,11 @@ $tx_personnel_domain_model_person = [
 	),
 	'palettes' => array(
 		'person' => array('showitem' => '
-      title,--linebreak--,
-      firstname,--linebreak--,
+      title,
+      firstname,
       lastname,--linebreak--,
-      profession,--linebreak--,
-      phone,--linebreak--,
+      profession,
+      phone,
       email,--linebreak--,
       images,--linebreak--,
       info'
@@ -154,7 +154,6 @@ $tx_personnel_domain_model_person = [
 				],
         'type' => 'input',
         'renderType' => 'inputDateTime',
-        'size' => 16,
         'eval' => 'datetime',
         'default' => 0,
       ]
@@ -168,7 +167,6 @@ $tx_personnel_domain_model_person = [
 				],
         'type' => 'input',
         'renderType' => 'inputDateTime',
-        'size' => 16,
         'eval' => 'datetime',
         'default' => 0,
       ]
@@ -210,7 +208,7 @@ $tx_personnel_domain_model_person = [
       'label' => 'Title',
       'config' => [
         'type' => 'input',
-        'size' => 2,
+        'size' => 20,
         'eval' => 'trim',
         'behaviour' => [
           'allowLanguageSynchronization' => true,
@@ -223,7 +221,7 @@ $tx_personnel_domain_model_person = [
       'config' => [
         'type' => 'input',
         'size' => 20,
-        'eval' => 'trim,required',
+        'eval' => 'trim',
         'behaviour' => [
           'allowLanguageSynchronization' => true,
         ],
@@ -235,7 +233,7 @@ $tx_personnel_domain_model_person = [
       'config' => [
         'type' => 'input',
         'size' => 20,
-        'eval' => 'trim,required',
+        'eval' => 'trim',
         'behaviour' => [
           'allowLanguageSynchronization' => true,
         ],
@@ -247,8 +245,8 @@ $tx_personnel_domain_model_person = [
       'label' => 'Profession',
       'config' => [
         'type' => 'input',
-        'size' => 160,
         'eval' => 'trim',
+        'size' => 20,
       ]
     ],
     'phone' => [

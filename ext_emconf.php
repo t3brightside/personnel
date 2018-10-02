@@ -5,7 +5,7 @@ defined('TYPO3_MODE') or die();
 		'title' => 'Personnel',
 		'description' => 'Personnel lists with vCard download.',
 		'category' => 'fe',
-		'version' => '1.5.1',
+		'version' => '2.0.0',
 		'state' => 'stable',
 		'uploadfolder' => false,
 		'createDirs' => '',
@@ -17,7 +17,7 @@ defined('TYPO3_MODE') or die();
 		array (
 			'depends' =>
 			array (
-				'typo3' => '8.7.0 - 9.4.99',
+				'typo3' => '8.7.0 - 9.5.99',
 				'fluid_styled_content' => '',
 			),
 			'conflicts' =>

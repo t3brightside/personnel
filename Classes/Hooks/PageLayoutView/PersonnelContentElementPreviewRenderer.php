@@ -20,10 +20,10 @@ class PersonnelContentElementPreviewRenderer implements PageLayoutViewDrawItemHo
 	 public function preProcess(PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row) {
 		if ($row['CType'] === 'personnel_frompages' || $row['CType'] === 'personnel_selected') {
 			if ($row['CType'] === 'personnel_frompages') {
-        $itemContent .= '<b style="display: block; margin-top: 0.3em;">Persons from pages</b>';
+        $itemContent .= '<span>Persons from pages</span>';
 			}
 			if ($row['CType'] === 'personnel_selected') {
-        $itemContent .= '<b style="display: block; margin-top: 0.3em;">Selected persons</b>';
+        $itemContent .= '<span>Selected persons</span>';
 			}
 			$itemContent .= '<ul style="margin: 0; padding: 0.2em 1.4em;">';
 			if ($row['tx_personnel_orderby']) {

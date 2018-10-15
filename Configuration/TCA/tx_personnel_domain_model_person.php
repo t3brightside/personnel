@@ -279,6 +279,9 @@ $tx_personnel_domain_model_person = [
       'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
         'images',
         [
+          'behaviour' => [
+            'allowLanguageSynchronization' => true,
+          ],
           'appearance' => [
             'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
           ],

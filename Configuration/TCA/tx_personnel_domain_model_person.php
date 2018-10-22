@@ -109,11 +109,14 @@ $tx_personnel_domain_model_person = [
     ],
     'hidden' => [
       'exclude' => true,
-      'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+      'label' => 'Visibility of person',
       'config' => [
-        'type' => 'check',
-        'default' => 0
-      ]
+         'type' => 'check',
+         'renderType' => 'check',
+         'items' => [
+           ['Hidden', '1'],
+         ],
+      ],
     ],
     'cruser_id' => [
       'label' => 'cruser_id',

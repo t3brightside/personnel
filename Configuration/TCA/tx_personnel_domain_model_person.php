@@ -278,7 +278,7 @@ $tx_personnel_domain_model_person = [
     ],
     'images' => [
       'exclude' => 1,
-      'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.images',
+      'label' => 'Image',
       'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
         'images',
         [

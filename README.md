@@ -40,7 +40,7 @@ TCEFORM.tt_content.tx_personnel_template.addItems {
 
 **TypoScript**
 
-Change constants:
+Change constants if needed:
 ```typoscript
 personnel.styles = EXT:personnel/Resources/Public/Styles/personnel.css
 personnel.templateRootPaths = EXT:personnel/Resources/Private/Templates/

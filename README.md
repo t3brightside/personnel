@@ -31,7 +31,7 @@
 
 **PageTS**
 
-Add new template number '2' and name it:
+Add new template number '3' and name it:
 ```typoscript
 TCEFORM.tt_content.tx_personnel_template.addItems {
   3 = My New Template

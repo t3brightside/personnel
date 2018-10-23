@@ -56,11 +56,11 @@ Add new section wheres IF condition determines template nr '2' to: _Resources/Pr
 ```xml
 <f:if condition="{data.tx_personnel_template} == 3">
   <f:for each="{personnel}" as="person" iteration="iterator">
-    <f:render partial="MyNewTemplate" arguments="{_all}"/>
+    <f:render partial="MyNewPartial" arguments="{_all}"/>
   </f:for>
 </f:if>
 ```
-Create new partial: _Resources/Private/Partials/MyNewTemplate.html_
+Create new partial: _Resources/Private/Partials/MyNewPartial.html_
 
 Development and maintenance
 ---------------------------

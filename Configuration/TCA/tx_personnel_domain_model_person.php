@@ -41,7 +41,8 @@ $tx_personnel_domain_model_person = [
 				--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;paletteAccess,
         --div--;Language,
         --palette--;;paletteLanguage,
-        --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category, categories,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+            selected_categories,
 			'
     )
 	),
@@ -61,7 +62,7 @@ $tx_personnel_domain_model_person = [
       'showitem' => 'hidden,--linebreak--,starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
 				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
 				--linebreak--, fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
-				--linebreak--,editlock,
+				--linebreak--,fe_login_mode,editlock,
 			',
     ],
     'paletteLanguage' => [
@@ -109,12 +110,16 @@ $tx_personnel_domain_model_person = [
     ],
     'hidden' => [
       'exclude' => true,
-      'label' => 'Visibility of person',
+      'label' => 'Person visible',
       'config' => [
          'type' => 'check',
-         'renderType' => 'check',
+         'renderType' => 'checkboxToggle',
          'items' => [
-           ['Hidden', '1'],
+             [
+                 0 => '',
+                 1 => '',
+                 'invertStateDisplay' => true
+             ]
          ],
       ],
     ],
@@ -201,10 +206,36 @@ $tx_personnel_domain_model_person = [
         'foreign_table_where' => 'ORDER BY fe_groups.title',
       ],
     ],
-    'categories' => [
-      'exclude' => 1,
-      'label' => 'LLL:EXT:lang/locallang_tca.xlf:sys_category.categories',
-      'config' => \TYPO3\CMS\Core\Category\CategoryRegistry::getTcaFieldConfiguration('tt_address')
+    'editlock' => [
+        'exclude' => true,
+        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:editlock',
+        'config' => [
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'items' => [
+                [
+                    0 => '',
+                    1 => '',
+                ]
+            ],
+        ]
+    ],
+    'selected_categories' => [
+        'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:selected_categories',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectTree',
+            'foreign_table' => 'sys_category',
+            'foreign_table_where' => 'AND sys_category.sys_language_uid IN (0,-1) ORDER BY sys_category.title ASC',
+            'size' => 20,
+            'treeConfig' => [
+                'parentField' => 'parent',
+                'appearance' => [
+                    'expandAll' => true,
+                    'showHeader' => true,
+                ],
+            ],
+        ]
     ],
     'title' => [
       'exclude' => false,

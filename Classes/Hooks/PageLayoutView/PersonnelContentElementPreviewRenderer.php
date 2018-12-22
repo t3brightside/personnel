@@ -23,7 +23,7 @@ class PersonnelContentElementPreviewRenderer implements PageLayoutViewDrawItemHo
 				$itemContent = $parentObject->linkEditContent('<span style="display: block; margin-top: 0.3em;">Persons from page: '. $row['pages'] .'</span>', $row);
 			}
 			if ($row['CType'] === 'personnel_selected') {
-        $itemContent = $parentObject->linkEditContent('<span style="display: block; margin-top: 0.3em;">Selected persons: '. $row['pages'] .'</span>', $row);
+        $itemContent = $parentObject->linkEditContent('<span style="display: block; margin-top: 0.3em;">Selected persons: '. $row['tx_personnel'] .'</span>', $row);
 			}
 			$itemContent .= '<ul style="margin: 0; padding: 0.2em 1.4em;">';
 			if ($row['tx_personnel_orderby']) {

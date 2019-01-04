@@ -8,8 +8,3 @@ defined('TYPO3_MODE') || die('Access denied.');
 	'Configuration/TypoScript/',
 	'Personnel'
 );
-
-// For other extensions to determine in TS if personnell is loaded
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptConstants('
-	personnel.isLoaded = 1
-');

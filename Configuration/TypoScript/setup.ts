@@ -109,7 +109,7 @@ personnel_vCard  {
 	}
 }
 
-[globalVar = LIT:0<{$personnel.enablejQueryBreakpoints}]
+[{$personnel.enablejQueryBreakpoints} == 1]
   page.jsFooterInline {
     109823148 = TEXT
     109823148.value (
@@ -157,4 +157,4 @@ personnel_vCard  {
   		});
   	)
   }
-[END]
+[end]

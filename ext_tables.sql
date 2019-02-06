@@ -12,11 +12,15 @@ CREATE TABLE tt_content (
 CREATE TABLE tx_personnel_domain_model_person (
 	title tinytext,
 	firstname tinytext,
-  lastname tinytext,
-  profession tinytext,
-  info text,
-  phone tinytext,
-  email tinytext,
-  images int(11) unsigned DEFAULT '0',
+	lastname tinytext,
+	profession tinytext,
+	info text,
+	phone tinytext,
+	email tinytext,
+	images int(11) unsigned DEFAULT '0',
 	selected_categories text,
+);
+
+CREATE TABLE pages (
+	tx_personnel_authors tinytext,
 );

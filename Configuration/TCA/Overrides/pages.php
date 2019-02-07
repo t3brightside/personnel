@@ -2,6 +2,10 @@
     defined('TYPO3_MODE') || die('Access denied.');
     call_user_func(
         function () {
+            $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+              \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+            );
+            $personnelConiguration = $extensionConfiguration->get('personnel');
 
             $tempColumns = array(
               'tx_personnel_authors' => [
@@ -20,17 +24,18 @@
                 ]
               ],
             );
-
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $tempColumns, 1);
 
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-                'pages',
-                '--palette--;Personnel;personnelcontact',
-                '1',
-                'after:description'
-            );
-            $GLOBALS['TCA']['pages']['palettes']['personnelcontact']['showitem'] = '
-                tx_personnel_authors,
-            ';
+            if ($personnelConiguration['personnelEnableAuthors']) {
+                \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+                    'pages',
+                    '--palette--;Personnel;personnelcontact',
+                    '1',
+                    'after:description'
+                );
+                $GLOBALS['TCA']['pages']['palettes']['personnelcontact']['showitem'] = '
+                    tx_personnel_authors,
+                ';
+            }
         }
     );

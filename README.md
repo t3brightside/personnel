@@ -25,6 +25,38 @@
 - Add static template
 - Set **config.absRefPrefix** in your page template in order to make base64 images work in vCard (and it shouldn't be just / but a real domain name)
 
+**routeEnhancers:**
+```
+PersonnelPagination:
+  type: Plugin
+  routePath: '/persons/{@widget_0/currentPage}'
+  namespace: 'tx_personnel_personnel'
+  aspects:
+    '@widget_0/currentPage':
+      type: StaticRangeMapper
+      start: '1'
+      end: '999'
+PersonnelVcard:
+  type: Simple
+  limitToPages:
+  routePath: '/{person}'
+  defaults:
+    tag: ''
+  requirements:
+    person: '[1-999]'
+  _arguments:
+    person: 'person'
+  aspects:
+    person:
+      type: StaticRangeMapper
+      start: '1'
+      end: '999'
+PageTypeSuffix:
+  type: PageType
+  map:
+    vcard.vcf: 888
+```
+
 ## Admin
 
 ### Add custom template

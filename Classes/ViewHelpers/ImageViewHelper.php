@@ -133,6 +133,7 @@ class ImageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedV
             $cropVariant = $this->arguments['cropVariant'] ?: 'default';
             $cropArea = $cropVariantCollection->getCropArea($cropVariant);
             $processingInstructions = [
+                'absolute' => $this->arguments['absolute'],
                 'width' => $this->arguments['width'],
                 'height' => $this->arguments['height'],
                 'minWidth' => $this->arguments['minWidth'],
@@ -156,7 +157,7 @@ class ImageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedV
                # $root = implode("/", $root);
             $type = pathinfo($imageUri, PATHINFO_EXTENSION);
             $data = file_get_contents($imageUri);
-            $imageUri = $type . ';ENCODING=BASE64:' . base64_encode($data); 
+            $imageUri = $type . ';ENCODING=BASE64:' . base64_encode($data);
             // alternatively specify an URL, if PHP settings allow
 
             $this->tag->addAttribute('width', $processedImage->getProperty('width'));

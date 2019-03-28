@@ -7,6 +7,6 @@ ORG:<f:cObject typoscriptObjectPath="vCardOrgName" />;
 <f:if condition="{person.0.data.email}">EMAIL:{person.0.data.email}</f:if>
 <f:if condition="{person.0.data.phone}">TEL;WORK;VOICE;pref:<f:format.htmlentitiesDecode>{person.0.data.phone}</f:format.htmlentitiesDecode></f:if>
 <f:if condition="{person.0.data.profession}">TITLE:<f:format.htmlentitiesDecode>{person.0.data.profession}</f:format.htmlentitiesDecode></f:if>
-<f:if condition="{person.0.files.0}">PHOTO;<base64:image image="{person.0.files.0}" width="200c" height="200c-100" /></f:if>
+<f:if condition="{person.0.files.0}">PHOTO;<base64:image image="{person.0.files.0}" absolute="1" width="200c" height="200c-100" /></f:if>
 URL;pref:<f:cObject typoscriptObjectPath="vCardURL" />
 END:VCARD

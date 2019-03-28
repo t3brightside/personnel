@@ -23,7 +23,6 @@
 ## Installation
 - Install from TER: **personnel** or Composer: **t3brightside/personnel**
 - Add static template
-- Set **config.absRefPrefix** in your page template in order to make base64 images work in vCard (and it shouldn't be just / but a real domain name)
 
 **routeEnhancers:**
 ```

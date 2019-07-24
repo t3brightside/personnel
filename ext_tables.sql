@@ -19,6 +19,8 @@ CREATE TABLE tx_personnel_domain_model_person (
 	email tinytext,
 	images int(11) unsigned DEFAULT '0',
 	selected_categories text,
+	linkedin tinytext,
+	xing tinytext,
 );
 
 CREATE TABLE pages (

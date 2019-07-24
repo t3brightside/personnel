@@ -55,7 +55,9 @@ $tx_personnel_domain_model_person = [
       phone,
       email,--linebreak--,
       images,--linebreak--,
-      info'
+      info,--linebreak--,
+      linkedin,
+      xing'
     ),
 
 		'paletteAccess' => [
@@ -348,6 +350,30 @@ $tx_personnel_domain_model_person = [
         'enableRichtext' => true,
         'cols' => 60,
         'rows' => 6
+      ]
+    ],
+    'linkedin' => [
+      'exclude' => false,
+      'label' => 'linkedin.com link',
+      'config' => [
+        'type' => 'input',
+        'size' => 20,
+        'eval' => 'trim',
+        'behaviour' => [
+          'allowLanguageSynchronization' => true,
+        ],
+      ]
+    ],
+    'xing' => [
+      'exclude' => false,
+      'label' => 'xing.com link',
+      'config' => [
+        'type' => 'input',
+        'size' => 20,
+        'eval' => 'trim',
+        'behaviour' => [
+          'allowLanguageSynchronization' => true,
+        ],
       ]
     ],
   ],

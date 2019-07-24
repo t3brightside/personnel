@@ -1,3 +1,5 @@
 2019-03-28
 	* 2.2.1
 		– Add absolute URLs to vCard base64 images
+	* 2.2.2
+		– Add xing.com and linkedin.com link fields

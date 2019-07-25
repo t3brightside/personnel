@@ -13,5 +13,13 @@
 			<label index="personnel.phone.call">Call</label>
 			<label index="personnel.vcard.download">Download vCard</label>
 		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="personnel.email.label">E-Mail:</label>
+			<label index="personnel.phone.label">Telephone:</label>
+			<label index="personnel.vCard.label">vCard:</label>
+			<label index="personnel.email.send">E-Mail senden</label>
+			<label index="personnel.phone.call">Call</label>
+			<label index="personnel.vcard.download">Download vCard</label>
+		</languageKey>
 	</data>
 </T3locallang>

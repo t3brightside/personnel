@@ -61,10 +61,10 @@ tt_content.personnel_selected {
     pidInList = 0
     uidInList.data = field:tx_personnel
     as = personnel
-		dataProcessing {
+	dataProcessing {
       10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
       10.references.fieldName = images
-		}
+	}
   }
 }
 tt_content.personnel_frompages =< tt_content.personnel_default

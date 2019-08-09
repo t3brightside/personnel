@@ -3,3 +3,4 @@
 		– Add absolute URLs to vCard base64 images
 	* 2.2.2
 		– Add xing.com and linkedin.com link fields
+		– Add utf-8 charset for Outlook

@@ -25,7 +25,7 @@ class ContentPostProcessor
             $vcfFilename = $row['firstname'] . '_' . $row['lastname'] . '.vcf';
           }
         }
-      header('Content-type:text/x-vCard');
+      header('Content-type: text/x-vCard; charset=utf-8');
       header('Content-Disposition: attachment; ; filename="'.$vcfFilename.'"');
     }
   }

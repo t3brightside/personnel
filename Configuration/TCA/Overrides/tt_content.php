@@ -138,60 +138,60 @@
 						'exclude' => 1,
 						'label' => 'Images',
 						'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        0 => '',
-                        1 => '',
-                        'invertStateDisplay' => true
-                    ]
-                ],
-            ]
+			                'type' => 'check',
+			                'renderType' => 'checkboxToggle',
+			                'items' => [
+			                    [
+			                        0 => '',
+			                        1 => '',
+			                        'invertStateDisplay' => true
+			                    ]
+			                ],
+			            ]
 					],
 					'tx_personnel_vcard' => [
 						'exclude' => 1,
 						'label' => 'vCard download',
 						'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        0 => '',
-                        1 => '',
-                        'invertStateDisplay' => true
-                    ]
-                ],
-            ]
+			                'type' => 'check',
+			                'renderType' => 'checkboxToggle',
+			                'items' => [
+			                    [
+			                        0 => '',
+			                        1 => '',
+			                        'invertStateDisplay' => true
+			                    ]
+			                ],
+			            ]
 					],
 					'tx_personnel_information' => [
 						'exclude' => 1,
 						'label' => 'Information',
 						'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        0 => '',
-                        1 => '',
-                        'invertStateDisplay' => true
-                    ]
-                ],
-            ]
+			                'type' => 'check',
+			                'renderType' => 'checkboxToggle',
+			                'items' => [
+			                    [
+			                        0 => '',
+			                        1 => '',
+			                        'invertStateDisplay' => true
+			                    ]
+			                ],
+			            ]
 					],
 					'tx_personnel_paginate' => [
 						'exclude' => 1,
 						'label' => 'Pagination',
 						'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        0 => '',
-                        1 => '',
-                    ]
-                ],
-            ]
+			                'type' => 'check',
+			                'renderType' => 'checkboxToggle',
+			                'items' => [
+			                    [
+			                        0 => '',
+			                        1 => '',
+			                    ]
+			                ],
+			            ]
 					],
 				);
 			}

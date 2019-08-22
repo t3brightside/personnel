@@ -60,6 +60,7 @@ tt_content.personnel_selected {
     table = tx_personnel_domain_model_person
     pidInList = 0
     uidInList.data = field:tx_personnel
+    languageField = sys_language_uid
     as = personnel
 	dataProcessing {
       10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
@@ -73,6 +74,7 @@ tt_content.personnel_frompages {
 	dataProcessing.10 {
     table = tx_personnel_domain_model_person
     pidInList.data = field:pages
+    languageField = sys_language_uid
     as = personnel
   	dataProcessing {
       10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor

@@ -8,7 +8,7 @@ mod.wizards.newContentElement.wizardItems.common {
    elements {
       personnel_selected {
          iconIdentifier = mimetypes-x-content-personnel
-         title = Selected Persons
+         title = Personnel: selected
          description = Shows selected person records.
          tt_content_defValues {
             CType = personnel_selected
@@ -16,7 +16,7 @@ mod.wizards.newContentElement.wizardItems.common {
       }
       personnel_frompages {
          iconIdentifier = mimetypes-x-content-personnel
-         title = Persons from Page
+         title = Personnel: from pages
          description = Shows persons from selected pages or sys folders.
          tt_content_defValues {
             CType = personnel_frompages

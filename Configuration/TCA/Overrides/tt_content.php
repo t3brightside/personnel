@@ -11,7 +11,7 @@
 		0,
 		array(
 			array(
-				'Selected Persons',
+				'Personnel: selected',
 				'personnel_selected',
 				'mimetypes-x-content-personnel'
 			),
@@ -24,7 +24,7 @@
 		0,
 		array(
 			array(
-				'Persons from Page',
+				'Personnel: from pages',
 				'personnel_frompages',
 				'mimetypes-x-content-personnel'
 			),
@@ -35,7 +35,7 @@
 			$tempColumns = array(
 		    'tx_personnel' => [
 					'exclude' => 1,
-					'label' => 'Selected personnel or page',
+					'label' => 'Selected records or pages',
 					'config' => [
 						'type' => 'group',
 						'internal_type' => 'db',

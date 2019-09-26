@@ -1,8 +1,7 @@
-2019-03-28
-	* 2.2.1
-		– Add absolute URLs to vCard base64 images
-	* 2.2.2
-		– Add xing.com and linkedin.com link fields
-		– Add utf-8 charset for Outlook
-	* 2.2.3
-		– Add img srcset x2
+* 2.2.1
+	– Add absolute URLs to vCard base64 images
+* 2.2.2
+	– Add xing.com and linkedin.com link fields
+	– Add utf-8 charset for Outlook
+* 2.2.3
+	– Add img srcset x2

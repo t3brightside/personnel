@@ -1,6 +1,12 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:layout name="Default" />
 	<f:section name="Main">
+		<f:variable name="cardImageWidth_x2">{settings.cardImageWidth * 2}</f:variable>
+		<f:variable name="cardImageHeight_x2">{settings.cardImageHeight * 2}</f:variable>
+		<f:variable name="listImageWidth_x2">{settings.listImageWidth * 2}</f:variable>
+		<f:variable name="listImageHeight_x2">{settings.listImageHeight * 2}</f:variable>
+		<f:variable name="tableImageWidth_x2">{settings.tableImageWidth * 2}</f:variable>
+		<f:variable name="tableImageHeight_x2">{settings.tableImageHeight * 2}</f:variable>
 		<f:if condition="{data.tx_personnel_template} == 0">
 			<div class="personnel cards template-{data.tx_personnel_template}">
 				<f:if condition="{data.tx_personnel_paginate} == 1">

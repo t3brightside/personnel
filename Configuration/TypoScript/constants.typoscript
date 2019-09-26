@@ -18,13 +18,13 @@ personnel.cardsBreakTwo = 800
 # cat=Personnel/personnel; type=string; label= Max container width for one column card layout (px)
 personnel.cardsBreakOne = 500
 # cat=Personnel/personnel; type=string; label= Card image width (px)
-personnel.cardImageWidth = 600
+personnel.cardImageWidth = 400
 # cat=Personnel/personnel; type=string; label= Card image height (px)
-personnel.cardImageHeight = 400
+personnel.cardImageHeight = 250
 # cat=Personnel/personnel; type=string; label= List image width (px)
-personnel.listImageWidth = 300
+personnel.listImageWidth = 225
 # cat=Personnel/personnel; type=string; label= List image height (px)
-personnel.listImageHeight = 300
+personnel.listImageHeight = 225
 # cat=Personnel/personnel; type=string; label= Table image width (px)
 personnel.tableImageWidth = 50
 # cat=Personnel/personnel; type=string; label= Table image height (px)

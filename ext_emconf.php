@@ -5,7 +5,7 @@ defined('TYPO3_MODE') or die();
 		'title' => 'Personnel',
 		'description' => 'Personnel lists with vCard download.',
 		'category' => 'fe',
-		'version' => '2.2.3',
+		'version' => '2.3.0',
 		'state' => 'stable',
 		'uploadfolder' => false,
 		'createDirs' => '',

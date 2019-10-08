@@ -57,8 +57,10 @@ tt_content.personnel_frompages {
     dataProcessing.10 {
         table = tx_personnel_domain_model_person
         selectFields = tx_personnel_domain_model_person.*
-        groupBy = uid
         pidInList.field = pages
+        max.field = tx_personnel_limit
+        begin.field = tx_personnel_startfrom
+        groupBy = uid
         join.data = field:selected_categories
         join.wrap = sys_category_record_mm ON uid = sys_category_record_mm.uid_foreign AND sys_category_record_mm.uid_local IN(|)
         join.wrap.if.isTrue.field = selected_categories

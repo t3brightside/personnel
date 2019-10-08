@@ -75,6 +75,24 @@
 						),
 					),
 				),
+				'tx_personnel_startfrom' => [
+					'exclude' => 0,
+					'label' => 'Start from item',
+					'config' => [
+						'type' => 'input',
+						'eval' => 'num',
+						'size' => '1',
+					],
+				],
+				'tx_personnel_limit' => [
+					'exclude' => 0,
+					'label' => 'Items shown',
+					'config' => [
+						'type' => 'input',
+						'eval' => 'num',
+						'size' => '1',
+					],
+				],
 				'tx_personnel_paginateitems' => [
 					'exclude' => 0,
 					'label' => 'Items per page',
@@ -221,7 +239,7 @@
 
 			$GLOBALS['TCA']['tt_content']['palettes']['personnelSettings']['showitem'] = '
 				tx_personnel_template,
-				tx_personnel_orderby,
+				tx_personnel_limit,
 				tx_personnel_images,
 				tx_personnel_vcard,
 				tx_personnel_information,
@@ -256,6 +274,8 @@
 			$GLOBALS['TCA']['tt_content']['palettes']['personnelSettings']['showitem'] = '
 				tx_personnel_template,
 				tx_personnel_orderby,
+				tx_personnel_limit,
+				tx_personnel_startfrom,
 				tx_personnel_images,
 				tx_personnel_vcard,
 				tx_personnel_information,

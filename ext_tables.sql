@@ -21,6 +21,10 @@ CREATE TABLE tx_personnel_domain_model_person (
 	selected_categories text,
 	linkedin tinytext,
 	xing tinytext,
+
+	KEY parent (pid,sorting),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (sys_language_uid)
 );
 
 CREATE TABLE pages (

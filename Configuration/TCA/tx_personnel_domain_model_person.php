@@ -237,8 +237,23 @@ $tx_personnel_domain_model_person = [
                     'showHeader' => true,
                 ],
             ],
+            'MM' => 'sys_category_record_mm',
+            'MM_match_fields' => [
+                'fieldname' => 'categories',
+                'tablenames' => 'tx_personnel_domain_model_person',
+            ],
+            'MM_opposite_field' => 'items',
+            'foreign_table' => 'sys_category',
+            'foreign_table_where' => ' AND (sys_category.sys_language_uid = 0 OR sys_category.l10n_parent = 0) ORDER BY sys_category.sorting',
+            'size' => 10,
+            'minitems' => 0,
+            'maxitems' => 99,
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
         ]
     ],
+
     'title' => [
       'exclude' => false,
       'label' => 'Title',

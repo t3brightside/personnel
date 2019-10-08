@@ -10,105 +10,108 @@ page.includeCSS.personnel = {$personnel.stylesPath}
 
 tt_content.personnel_default =< lib.contentElement
 tt_content.personnel_default {
-  templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
-  templateRootPaths.20 = {$personnel.templateRootPaths}
-  partialRootPaths.10 = EXT:personnel/Resources/Private/Partials/
-  partialRootPaths.20 = {$personnel.partialRootPaths}
-  templateName = Personnel
-  variables {
-    personnelPaginationItems = COA
-    personnelPaginationItems {
-      5 = TEXT
-      5.value = {$personnel.paginationItems}
-      5.stdWrap.if.isFalse.field = tx_personnel_paginateitems
-      10 = TEXT
-      10.value.field = tx_personnel_paginateitems
-      10.stdWrap.if.isTrue.field = tx_personnel_paginateitems
+    templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
+    templateRootPaths.20 = {$personnel.templateRootPaths}
+    partialRootPaths.10 = EXT:personnel/Resources/Private/Partials/
+    partialRootPaths.20 = {$personnel.partialRootPaths}
+    templateName = Personnel
+    variables {
+        personnelPaginationItems = COA
+        personnelPaginationItems {
+            5 = TEXT
+            5.value = {$personnel.paginationItems}
+            5.stdWrap.if.isFalse.field = tx_personnel_paginateitems
+            10 = TEXT
+            10.value.field = tx_personnel_paginateitems
+            10.stdWrap.if.isTrue.field = tx_personnel_paginateitems
+        }
     }
-  }
-  settings {
-    cardImageWidth = {$personnel.cardImageWidth}
-    cardImageHeight = {$personnel.cardImageHeight}
-    listImageWidth = {$personnel.listImageWidth}
-    listImageHeight = {$personnel.listImageHeight}
-    tableImageWidth = {$personnel.tableImageWidth}
-    tableImageHeight = {$personnel.tableImageHeight}
-    zoomedImageMaxWidth = {$personnel.zoomedImageMaxWidth}
-    enableDummyImage = {$personnel.enableDummyImage}
-    cardNameWrap = {$personnel.cardNameWrap}
-    listNameWrap = {$personnel.listNameWrap}
-    paginationLinks = {$personnel.paginationLinks}
-  }
-  extbase {
-    pluginName = Personnel
-    controllerName = Personnel
-    controllerExtensionName = personnel
-    controllerActionName = show
-  }
-  stdWrap {
-    editIcons = tt_content: header [header_layout], pages
-    editIcons {
-      iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu
+    settings {
+        cardImageWidth = {$personnel.cardImageWidth}
+        cardImageHeight = {$personnel.cardImageHeight}
+        listImageWidth = {$personnel.listImageWidth}
+        listImageHeight = {$personnel.listImageHeight}
+        tableImageWidth = {$personnel.tableImageWidth}
+        tableImageHeight = {$personnel.tableImageHeight}
+        zoomedImageMaxWidth = {$personnel.zoomedImageMaxWidth}
+        enableDummyImage = {$personnel.enableDummyImage}
+        cardNameWrap = {$personnel.cardNameWrap}
+        listNameWrap = {$personnel.listNameWrap}
+        paginationLinks = {$personnel.paginationLinks}
     }
-  }
+    extbase {
+        pluginName = Personnel
+        controllerName = Personnel
+        controllerExtensionName = personnel
+        controllerActionName = show
+    }
+    stdWrap {
+        editIcons = tt_content: header [header_layout], pages
+        editIcons.iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu
+    }
 }
-tt_content.personnel_selected =< tt_content.personnel_default
-tt_content.personnel_selected {
-  dataProcessing.10 = Brightside\Personnel\DataProcessing\DatabaseCustomQueryProcessor
-  dataProcessing.10 {
-    if.isTrue.field = tx_personnel
-    table = tx_personnel_domain_model_person
-    pidInList = 0
-    uidInList.data = field:tx_personnel
-    languageField = sys_language_uid
-    as = personnel
-	dataProcessing {
-      10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-      10.references.fieldName = images
-	}
-  }
-}
+
 tt_content.personnel_frompages =< tt_content.personnel_default
 tt_content.personnel_frompages {
-	dataProcessing.10 = Brightside\Personnel\DataProcessing\DatabaseCustomQueryProcessor
-	dataProcessing.10 {
-    table = tx_personnel_domain_model_person
-    pidInList.data = field:pages
-    languageField = sys_language_uid
-    as = personnel
-  	dataProcessing {
-      10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-      10.references.fieldName = images
+    dataProcessing.10 = Brightside\Personnel\DataProcessing\DatabaseCustomQueryProcessor
+    dataProcessing.10 {
+        table = tx_personnel_domain_model_person
+        selectFields = tx_personnel_domain_model_person.*
+        groupBy = uid
+        pidInList.field = pages
+        join.data = field:selected_categories
+        join.wrap = sys_category_record_mm ON uid = sys_category_record_mm.uid_foreign AND sys_category_record_mm.uid_local IN(|)
+        join.wrap.if.isTrue.field = selected_categories
+        as = personnel
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10.references.fieldName = images
+        }
     }
-	}
+}
+
+tt_content.personnel_selected =< tt_content.personnel_default
+tt_content.personnel_selected {
+    dataProcessing.10 = Brightside\Personnel\DataProcessing\DatabaseCustomQueryProcessor
+    dataProcessing.10 {
+        if.isTrue.field = tx_personnel
+        table = tx_personnel_domain_model_person
+        pidInList = 0
+        uidInList.field = tx_personnel
+        as = personnel
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10.references.fieldName = images
+        }
+    }
 }
 
 personnel_vCard = PAGE
 personnel_vCard  {
-  typeNum = 888
-  config {
-    disableAllHeaderCode = 1
-    xhtml_cleaning = 0
-    debug = 0
-    disableCharsetHeader = 1
-  }
-	10 = FLUIDTEMPLATE
-	10 {
-		templateName = Vcard
-		templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
-    templateRootPaths.20 = {$personnel.vCard.templateRootPaths}
-		dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-	  dataProcessing.10 {
-      table = tx_personnel_domain_model_person
-      pidInList = 0
-      uidInList.data = GP:person
-	    as = person
-    	dataProcessing {
-      	10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-				10.references.fieldName = images
-			}
-		}
-	}
+    typeNum = 888
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        debug = 0
+        disableCharsetHeader = 1
+    }
+    10 = FLUIDTEMPLATE
+    10 {
+        templateName = Vcard
+        templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
+        templateRootPaths.20 = {$personnel.vCard.templateRootPaths}
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        dataProcessing.10 {
+            table = tx_personnel_domain_model_person
+            pidInList = 0
+            uidInList.data = GP:person
+            as = person
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10.references.fieldName = images
+            }
+        }
+    }
 }
 
 [{$personnel.enablejQueryBreakpoints}]

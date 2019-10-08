@@ -6,7 +6,15 @@ TCEFORM.tt_content.tx_personnel_template.addItems {
 
 mod.wizards.newContentElement.wizardItems.common {
    elements {
-      personnel_selected {
+	   personnel_frompages {
+	      iconIdentifier = mimetypes-x-content-personnel
+	      title = Personnel: from pages
+	      description = Shows persons from selected pages or sys folders.
+	      tt_content_defValues {
+	   	  CType = personnel_frompages
+	      }
+	   }
+	  personnel_selected {
          iconIdentifier = mimetypes-x-content-personnel
          title = Personnel: selected
          description = Shows selected person records.
@@ -14,14 +22,6 @@ mod.wizards.newContentElement.wizardItems.common {
             CType = personnel_selected
          }
       }
-      personnel_frompages {
-         iconIdentifier = mimetypes-x-content-personnel
-         title = Personnel: from pages
-         description = Shows persons from selected pages or sys folders.
-         tt_content_defValues {
-            CType = personnel_frompages
-         }
-      }
    }
-   show := addToList(personnel_selected,personnel_frompages)
+   show := addToList(personnel_frompages,personnel_selected)
 }

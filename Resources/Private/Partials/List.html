@@ -1,44 +1,42 @@
-<f:if condition="{person.data.uid}">
-    <div class="person listitem<f:if condition="{iterator.isLast}==1"> last</f:if>">
-      <f:if condition="{data.tx_personnel_images} == 0">
-        <f:if condition="{person.files.0}">
-          <f:then>
-            <figure><f:image image="{person.files.0}" class="person" width="{settings.listImageWidth}c" height="{settings.listImageHeight}c-100" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{listImageWidth_x2}.c\', height:\'{listImageHeight_x2}.c-100\')} 2x'}" /></figure>
-          </f:then>
-          <f:else>
-            <f:if condition="{settings.enableDummyImage}">
-              <figure><f:image src="EXT:personnel/Resources/Public/Images/clear.png" class="dummy person" width="{settings.listImageWidth}c" height="{settings.listImageHeight}c" alt="{person.data.firstname} {person.data.lastname}" /></figure>
-            </f:if>
-          </f:else>
+<div class="person listitem<f:if condition="{iterator.isLast}==1"> last</f:if>">
+  <f:if condition="{data.tx_personnel_images} == 0">
+    <f:if condition="{person.files.0}">
+      <f:then>
+        <figure><f:image image="{person.files.0}" class="person" width="{settings.listImageWidth}c" height="{settings.listImageHeight}c-100" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{listImageWidth_x2}.c\', height:\'{listImageHeight_x2}.c-100\')} 2x'}" /></figure>
+      </f:then>
+      <f:else>
+        <f:if condition="{settings.enableDummyImage}">
+          <figure><f:image src="EXT:personnel/Resources/Public/Images/clear.png" class="dummy person" width="{settings.listImageWidth}c" height="{settings.listImageHeight}c" alt="{person.data.firstname} {person.data.lastname}" /></figure>
         </f:if>
-      </f:if>
-      <div class="text">
-        <f:if condition="{person.data.firstname} || {person.data.lastname}"><{settings.listNameWrap} class="name"><f:if condition="{person.data.title}">{person.data.title} </f:if>{person.data.firstname} {person.data.lastname}</{settings.listNameWrap}></f:if>
-        <f:if condition="{person.data.profession}"><p class="profession">{person.data.profession}</p></f:if>
-        <f:if condition="{person.data.phone} || {person.data.email}">
-          <p class="contact">
-            <f:if condition="{person.data.phone}">
-              <a class="person-phone" href="tel:{person.data.phone}">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.72 130.72"><path d="M130.72,103.08a27.82,27.82,0,0,1-1,6.51,29.26,29.26,0,0,1-2,6.5q-2,5.2-11.39,9.76a33,33,0,0,1-17.23,4.87,26.73,26.73,0,0,1-4.88-.32,44.79,44.79,0,0,1-5.2-1.3c-.87-.22-2.39-.65-4.55-1.3a2.45,2.45,0,0,1-1-.33c-.44-.21-1.09-.49-1.95-.81s-1.63-.6-2.28-.81a19,19,0,0,0-2.76-1.14,8.89,8.89,0,0,0-1.79-.49Q63.74,120,58.53,116.41A137.83,137.83,0,0,1,34.14,96.58Q20.81,83.25,14,71.87A69.85,69.85,0,0,1,6.5,55.61a29.44,29.44,0,0,1-1.95-4.56c-.43-1.51-1-3.25-1.62-5.2a7.58,7.58,0,0,0-.65-1.79,24.2,24.2,0,0,1-1-2.44C.86,39,.54,37.18.32,36.1A24.49,24.49,0,0,1,0,31.22,38.6,38.6,0,0,1,4.55,14Q10.09,4.56,14.63,2.6A22.87,22.87,0,0,1,20.81.65Q26.66,0,27.32,0h1.95q1.95,1,5.2,7.15a5.61,5.61,0,0,1,.81,1.3l1,2a16.11,16.11,0,0,1,.81,1.95,59.17,59.17,0,0,1,3.25,5.85l2.93,4.88.32.32a4.79,4.79,0,0,1,.65.82,8.91,8.91,0,0,1,.65,1.13,20.89,20.89,0,0,1,2,3.26,10.84,10.84,0,0,1,.65,2.6q0,1.62-2.61,4.88A30.57,30.57,0,0,1,39,41a45.76,45.76,0,0,0-5.53,5.21c-2,1.52-2.92,2.92-2.92,4.22a4.82,4.82,0,0,0,.65,2,2.4,2.4,0,0,0,.32,1,2.5,2.5,0,0,1,.33,1c.21,0,.43.27.65.81a15.78,15.78,0,0,0,.65,1.46c.65,1.09,1.08,1.63,1.3,1.63A92.43,92.43,0,0,0,50.4,80,93.47,93.47,0,0,0,72.19,96.25a7.42,7.42,0,0,1,2,1,8.86,8.86,0,0,0,2.28,1.3,4.06,4.06,0,0,0,2,1,4.62,4.62,0,0,0,1.95.32c1.3,0,2.71-.86,4.23-2.6a30.87,30.87,0,0,0,4.87-5.85,45.79,45.79,0,0,1,5.21-5.53q2.59-2.59,4.55-2.6a3.74,3.74,0,0,1,2.6.65,19.65,19.65,0,0,1,3.58,1.95,8.67,8.67,0,0,1,2.27,1.62l4.88,2.93A27.68,27.68,0,0,0,115.44,92a30,30,0,0,1,2.93,1.62l5.2,2.6q6.17,3.59,6.83,4.88A4.68,4.68,0,0,1,130.72,103.08Z"/></svg>{person.data.phone}
-              </a>
-            </f:if>
-            <f:if condition="{person.data.email}">
-              <f:link.email class="person-email" email="{person.data.email}">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.64 102.73"><path d="M159.64,28.81V94.4a7.21,7.21,0,0,1-2.77,5.55,8.28,8.28,0,0,1-5.9,2.78H8.68A8.25,8.25,0,0,1,2.78,100C.92,98.1,0,96.25,0,94.4V28.81c0-2.09,1.15-2.66,3.47-1.74l68,35.75a20.92,20.92,0,0,0,16.66,0l68-35.75C158.48,26.15,159.64,26.72,159.64,28.81Z"/><path  d="M5.21,9.37Q-.7,6.25.35,2.43.35,0,4.86,0H155.13q6.6,0,3.47,5.55a9.61,9.61,0,0,1-4.16,3.82q-.7.35-34,18.05-31.59,17-32.28,17.7a18.4,18.4,0,0,1-8.33,1.73,21.48,21.48,0,0,1-8.33-1.73q-.69-.69-32.27-17.7Q5.91,9.72,5.21,9.37Z"/></svg>{person.data.email}
-              </f:link.email>
-            </f:if>
-            <f:if condition="{data.tx_personnel_vcard} == 0">
-              <f:link.page class="person-vCard" pageType="888" additionalParams="{person: '{person.data.uid}'}" additionalAttributes="{download: '{person.data.firstname}_{person.data.lastname}.vcf'}">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148.92 132.58"><path d="M148.92,132.58H0l3.89-21.69a7.4,7.4,0,0,1,1-3.88,6,6,0,0,1,1.78-2.1,22.79,22.79,0,0,1,3.72-1.46c1.94-.65,3.13-1.08,3.56-1.3l24.6-10a1.87,1.87,0,0,0,1.3-.33v-.64q8.09-3.24,10-7.13c1.08-1.5,1.95-1.94,2.59-1.29l.33.32c.21-.64.53-1.67,1-3.07s.75-2.54,1-3.4c.21-.65.54-.54,1,.32l-.32-2.26L55,70.75l-1.29-1.29c-.65-.65-1.19-2-1.62-4.21a13,13,0,0,0-1-3.56,11.89,11.89,0,0,1-1-1.14,19.31,19.31,0,0,1-1.46-2.1,13.8,13.8,0,0,1-1.46-3.88,54.69,54.69,0,0,1-2.1-8.75q-.48-3.55.49-4.85h.64A10.12,10.12,0,0,1,45.65,39c-.22-.65-.54-1.89-1-3.73A20,20,0,0,1,44,31.58Q44,16,47.59,10.21q4.53-7.44,12.3-9.06A68.18,68.18,0,0,1,72.19,0q7.77-.16,12,1.13a19.56,19.56,0,0,1,5.5,2.91c3.89,2.38,6.58,4.86,8.1,7.45Q101,16.69,101,31.58a83.42,83.42,0,0,1-1.29,10,2.2,2.2,0,0,1,1.62-.65c.64.86.81,2.48.48,4.85a54.69,54.69,0,0,1-2.1,8.75,14.12,14.12,0,0,1-1.46,3.88,21,21,0,0,1-1.45,2.1,13.2,13.2,0,0,1-1,1.14,13,13,0,0,0-1,3.56c-.43,2.16-1,3.56-1.62,4.21l-1.29,1.29-.32,4.53a1.85,1.85,0,0,0,.64,1.3h.33a4.91,4.91,0,0,0,.32,1.29c.21.65.49,1.46.81,2.43a16.47,16.47,0,0,0,.81,2.11.94.94,0,0,0,.32.64q0,.33.33,0h.32c.65-.21,1.3.22,1.94,1.3l.33.32V85a26.48,26.48,0,0,0,9.71,6.79,1,1,0,0,1,.65.33h.64l24.93,10c.65.22,1.83.65,3.56,1.3a24.45,24.45,0,0,1,3.4,1.46,6.09,6.09,0,0,1,1.78,2.1,7.4,7.4,0,0,1,1,3.88Z"/></svg>vCard
-              </f:link.page>
-            </f:if>
-          </p>
+      </f:else>
+    </f:if>
+  </f:if>
+  <div class="text">
+    <f:if condition="{person.data.firstname} || {person.data.lastname}"><{settings.listNameWrap} class="name"><f:if condition="{person.data.title}">{person.data.title} </f:if>{person.data.firstname} {person.data.lastname}</{settings.listNameWrap}></f:if>
+    <f:if condition="{person.data.profession}"><p class="profession">{person.data.profession}</p></f:if>
+    <f:if condition="{person.data.phone} || {person.data.email}">
+      <p class="contact">
+        <f:if condition="{person.data.phone}">
+          <a class="person-phone" href="tel:{person.data.phone}">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.72 130.72"><path d="M130.72,103.08a27.82,27.82,0,0,1-1,6.51,29.26,29.26,0,0,1-2,6.5q-2,5.2-11.39,9.76a33,33,0,0,1-17.23,4.87,26.73,26.73,0,0,1-4.88-.32,44.79,44.79,0,0,1-5.2-1.3c-.87-.22-2.39-.65-4.55-1.3a2.45,2.45,0,0,1-1-.33c-.44-.21-1.09-.49-1.95-.81s-1.63-.6-2.28-.81a19,19,0,0,0-2.76-1.14,8.89,8.89,0,0,0-1.79-.49Q63.74,120,58.53,116.41A137.83,137.83,0,0,1,34.14,96.58Q20.81,83.25,14,71.87A69.85,69.85,0,0,1,6.5,55.61a29.44,29.44,0,0,1-1.95-4.56c-.43-1.51-1-3.25-1.62-5.2a7.58,7.58,0,0,0-.65-1.79,24.2,24.2,0,0,1-1-2.44C.86,39,.54,37.18.32,36.1A24.49,24.49,0,0,1,0,31.22,38.6,38.6,0,0,1,4.55,14Q10.09,4.56,14.63,2.6A22.87,22.87,0,0,1,20.81.65Q26.66,0,27.32,0h1.95q1.95,1,5.2,7.15a5.61,5.61,0,0,1,.81,1.3l1,2a16.11,16.11,0,0,1,.81,1.95,59.17,59.17,0,0,1,3.25,5.85l2.93,4.88.32.32a4.79,4.79,0,0,1,.65.82,8.91,8.91,0,0,1,.65,1.13,20.89,20.89,0,0,1,2,3.26,10.84,10.84,0,0,1,.65,2.6q0,1.62-2.61,4.88A30.57,30.57,0,0,1,39,41a45.76,45.76,0,0,0-5.53,5.21c-2,1.52-2.92,2.92-2.92,4.22a4.82,4.82,0,0,0,.65,2,2.4,2.4,0,0,0,.32,1,2.5,2.5,0,0,1,.33,1c.21,0,.43.27.65.81a15.78,15.78,0,0,0,.65,1.46c.65,1.09,1.08,1.63,1.3,1.63A92.43,92.43,0,0,0,50.4,80,93.47,93.47,0,0,0,72.19,96.25a7.42,7.42,0,0,1,2,1,8.86,8.86,0,0,0,2.28,1.3,4.06,4.06,0,0,0,2,1,4.62,4.62,0,0,0,1.95.32c1.3,0,2.71-.86,4.23-2.6a30.87,30.87,0,0,0,4.87-5.85,45.79,45.79,0,0,1,5.21-5.53q2.59-2.59,4.55-2.6a3.74,3.74,0,0,1,2.6.65,19.65,19.65,0,0,1,3.58,1.95,8.67,8.67,0,0,1,2.27,1.62l4.88,2.93A27.68,27.68,0,0,0,115.44,92a30,30,0,0,1,2.93,1.62l5.2,2.6q6.17,3.59,6.83,4.88A4.68,4.68,0,0,1,130.72,103.08Z"/></svg>{person.data.phone}
+          </a>
         </f:if>
-        <f:if condition="{person.data.info} && {data.tx_personnel_information} == 0">
-          <div class="person-information">
-            <f:format.raw>{person.data.info}</f:format.raw>
-          </div>
+        <f:if condition="{person.data.email}">
+          <f:link.email class="person-email" email="{person.data.email}">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.64 102.73"><path d="M159.64,28.81V94.4a7.21,7.21,0,0,1-2.77,5.55,8.28,8.28,0,0,1-5.9,2.78H8.68A8.25,8.25,0,0,1,2.78,100C.92,98.1,0,96.25,0,94.4V28.81c0-2.09,1.15-2.66,3.47-1.74l68,35.75a20.92,20.92,0,0,0,16.66,0l68-35.75C158.48,26.15,159.64,26.72,159.64,28.81Z"/><path  d="M5.21,9.37Q-.7,6.25.35,2.43.35,0,4.86,0H155.13q6.6,0,3.47,5.55a9.61,9.61,0,0,1-4.16,3.82q-.7.35-34,18.05-31.59,17-32.28,17.7a18.4,18.4,0,0,1-8.33,1.73,21.48,21.48,0,0,1-8.33-1.73q-.69-.69-32.27-17.7Q5.91,9.72,5.21,9.37Z"/></svg>{person.data.email}
+          </f:link.email>
         </f:if>
+        <f:if condition="{data.tx_personnel_vcard} == 0">
+          <f:link.page class="person-vCard" pageType="888" additionalParams="{person: '{person.data.uid}'}" additionalAttributes="{download: '{person.data.firstname}_{person.data.lastname}.vcf'}">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148.92 132.58"><path d="M148.92,132.58H0l3.89-21.69a7.4,7.4,0,0,1,1-3.88,6,6,0,0,1,1.78-2.1,22.79,22.79,0,0,1,3.72-1.46c1.94-.65,3.13-1.08,3.56-1.3l24.6-10a1.87,1.87,0,0,0,1.3-.33v-.64q8.09-3.24,10-7.13c1.08-1.5,1.95-1.94,2.59-1.29l.33.32c.21-.64.53-1.67,1-3.07s.75-2.54,1-3.4c.21-.65.54-.54,1,.32l-.32-2.26L55,70.75l-1.29-1.29c-.65-.65-1.19-2-1.62-4.21a13,13,0,0,0-1-3.56,11.89,11.89,0,0,1-1-1.14,19.31,19.31,0,0,1-1.46-2.1,13.8,13.8,0,0,1-1.46-3.88,54.69,54.69,0,0,1-2.1-8.75q-.48-3.55.49-4.85h.64A10.12,10.12,0,0,1,45.65,39c-.22-.65-.54-1.89-1-3.73A20,20,0,0,1,44,31.58Q44,16,47.59,10.21q4.53-7.44,12.3-9.06A68.18,68.18,0,0,1,72.19,0q7.77-.16,12,1.13a19.56,19.56,0,0,1,5.5,2.91c3.89,2.38,6.58,4.86,8.1,7.45Q101,16.69,101,31.58a83.42,83.42,0,0,1-1.29,10,2.2,2.2,0,0,1,1.62-.65c.64.86.81,2.48.48,4.85a54.69,54.69,0,0,1-2.1,8.75,14.12,14.12,0,0,1-1.46,3.88,21,21,0,0,1-1.45,2.1,13.2,13.2,0,0,1-1,1.14,13,13,0,0,0-1,3.56c-.43,2.16-1,3.56-1.62,4.21l-1.29,1.29-.32,4.53a1.85,1.85,0,0,0,.64,1.3h.33a4.91,4.91,0,0,0,.32,1.29c.21.65.49,1.46.81,2.43a16.47,16.47,0,0,0,.81,2.11.94.94,0,0,0,.32.64q0,.33.33,0h.32c.65-.21,1.3.22,1.94,1.3l.33.32V85a26.48,26.48,0,0,0,9.71,6.79,1,1,0,0,1,.65.33h.64l24.93,10c.65.22,1.83.65,3.56,1.3a24.45,24.45,0,0,1,3.4,1.46,6.09,6.09,0,0,1,1.78,2.1,7.4,7.4,0,0,1,1,3.88Z"/></svg>vCard
+          </f:link.page>
+        </f:if>
+      </p>
+    </f:if>
+    <f:if condition="{person.data.info} && {data.tx_personnel_information} == 0">
+      <div class="person-information">
+        <f:format.raw>{person.data.info}</f:format.raw>
       </div>
-    </div>
-</f:if>
+    </f:if>
+  </div>
+</div>

@@ -64,13 +64,9 @@ tt_content.personnel_frompages {
         join.data = field:selected_categories
         join.wrap = sys_category_record_mm ON uid = sys_category_record_mm.uid_foreign AND sys_category_record_mm.uid_local IN(|)
         join.wrap.if.isTrue.field = selected_categories
-    #    where = tablenames='tx_personnel_domain_model_person' AND fieldname='categories'
-    #    where.if.isTrue.field = selected_categories
         where.stdWrap.orderedStdWrap {
             10.wrap = AND tablenames='tx_personnel_domain_model_person' AND fieldname='categories'
             10.wrap.if.isTrue.field = selected_categories
-            20.wrap = AND sys_language_uid='###language###'
-            20.wrap.if.isTrue.data = sitelanguage:languageId
         }
         markers {
             language.data = sitelanguage:languageId

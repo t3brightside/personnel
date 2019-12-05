@@ -68,9 +68,6 @@ tt_content.personnel_frompages {
             10.wrap = AND tablenames='tx_personnel_domain_model_person' AND fieldname='categories'
             10.wrap.if.isTrue.field = selected_categories
         }
-        markers {
-            language.data = sitelanguage:languageId
-        }
         as = personnel
         dataProcessing {
             10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor

@@ -73,7 +73,7 @@ $tx_personnel_domain_model_person = [
 	),
   'columns' => [
     'sys_language_uid' => [
-      'exclude' => true,
+      'exclude' => 1,
       'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
       'config' => [
         'type' => 'select',
@@ -91,7 +91,7 @@ $tx_personnel_domain_model_person = [
     ],
     'l10n_parent' => [
       'displayCond' => 'FIELD:sys_language_uid:>:0',
-      'exclude' => true,
+      'exclude' => 1,
       'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
       'config' => [
         'type' => 'select',
@@ -111,7 +111,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'hidden' => [
-      'exclude' => true,
+      'exclude' => 1,
       'label' => 'Person visible',
       'config' => [
          'type' => 'check',
@@ -156,7 +156,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'starttime' => [
-      'exclude' => true,
+      'exclude' => 1,
       'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
       'config' => [
         'behaviour' => [
@@ -169,7 +169,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'endtime' => [
-      'exclude' => true,
+      'exclude' => 1,
       'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
       'config' => [
         'behaviour' => [
@@ -182,7 +182,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'fe_group' => [
-      'exclude' => true,
+      'exclude' => 1,
       'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.fe_group',
       'config' => [
         'type' => 'select',
@@ -209,7 +209,7 @@ $tx_personnel_domain_model_person = [
       ],
     ],
     'editlock' => [
-        'exclude' => true,
+        'exclude' => 1,
         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:editlock',
         'config' => [
             'type' => 'check',
@@ -223,6 +223,7 @@ $tx_personnel_domain_model_person = [
         ]
     ],
     'selected_categories' => [
+        'exclude' => 1,
         'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:selected_categories',
         'config' => [
             'type' => 'select',
@@ -255,7 +256,7 @@ $tx_personnel_domain_model_person = [
     ],
 
     'title' => [
-      'exclude' => false,
+        'exclude' => 1,
       'label' => 'Title',
       'config' => [
         'type' => 'input',
@@ -267,7 +268,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'firstname' => [
-      'exclude' => false,
+     'exclude' => 1,
       'label' => 'First Name',
       'config' => [
         'type' => 'input',
@@ -279,7 +280,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'lastname' => [
-      'exclude' => false,
+      'exclude' => 1,
       'label' => 'Last Name',
       'config' => [
         'type' => 'input',
@@ -291,7 +292,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'profession' => [
-      'exclude' => false,
+      'exclude' => 1,
       'l10n_mode' => 'prefixLangTitle',
       'label' => 'Profession',
       'config' => [
@@ -301,7 +302,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'phone' => [
-      'exclude' => false,
+      'exclude' => 1,
       'label' => 'Phone',
       'config' => [
         'type' => 'input',
@@ -313,7 +314,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'email' => [
-      'exclude' => false,
+      'exclude' => 1,
       'label' => 'E-mail',
       'config' => [
         'type' => 'input',
@@ -357,7 +358,7 @@ $tx_personnel_domain_model_person = [
       ),
     ],
     'info' => [
-      'exclude' => false,
+      'exclude' => 1,
       'l10n_mode' => 'prefixLangTitle',
       'label' => 'Additional Information',
       'config' => [
@@ -368,7 +369,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'linkedin' => [
-      'exclude' => false,
+      'exclude' => 1,
       'label' => 'linkedin.com link',
       'config' => [
         'type' => 'input',
@@ -380,7 +381,7 @@ $tx_personnel_domain_model_person = [
       ]
     ],
     'xing' => [
-      'exclude' => false,
+      'exclude' => 1,
       'label' => 'xing.com link',
       'config' => [
         'type' => 'input',

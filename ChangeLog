@@ -8,3 +8,5 @@
 * 2.3.0
 	– Add category filter
 	– Add limit and start from fields
+* 2.3.2
+	– Add exclude for all fields for better user rights control

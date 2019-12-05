@@ -76,7 +76,7 @@
 					),
 				),
 				'tx_personnel_startfrom' => [
-					'exclude' => 0,
+					'exclude' => 1,
 					'label' => 'Start from item',
 					'config' => [
 						'type' => 'input',
@@ -85,7 +85,7 @@
 					],
 				],
 				'tx_personnel_limit' => [
-					'exclude' => 0,
+					'exclude' => 1,
 					'label' => 'Items shown',
 					'config' => [
 						'type' => 'input',
@@ -94,7 +94,7 @@
 					],
 				],
 				'tx_personnel_paginateitems' => [
-					'exclude' => 0,
+					'exclude' => 1,
 					'label' => 'Items per page',
 					'config' => array(
 						'type' => 'input',

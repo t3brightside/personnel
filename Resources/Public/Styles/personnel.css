@@ -114,6 +114,10 @@
   margin-left: 24%;
 }
 
+.personnel.noimages .listitem .text {
+    margin-left: 0;
+}
+
 .personnel .listitem .name {
   margin: -0.2em 0 0.2em;
 }

@@ -8,7 +8,7 @@
 		<f:variable name="tableImageWidth_x2">{settings.tableImageWidth * 2}</f:variable>
 		<f:variable name="tableImageHeight_x2">{settings.tableImageHeight * 2}</f:variable>
 		<f:if condition="{data.tx_personnel_template} == 0">
-			<div class="personnel cards template-{data.tx_personnel_template}">
+			<div class="personnel cards template-{data.tx_personnel_template}<f:if condition="{data.tx_personnel_images} == 1"> noimages</f:if>">
 				<f:if condition="{data.tx_personnel_paginate} == 1">
 					<f:then>
 						<f:widget.paginate objects="{personnel}" as="paginatedPersons" configuration="{itemsPerPage: '{personnelPaginationItems}', insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: '{settings.paginationLinks}'}">
@@ -26,7 +26,7 @@
 			</div>
 		</f:if>
 		<f:if condition="{data.tx_personnel_template} == 1">
-			<div class="personnel list template-{data.tx_personnel_template}">
+			<div class="personnel list template-{data.tx_personnel_template}<f:if condition="{data.tx_personnel_images} == 1"> noimages</f:if>">
 				<f:if condition="{data.tx_personnel_paginate} == 1">
 					<f:then>
 						<f:widget.paginate objects="{personnel}" as="paginatedPersons" configuration="{itemsPerPage: '{personnelPaginationItems}', insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: '{settings.paginationLinks}'}">
@@ -44,7 +44,7 @@
 			</div>
 		</f:if>
 		<f:if condition="{data.tx_personnel_template} == 2">
-			<div class="personnel table template-{data.tx_personnel_template}">
+			<div class="personnel table template-{data.tx_personnel_template}<f:if condition="{data.tx_personnel_images} == 1"> noimages</f:if>">
 				<f:if condition="{data.tx_personnel_paginate} == 1">
 					<f:then>
 						<f:widget.paginate objects="{personnel}" as="paginatedPersons" configuration="{itemsPerPage: '{personnelPaginationItems}', insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: '{settings.paginationLinks}'}">

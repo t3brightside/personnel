@@ -48,7 +48,7 @@ $tx_personnel_domain_model_person = [
 	),
 	'palettes' => array(
 		'person' => array('showitem' => '
-      title,
+      title,--linebreak--,
       firstname,
       lastname,--linebreak--,
       profession,

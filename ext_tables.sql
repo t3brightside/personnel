@@ -16,6 +16,7 @@ CREATE TABLE tx_personnel_domain_model_person (
 	firstname tinytext,
 	lastname tinytext,
 	profession tinytext,
+	responsibility tinytext,
 	info text,
 	phone tinytext,
 	email tinytext,

@@ -52,6 +52,7 @@ $tx_personnel_domain_model_person = [
       firstname,
       lastname,--linebreak--,
       profession,
+      responsibility,--linebreak--,
       phone,
       email,--linebreak--,
       images,--linebreak--,
@@ -295,6 +296,16 @@ $tx_personnel_domain_model_person = [
       'exclude' => 1,
       'l10n_mode' => 'prefixLangTitle',
       'label' => 'Profession',
+      'config' => [
+        'type' => 'input',
+        'eval' => 'trim',
+        'size' => 20,
+      ]
+    ],
+    'responsibility' => [
+      'exclude' => 1,
+      'l10n_mode' => 'prefixLangTitle',
+      'label' => 'Field of Responsibility',
       'config' => [
         'type' => 'input',
         'eval' => 'trim',

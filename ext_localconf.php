@@ -15,3 +15,11 @@ defined('TYPO3_MODE') or die();
 
   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['personnel'] = \Brightside\Personnel\Hooks\PageLayoutView\PersonnelContentElementPreviewRenderer::class;
 })();
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'personnel',
+        'Personnel',
+        [
+            'Personnel' => 'personnel'
+        ]
+    );

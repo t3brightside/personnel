@@ -40,10 +40,10 @@ tt_content.personnel_default {
         paginationLinks = {$personnel.paginationLinks}
     }
     extbase {
-        pluginName = Personnel
         controllerName = Personnel
-        controllerExtensionName = personnel
-        controllerActionName = show
+        controllerActionName = personnel
+        controllerExtensionName = Personnel
+        pluginName = Personnel
     }
     stdWrap {
         editIcons = tt_content: header [header_layout], pages

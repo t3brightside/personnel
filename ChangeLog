@@ -13,3 +13,5 @@
 * 2.3.2
 	– Add 'noimages' classes to template
 	– Add 'Field of Responsibility'
+* 2.4.0
+	– TYPO3 10 LTS compatibility

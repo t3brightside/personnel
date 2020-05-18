@@ -15,3 +15,5 @@
 	– Add 'Field of Responsibility'
 * 2.4.0
 	– TYPO3 10 LTS compatibility
+* 2.4.1
+	– Fix vCard image issues

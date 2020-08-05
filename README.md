@@ -29,7 +29,7 @@
 - Create personnel records in a Page/Sysfolder
 - Add desired content element and point to the Page/Sysfolder or individual records
 
-##routeEnhancers:
+## routeEnhancers:
 ```
 PersonnelPagination:
   type: Plugin

@@ -17,3 +17,6 @@
 	– TYPO3 10 LTS compatibility
 * 2.4.1
 	– Fix vCard image issues
+* 2.4.2
+	– Fix demo link in README
+	– Basic usage explanation

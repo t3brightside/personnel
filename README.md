@@ -23,6 +23,11 @@
 ## Installation
 - Install from TER: **personnel** or Composer: **t3brightside/personnel**
 - Add static template
+- Change settings in "Extension Configuration" section
+
+## Usage
+- Create personnel records in a Page/Sysfolder
+- Add desired content element and point to the Page/Sysfolder or individual records
 
 **routeEnhancers:**
 ```

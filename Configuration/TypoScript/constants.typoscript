@@ -9,8 +9,8 @@ personnel.partialRootPaths = EXT:personnel/Resources/Private/Partials/
 personnel.vCard.templateRootPaths = EXT:personnel/Resources/Private/Templates/
 # cat=Personnel/personnel; type=string; label= Company name in vCard
 personnel.vCard.CompanyName =
-# cat=Personnel/personnel; type=boolean; label= Enable jQuery breakpoints for card layouts (jQuery needed)
-personnel.enablejQueryBreakpoints = 1
+# cat=Personnel/personnel; type=boolean; label= Enable breakpoints for card layouts
+personnel.enableBreakpoints = 1
 # cat=Personnel/personnel; type=string; label= Max container width for three column card layout (px)
 personnel.cardsBreakThree = 1200
 # cat=Personnel/personnel; type=string; label= Max container width for two column card layout (px)

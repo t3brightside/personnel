@@ -120,52 +120,37 @@ personnel_vCard  {
     }
 }
 
-[{$personnel.enablejQueryBreakpoints}]
+
+["{$personnel.enableBreakpoints}" == "1"]
   page.jsFooterInline {
-    109823148 = TEXT
-    109823148.value (
-  		jQuery( document ).ready(function() {
-  			jQuery('.personnel.cards').each(function() {
-          if (jQuery(this).width() < {$personnel.cardsBreakThree}){
-            jQuery(this).addClass('break-three');
+    1098231282 = TEXT
+    1098231282.value (
+      function personnelDetectWidth(a){
+      	var container = document.getElementsByClassName(a);
+        for (var i = 0; i < container.length; ++i) {
+          var item = container[i];
+          var width = container[i].clientWidth;
+          if (width < {$personnel.cardsBreakThree}){
+            item.classList.add('break-three');
           } else {
-            jQuery(this).removeClass('break-three');
+            item.classList.remove('break-three');
           }
-          if (jQuery(this).width() < {$personnel.cardsBreakTwo}){
-            jQuery(this).removeClass('break-three');
-  			  	jQuery(this).addClass('break-two');
-  			  } else {
-  					jQuery(this).removeClass('break-two');
-  				}
-          if (jQuery(this).width() < {$personnel.cardsBreakOne}){
-            jQuery(this).removeClass('break-two');
-  			  	jQuery(this).addClass('break-one' );
-  			  } else {
-  					jQuery(this).removeClass('break-one');
-  				}
-  			});
-  		});
-  		jQuery(window).resize(function(){
-  		  jQuery('.personnel.cards').each(function() {
-          if (jQuery(this).width() < {$personnel.cardsBreakThree}){
-            jQuery(this).addClass('break-three');
+          if (width < {$personnel.cardsBreakTwo}){
+            item.classList.add('break-two');
           } else {
-            jQuery(this).removeClass('break-three');
+            item.classList.remove('break-two');
           }
-          if (jQuery(this).width() < {$personnel.cardsBreakTwo}){
-            jQuery(this).removeClass('break-three');
-  			  	jQuery(this).addClass('break-two');
-  			  } else {
-  					jQuery(this).removeClass('break-two');
-  				}
-          if (jQuery(this).width() < {$personnel.cardsBreakOne}){
-            jQuery(this).removeClass('break-two');
-  			  	jQuery(this).addClass('break-one');
-  			  } else {
-  					jQuery(this).removeClass('break-one');
-  				}
-  			});
-  		});
-  	)
+          if (width < {$personnel.cardsBreakOne}) {
+            item.classList.add('break-one');
+          } else {
+            item.classList.remove('break-one');
+          }
+        }
+      }
+      personnelDetectWidth('personnel cards');
+      window.addEventListener("resize", function(){
+        personnelDetectWidth('personnel cards');
+      });
+    )
   }
 [END]

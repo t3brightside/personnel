@@ -120,6 +120,7 @@ personnel_vCard  {
     }
 }
 
+# JavaScript breakpoints for card layout depending on outer container width
 
 ["{$personnel.enableBreakpoints}" == "1"]
   page.jsFooterInline {

@@ -5,7 +5,7 @@
 
 **TYPO3 CMS extension for personnel list with vCard support.**
 
-**[Front-end Demo](https://macrotemplate.t3brightside.com/extensions/personnel)**
+**[Front-end Demo](https://microtemplate.t3brightside.com/)**
 
 ## System requirements
 

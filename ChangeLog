@@ -21,3 +21,6 @@
 	– Fix demo link in README
 	– Basic usage explanation
 	– Remove jQuery breakpoints option for cards and leave Vanilla only
+* 2.4.3 (NOTE! POSSIBLE BREAKING CHANGES)
+  – TYPO3 11.4 LTS support only
+	– Custom DataProcessors to implement pagination API

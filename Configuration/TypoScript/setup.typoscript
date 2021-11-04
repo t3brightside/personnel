@@ -53,7 +53,7 @@ tt_content.personnel_default {
 
 tt_content.personnel_frompages =< tt_content.personnel_default
 tt_content.personnel_frompages {
-    dataProcessing.10 = Brightside\Personnel\DataProcessing\DatabaseCustomQueryProcessor
+    dataProcessing.10 = Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor
     dataProcessing.10 {
         table = tx_personnel_domain_model_person
         selectFields = tx_personnel_domain_model_person.*
@@ -78,7 +78,7 @@ tt_content.personnel_frompages {
 
 tt_content.personnel_selected =< tt_content.personnel_default
 tt_content.personnel_selected {
-    dataProcessing.10 = Brightside\Personnel\DataProcessing\DatabaseCustomQueryProcessor
+    dataProcessing.10 = Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor
     dataProcessing.10 {
         if.isTrue.field = tx_personnel
         table = tx_personnel_domain_model_person

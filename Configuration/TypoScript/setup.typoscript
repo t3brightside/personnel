@@ -74,6 +74,11 @@ tt_content.personnel_selected =< tt_content.personnel_default
 tt_content.personnel_selected {
     dataProcessing.10 = Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor
     dataProcessing.10 {
+        pagination {
+          uniqueId.field = uid
+          isActive.field = tx_personnel_paginate
+          itemsPerPage.field = tx_personnel_paginateitems
+        }
         if.isTrue.field = tx_personnel
         table = tx_personnel_domain_model_person
         pidInList = 0

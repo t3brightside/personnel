@@ -38,11 +38,14 @@ class PersonnelContentElementPreviewRenderer implements PageLayoutViewDrawItemHo
 			if ($row['tx_personnel_information'] == 1) {
 				$itemContent .= '<li>' . $parentObject->linkEditContent('Information: disabled', $row) . '</li>';
 			}
-			if ($row['tx_personnel_paginate'] == 1) {
-				$itemContent .= '<li>' . $parentObject->linkEditContent('Pagination: enabled', $row) . '</li>';
+			if ($row['tx_paginatedprocessors_paginationenabled'] == 1) {
+        		$itemContent .= '<li>' . $parentObject->linkEditContent('Pagination: enabled', $row) . '</li>';
 			}
-			if ($row['tx_personnel_paginateitems'] == 0 && $row['tx_personnel_paginate'] == 1) {
-				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Items per page: ' . $row['tx_pagelist_paginateitems']), $row) . '</li>';
+			if ($row['tx_paginatedprocessors_itemsperpage'] && $row['tx_paginatedprocessors_paginationenabled'] == 1) {
+				$itemContent .= '<li>' . $parentObject->linkEditContent($parentObject->renderText('Items per page: ' . $row['tx_paginatedprocessors_itemsperpage']), $row) . '</li>';
+			}
+			if ($row['tx_pagelist_authors'] > 0) {
+				$itemContent .= '<li>' . $parentObject->linkEditContent('Author filter: active', $row) . '</li>';
 			}
 			$itemContent .= '</ul>';
 			$drawItem = FALSE;

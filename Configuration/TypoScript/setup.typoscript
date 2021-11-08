@@ -77,7 +77,7 @@ tt_content.personnel_selected {
         pagination {
           isActive.field = tx_paginatedprocessors_paginationenabled
           itemsPerPage.field = tx_paginatedprocessors_itemsperpage
-          itemsPerPage.field = tx_personnel_paginateitems
+          uniqueId.field = uid
         }
         if.isTrue.field = tx_personnel
         table = tx_personnel_domain_model_person

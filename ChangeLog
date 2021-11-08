@@ -25,4 +25,6 @@
 	– TYPO3 11.5 LTS support only
 	– Requires t3brightside/paginatedprocessors
 	– Removed pagination CSS and HTML, comes from paginatedprocessors
-	- routeEnhancers to be overlooked see README.txt
+	- Uses tx_paginatedprocessors * fields for items per page and activation
+	- RouteEnhancers to be overlooked see README.txt
+	- in PageTS and main template numbers got changed to meaningful names

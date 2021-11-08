@@ -7,7 +7,7 @@
 	<f:variable name="listImageHeight_x2">{settings.listImageHeight * 2}</f:variable>
 	<f:variable name="tableImageWidth_x2">{settings.tableImageWidth * 2}</f:variable>
 	<f:variable name="tableImageHeight_x2">{settings.tableImageHeight * 2}</f:variable>
-	<f:if condition="{data.tx_personnel_template} == 0">
+	<f:if condition="{data.tx_personnel_template} == cards">
 		<div class="personnel cards template-{data.tx_personnel_template}<f:if condition=" {data.tx_personnel_images}==1"> noimages</f:if>">
 		<f:for each="{personnel}" as="person" iteration="iterator">
 			<f:render partial="Card" arguments="{_all}" />
@@ -17,7 +17,7 @@
 		</f:if>
 	</div>
 	</f:if>
-	<f:if condition="{data.tx_personnel_template} == 1">
+	<f:if condition="{data.tx_personnel_template} == list">
 		<div class="personnel list template-{data.tx_personnel_template}<f:if condition=" {data.tx_personnel_images}==1"> noimages</f:if>">
 	<f:for each="{personnel}" as="person" iteration="iterator">
 		<f:render partial="List" arguments="{_all}" />
@@ -27,7 +27,7 @@
 	</f:if>
 	</div>
 	</f:if>
-	<f:if condition="{data.tx_personnel_template} == 2">
+	<f:if condition="{data.tx_personnel_template} == table">
 		<div class="personnel table template-{data.tx_personnel_template}<f:if condition=" {data.tx_personnel_images}==1"> noimages</f:if>">
 	<table>
 		<tr>

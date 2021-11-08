@@ -45,16 +45,19 @@
 						'multiple' => 0,
 					],
 				],
-				'tx_personnel_template' => [
-					'exclude' => 1,
-					'label'   => 'Template',
-					'config'  => [
-						'type'     => 'select',
-						'renderType' => 'selectSingle',
-						'default' => 0,
-						'items'    => array(), /* items set in page TsConfig */
-					],
-				],
+				'tx_personnel_template' => array(
+	        'exclude' => 1,
+	        'label'   => 'Template',
+	        'config'  => array(
+	          'type'     => 'select',
+	          'renderType' => 'selectSingle',
+	          'default' => 0,
+	          'items'    => array(), /* items set in page TsConfig */
+	          'behaviour' => [
+	            'allowLanguageSynchronization' => true,
+	          ],
+	        ),
+	      ),
 				'tx_personnel_orderby' => array(
 					'exclude' => 1,
 					'label'   => 'Order by',
@@ -92,7 +95,7 @@
 						'size' => '1',
 					],
 				],
-				'tx_personnel_paginateitems' => [
+				'tx_paginatedprocessors_itemsperpage' => [
 					'exclude' => 1,
 					'label' => 'Items per page',
 					'config' => array(
@@ -149,7 +152,7 @@
                 ],
             ]
 				],
-				'tx_personnel_paginate' => [
+				'tx_paginatedprocessors_paginationenabled' => [
 					'exclude' => 1,
 					'label' => 'Pagination',
 					'config' => [
@@ -195,8 +198,8 @@
 				tx_personnel_images,
 				tx_personnel_vcard,
 				tx_personnel_information,
-				tx_personnel_paginate,
-				tx_personnel_paginateitems,
+				tx_paginatedprocessors_paginationenabled,
+				tx_paginatedprocessors_itemsperpage,
 			';
 
 			$GLOBALS['TCA']['tt_content']['types']['personnel_frompages'] = array(
@@ -231,8 +234,8 @@
 				tx_personnel_images,
 				tx_personnel_vcard,
 				tx_personnel_information,
-				tx_personnel_paginate,
-				tx_personnel_paginateitems,
+				tx_paginatedprocessors_paginationenabled,
+				tx_paginatedprocessors_itemsperpage,
 			';
 		}
 	);

@@ -5,8 +5,8 @@ CREATE TABLE tt_content (
 	tx_personnel_vcard int(1) DEFAULT '0' NOT NULL,
 	tx_personnel_information int(1) DEFAULT '0' NOT NULL,
 	tx_personnel_orderby tinytext,
-	tx_personnel_startfrom varchar(25),
-	tx_personnel_limit varchar(25),
+	tx_personnel_startfrom varchar(6),
+	tx_personnel_limit varchar(6),
 );
 
 CREATE TABLE tx_personnel_domain_model_person (

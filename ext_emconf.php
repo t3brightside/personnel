@@ -3,7 +3,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'title' => 'Personnel',
 	'description' => 'Personnel lists with vCard download.',
 	'category' => 'fe',
-	'version' => '2.4.3',
+	'version' => '2.4.2',
 	'state' => 'stable',
 	'uploadfolder' => false,
 	'createDirs' => '',
@@ -16,7 +16,8 @@ $EM_CONF[$_EXTKEY] = array (
 		'depends' =>
 		array (
 			'typo3' => '11.5.0 - 11.5.99',
-			'fluid_styled_content' => '',
+			'fluid_styled_content' => '11.5.0 - 11.5.99',
+			'paginatedprocessors' => '',
 		),
 		'conflicts' =>
 		array (

@@ -15,17 +15,6 @@ tt_content.personnel_default {
     partialRootPaths.10 = EXT:personnel/Resources/Private/Partials/
     partialRootPaths.20 = {$personnel.partialRootPaths}
     templateName = Personnel
-    variables {
-        personnelPaginationItems = COA
-        personnelPaginationItems {
-            5 = TEXT
-            5.value = {$personnel.paginationItems}
-            5.stdWrap.if.isFalse.field = tx_personnel_paginateitems
-            10 = TEXT
-            10.value.field = tx_personnel_paginateitems
-            10.stdWrap.if.isTrue.field = tx_personnel_paginateitems
-        }
-    }
     settings {
         cardImageWidth = {$personnel.cardImageWidth}
         cardImageHeight = {$personnel.cardImageHeight}
@@ -37,7 +26,6 @@ tt_content.personnel_default {
         enableDummyImage = {$personnel.enableDummyImage}
         cardNameWrap = {$personnel.cardNameWrap}
         listNameWrap = {$personnel.listNameWrap}
-        paginationLinks = {$personnel.paginationLinks}
     }
     extbase {
         controllerName = Personnel
@@ -53,8 +41,14 @@ tt_content.personnel_default {
 
 tt_content.personnel_frompages =< tt_content.personnel_default
 tt_content.personnel_frompages {
-    dataProcessing.10 = Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor
+#    dataProcessing.10 = Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor
+    dataProcessing.10 = Brightside\Paginatedprocessors\DataProcessing\PaginatedDatabaseQueryProcessor
     dataProcessing.10 {
+        pagination {
+          uniqueId.field = uid
+          isActive.field = tx_personnel_paginate
+          itemsPerPage.field = tx_personnel_paginateitems
+        }
         table = tx_personnel_domain_model_person
         selectFields = tx_personnel_domain_model_person.*
         pidInList.field = pages

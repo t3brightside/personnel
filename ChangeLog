@@ -21,7 +21,7 @@
 	– Fix demo link in README
 	– Basic usage explanation
 	– Remove jQuery breakpoints option for cards and leave Vanilla only
-* 2.5.0 (NOTE! BREAKING CHANGES)
+* 3.0.0 (NOTE! BREAKING CHANGES)
 	– TYPO3 11.5 LTS support only
 	– Requires t3brightside/paginatedprocessors
 	– Removed pagination CSS and HTML, comes from paginatedprocessors

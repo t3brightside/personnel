@@ -21,6 +21,9 @@
 	– Fix demo link in README
 	– Basic usage explanation
 	– Remove jQuery breakpoints option for cards and leave Vanilla only
-* 2.4.3 (NOTE! POSSIBLE BREAKING CHANGES)
-  – TYPO3 11.4 LTS support only
-	– Custom DataProcessors to implement pagination API
+* 2.5.0 (NOTE! BREAKING CHANGES)
+	– TYPO3 11.5 LTS support only
+	– Requires t3brightside/paginatedprocessors
+	– Removed pagination CSS and HTML, comes from paginatedprocessors
+	- routeEnhancers to be overlooked on updating see README.txt
+	– Locallang to XLF

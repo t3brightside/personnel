@@ -5,32 +5,55 @@
 [![Brightside](https://img.shields.io/badge/by-t3brightside.com-orange.svg?style=flat)](https://t3brightside.com)
 
 **TYPO3 CMS extension for personnel list with vCard support.**
+List of people from pages or individual records.
+**[Demo](https://microtemplate.t3brightside.com/)**
 
-**[Front-end Demo](https://microtemplate.t3brightside.com/)**
-
-## System requirements
-
-- TYPO3 8.7 LTS, since 2.1.0 9.5 LTS & 10.4 LTS
-- fluid_styled_content
-
-## Features
+### Features
 - List of persons from pages
 - List of selected persons
 - Sort by
+- Pagination with items per page and unique to the content element with [paginatedprocessors](https://github.com/t3brightside/paginatedprocessors)
 - Disable from back end: images, vCard link, extra information
 - Base templates for cards, list and table
 - Easy to add custom templates
 
-## Installation
-- Install from TER: **personnel** or Composer: **t3brightside/personnel**
-- Add static template
-- Change settings in "Extension Configuration" section
+### System requirements
+- TYPO3 8.7 – 11.5 LTS
+- fluid_styled_content
+- paginatedprocessors
 
-## Usage
+### Installation
+- **composer req t3brightside/personnel** or from TYPO3 extension repository **[personnel](https://extensions.typo3.org/extension/personnel/)**
+- Add static template
+- Enable page types etc. in "Extension Configuration"
+
+### Usage
 - Create personnel records in a Page/Sysfolder
 - Add desired content element and point to the Page/Sysfolder or individual records
 
-## routeEnhancers:
+#### Add custom template
+**TypoScript**
+Check the constant editor.
+
+**PageTS**
+```typoscript
+TCEFORM.tt_content.tx_personnel_template.addItems {
+  minilist = Mini List
+}
+```
+
+**Fluid**
+Add new section wheres IF condition determines template name 'minilist' to: _Resources/Private/Templates/Personnel.html_
+```xml
+<f:if condition="{data.tx_personnel_template} == minilist">
+  <f:for each="{personnel}" as="person" iteration="iterator">
+    <f:render partial="Minilist" arguments="{_all}"/>
+  </f:for>
+</f:if>
+```
+Create new partial: _Resources/Private/Partials/Minilist.html_
+
+#### routeEnhancers
 For the pagination routing check [t3brightside/paginatedprocessors](https://github.com/t3brightside/paginatedprocessors#readme)
 ```
 PersonnelVcard:
@@ -54,46 +77,5 @@ PageTypeSuffix:
     vcard.vcf: 888
 ```
 
-## Admin
-
-### Add custom template
-
-**PageTS**
-
-Add new template number '3' and name it:
-```typoscript
-TCEFORM.tt_content.tx_personnel_template.addItems {
-  3 = My New Template
-}
-```
-
-**TypoScript**
-
-Change constants if needed:
-```typoscript
-personnel.styles = EXT:personnel/Resources/Public/Styles/personnel.css
-personnel.templateRootPaths = EXT:personnel/Resources/Private/Templates/
-personnel.partialRootPaths = EXT:personnel/Resources/Private/Partials/
-personnel.vCard.templateRootPaths = EXT:personnel/Resources/Private/Templates/
-personnel.vCard.CompanyName = Example Company Ltd.
-
-```
-
-**Fluid**
-
-Add new section wheres IF condition determines template nr '2' to: _Resources/Private/Templates/Personnel.html_
-```xml
-<f:if condition="{data.tx_personnel_template} == 3">
-  <f:for each="{personnel}" as="person" iteration="iterator">
-    <f:render partial="MyNewPartial" arguments="{_all}"/>
-  </f:for>
-</f:if>
-```
-Create new partial: _Resources/Private/Partials/MyNewPartial.html_
-
-Development and maintenance
----------------------------
-
-[Brightside OÜ – TYPO3 development and hosting specialised web agency][ab26eed2]
-
-  [ab26eed2]: https://t3brightside.com/ "TYPO3 development and hosting specialised web agency"
+### Development & maintenance
+[Brightside OÜ – TYPO3 development and hosting specialised web agency](https://t3brightside.com/)

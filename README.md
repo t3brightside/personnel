@@ -1,6 +1,7 @@
 # Personnel
+[![Software License](https://img.shields.io/badge/license-GPLv2-brightgreen.svg?style=flat)](LICENSE.txt)
 [![Packagist](https://img.shields.io/packagist/v/t3brightside/personnel.svg?style=flat)](https://packagist.org/packages/t3brightside/personnel)
-[![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat)](LICENSE)
+[![Downloads](https://poser.pugx.org/t3brightside/personnel/downloads)](https://packagist.org/packages/t3brightside/personnel)
 [![Brightside](https://img.shields.io/badge/by-t3brightside.com-orange.svg?style=flat)](https://t3brightside.com)
 
 **TYPO3 CMS extension for personnel list with vCard support.**
@@ -30,16 +31,8 @@
 - Add desired content element and point to the Page/Sysfolder or individual records
 
 ## routeEnhancers:
+For the pagination routing check [t3brightside/paginatedprocessors](https://github.com/t3brightside/paginatedprocessors#readme)
 ```
-PersonnelPagination:
-  type: Plugin
-  routePath: '/persons/{@widget_0/currentPage}'
-  namespace: 'tx_personnel_personnel'
-  aspects:
-    '@widget_0/currentPage':
-      type: StaticRangeMapper
-      start: '1'
-      end: '999'
 PersonnelVcard:
   type: Simple
   limitToPages:

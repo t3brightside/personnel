@@ -5,7 +5,7 @@
   "version": "2.4.2",
   "keywords": ["TYPO3", "vCard", "personnel"],
   "homepage": "https://github.com/t3brightside/personnel/",
-  "license": "GPL-3.0+",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "Tanel Põld",

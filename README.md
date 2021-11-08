@@ -28,6 +28,7 @@ v2.5 see the [ChangeLog](ChangeLog)
 ### Installation
 - **composer req t3brightside/personnel** or from TYPO3 extension repository **[personnel](https://extensions.typo3.org/extension/personnel/)**
 - Add static template
+- Include static template for Paginatedprocessors
 - Enable page types etc. in "Extension Configuration"
 
 ### Usage

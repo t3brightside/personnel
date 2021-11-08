@@ -13,23 +13,22 @@
 			<f:render partial="Card" arguments="{_all}" />
 		</f:for>
 		<f:if condition="{pagination.numberOfPages} > 1">
-			<f:render partial="Pagination" arguments="{_all}" />
+		<f:render partial="Pagination" arguments="{pagination:pagination}" />
 		</f:if>
 	</div>
 	</f:if>
 	<f:if condition="{data.tx_personnel_template} == 1">
 		<div class="personnel list template-{data.tx_personnel_template}<f:if condition=" {data.tx_personnel_images}==1"> noimages</f:if>">
-	<f:for each="{paginatedPersons}" as="person" iteration="iterator">
+	<f:for each="{personnel}" as="person" iteration="iterator">
 		<f:render partial="List" arguments="{_all}" />
 	</f:for>
 	<f:if condition="{pagination.numberOfPages} > 1">
-		<f:render partial="Pagination" arguments="{_all}" />
+		<f:render partial="Pagination" arguments="{pagination:pagination}" />
 	</f:if>
 	</div>
 	</f:if>
 	<f:if condition="{data.tx_personnel_template} == 2">
-		<div class="personnel table template-{data.tx_personnel_template}<f:if condition=" {data.tx_personnel_images}==1"> noimages
-	</f:if>">
+		<div class="personnel table template-{data.tx_personnel_template}<f:if condition=" {data.tx_personnel_images}==1"> noimages</f:if>">
 	<table>
 		<tr>
 			<f:if condition="{data.tx_personnel_images} == 0">
@@ -43,12 +42,12 @@
 				<th>vCard</th>
 			</f:if>
 		</tr>
-		<f:for each="{paginatedPersons}" as="person" iteration="iterator">
+		<f:for each="{personnel}" as="person" iteration="iterator">
 			<f:render partial="Table" arguments="{_all}" />
 		</f:for>
 	</table>
 	<f:if condition="{pagination.numberOfPages} > 1">
-		<f:render partial="Pagination" arguments="{_all}" />
+		<f:render partial="Pagination" arguments="{pagination:pagination}" />
 	</f:if>
 	</div>
 	</f:if>

@@ -30,9 +30,11 @@ $tx_personnel_domain_model_person = [
     'iconfile' => 'EXT:personnel/Resources/Public/Images/Icons/mimetypes-x-content-personnel.svg',
     'searchFields' => 'uid,firstname,lastname,email,phone,profession,info',
   ],
+  /*
   'interface' => [
     'showRecordFieldList' => 'cruser_id,pid,sys_language_uid,l10n_parent,l10n_diffsource,hidden,starttime,endtime,fe_group,title,firstname,lastname,profession,phone,email,images,info'
   ],
+  */
 	'types' => array(
 		'0' => array(
       'showitem' => '
@@ -77,7 +79,7 @@ $tx_personnel_domain_model_person = [
       'exclude' => 1,
       'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
       'config' => [
-        'type' => 'select',
+        'type' => 'language',
         'renderType' => 'selectSingle',
         'special' => 'languages',
         'items' => [
@@ -90,6 +92,7 @@ $tx_personnel_domain_model_person = [
         'default' => 0,
       ]
     ],
+    /*
     'l10n_parent' => [
       'displayCond' => 'FIELD:sys_language_uid:>:0',
       'exclude' => 1,
@@ -105,6 +108,7 @@ $tx_personnel_domain_model_person = [
         'default' => 0,
       ]
     ],
+    */
     'l10n_diffsource' => [
       'config' => [
         'type' => 'passthrough',

@@ -1,6 +1,5 @@
 <?php
 	defined('TYPO3_MODE') || die('Access denied.');
-	use \TYPO3\CMS\Core\Utility\VersionNumberUtility;
 
 	$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['personnel_selected'] =  'mimetypes-x-content-personnel';
 	$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['personnel_frompages'] =  'mimetypes-x-content-personnel';
@@ -64,9 +63,9 @@
 					  'renderType' => 'selectSingle',
 						'default' => 0,
 						'items' => array(
-			      			array('Manual (default)', '0'),
+			      	array('Manual (default)', '0'),
 							array('By the sort order', 'sorting ASC'),
-				    		array('Lastname (a → z)', 'lastname ASC'),
+				    	array('Lastname (a → z)', 'lastname ASC'),
 							array('Lastname (z → a)', 'lastname DESC'),
 							array('First name (a → z)', 'firstname ASC'),
 							array('First name (z → a)', 'firstname DESC'),
@@ -103,116 +102,69 @@
 					),
 				],
 			);
-			if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) <= 8007999) {
-				$tempColumnsCheck = array(
-					'tx_personnel_images' => [
-						'exclude' => 1,
-						'label' => 'Images',
-						'config' => [
-							 'type' => 'check',
-							 'renderType' => 'check',
-							 'items' => [
-								 ['Disabled', '1'],
-							 ],
-						],
-					],
-					'tx_personnel_vcard' => [
-						'exclude' => 1,
-						'label' => 'vCard download',
-						'config' => [
-							 'type' => 'check',
-							 'renderType' => 'check',
-							 'items' => [
-								 ['Disabled', '1'],
-							 ],
-						],
-					],
-					'tx_personnel_information' => [
-						'exclude' => 1,
-						'label' => 'Information',
-						'config' => [
-							 'type' => 'check',
-							 'renderType' => 'check',
-							 'items' => [
-								 ['Disabled', '1'],
-							 ],
-						],
-					],
-					'tx_personnel_paginate' => [
-						'exclude' => 1,
-						'label' => 'Pagination',
-						'config' => [
-							 'type' => 'check',
-							 'renderType' => 'check',
-							 'items' => [
-								 ['Enabled', '1'],
-							 ],
-						],
-					],
-				);
-			} else {
-				$tempColumnsCheck = array(
-					'tx_personnel_images' => [
-						'exclude' => 1,
-						'label' => 'Images',
-						'config' => [
-			                'type' => 'check',
-			                'renderType' => 'checkboxToggle',
-			                'items' => [
-			                    [
-			                        0 => '',
-			                        1 => '',
-			                        'invertStateDisplay' => true
-			                    ]
-			                ],
-			            ]
-					],
-					'tx_personnel_vcard' => [
-						'exclude' => 1,
-						'label' => 'vCard download',
-						'config' => [
-			                'type' => 'check',
-			                'renderType' => 'checkboxToggle',
-			                'items' => [
-			                    [
-			                        0 => '',
-			                        1 => '',
-			                        'invertStateDisplay' => true
-			                    ]
-			                ],
-			            ]
-					],
-					'tx_personnel_information' => [
-						'exclude' => 1,
-						'label' => 'Information',
-						'config' => [
-			                'type' => 'check',
-			                'renderType' => 'checkboxToggle',
-			                'items' => [
-			                    [
-			                        0 => '',
-			                        1 => '',
-			                        'invertStateDisplay' => true
-			                    ]
-			                ],
-			            ]
-					],
-					'tx_personnel_paginate' => [
-						'exclude' => 1,
-						'label' => 'Pagination',
-						'config' => [
-			                'type' => 'check',
-			                'renderType' => 'checkboxToggle',
-			                'items' => [
-			                    [
-			                        0 => '',
-			                        1 => '',
-			                    ]
-			                ],
-			            ]
-					],
-				);
-			}
+
+			$tempColumnsCheck = array(
+				'tx_personnel_images' => [
+					'exclude' => 1,
+					'label' => 'Images',
+					'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
+            ]
+				],
+				'tx_personnel_vcard' => [
+					'exclude' => 1,
+					'label' => 'vCard download',
+					'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
+            ]
+				],
+				'tx_personnel_information' => [
+					'exclude' => 1,
+					'label' => 'Information',
+					'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
+            ]
+				],
+				'tx_personnel_paginate' => [
+					'exclude' => 1,
+					'label' => 'Pagination',
+					'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
+                ],
+            ]
+				],
+			);
+
 			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
 			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumnsCheck);
 

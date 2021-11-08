@@ -62,7 +62,6 @@ use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
  * Could not get image resource for "NonExistingImage.png".
  * </output>
  */
-#class ImageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper
 class ImageViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper
 {
     /**

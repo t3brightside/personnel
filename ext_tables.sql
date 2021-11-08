@@ -7,8 +7,6 @@ CREATE TABLE tt_content (
 	tx_personnel_orderby tinytext,
 	tx_personnel_startfrom varchar(25),
 	tx_personnel_limit varchar(25),
-	tx_personnel_paginate int(1) DEFAULT '0' NOT NULL,
-	tx_personnel_paginateitems varchar(25),
 );
 
 CREATE TABLE tx_personnel_domain_model_person (

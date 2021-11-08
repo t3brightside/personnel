@@ -25,5 +25,4 @@
 	– TYPO3 11.5 LTS support only
 	– Requires t3brightside/paginatedprocessors
 	– Removed pagination CSS and HTML, comes from paginatedprocessors
-	- routeEnhancers to be overlooked on updating see README.txt
-	– Locallang to XLF
+	- routeEnhancers to be overlooked see README.txt

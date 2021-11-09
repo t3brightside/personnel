@@ -30,7 +30,7 @@
                     'pages',
                     '--palette--;Personnel;personnelcontact',
                     '1',
-                    'after:description'
+                    'after:lastUpdated'
                 );
                 $GLOBALS['TCA']['pages']['palettes']['personnelcontact']['showitem'] = '
                     tx_personnel_authors,

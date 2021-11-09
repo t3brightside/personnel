@@ -1,5 +1,5 @@
 <?php
-$EM_CONF[$_EXTKEY] = array (
+$EM_CONF[$_EXTKEY] = [
 	'title' => 'Personnel',
 	'description' => 'Personnel lists with vCard download.',
 	'category' => 'fe',
@@ -13,10 +13,7 @@ $EM_CONF[$_EXTKEY] = array (
 		'depends' => [
 			'typo3' => '11.5.0 - 11.5.99',
 			'fluid_styled_content' => '11.5.0 - 11.5.99',
-			'paginatedprocessors' => '1.0.0 - 1.0.99',
+			'paginatedprocessors' => '1.0.0 - 1.99.99',
 		],
-		'autoload' => [
-        'classmap' => ['Classes'],
-    ],
 	],
 ];

@@ -16,4 +16,9 @@ $EM_CONF[$_EXTKEY] = [
 			'paginatedprocessors' => '1.0.0 - 1.99.99',
 		],
 	],
+	'autoload' => [
+		 'psr-4' => [
+				'Brightside\\Personnel\\' => 'Classes'
+		 ]
+	],
 ];

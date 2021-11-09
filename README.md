@@ -9,7 +9,7 @@ List of people from pages or individual records.
 **[Demo](https://microtemplate.t3brightside.com/)**
 
 ### Breaking Changes
-v2.5 see the [ChangeLog](ChangeLog)
+**v3.0.0** see the [ChangeLog](ChangeLog)
 
 ### Features
 - List of persons from pages

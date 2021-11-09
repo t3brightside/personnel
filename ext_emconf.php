@@ -5,8 +5,6 @@ $EM_CONF[$_EXTKEY] = array (
 	'category' => 'fe',
 	'version' => '3.0.0',
 	'state' => 'stable',
-	'uploadfolder' => false,
-	'createDirs' => '',
 	'clearcacheonload' => true,
 	'author' => 'Tanel Põld, Nikolay Orlenko',
 	'author_email' => 'tanel@brightside.ee',
@@ -17,13 +15,7 @@ $EM_CONF[$_EXTKEY] = array (
 		array (
 			'typo3' => '11.5.0 - 11.5.99',
 			'fluid_styled_content' => '11.5.0 - 11.5.99',
-			'paginatedprocessors' => '',
-		),
-		'conflicts' =>
-		array (
-		),
-		'suggests' =>
-		array (
+			'paginatedprocessors' => '1.0.0 - 1.0.99',
 		),
 	),
 	'autoload' =>

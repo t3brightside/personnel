@@ -21,10 +21,14 @@
 	– Fix demo link in README
 	– Basic usage explanation
 	– Remove jQuery breakpoints option for cards and leave Vanilla only
-* 3.0.0 (NOTE! BREAKING CHANGES)
-	– TYPO3 11.5 LTS support only
-	– Requires t3brightside/paginatedprocessors
-	– Removed pagination CSS and HTML, comes from paginatedprocessors
-	- Uses tx_paginatedprocessors * fields for items per page and activation
-	- RouteEnhancers to be overlooked see README.txt
-	- in PageTS and main template numbers got changed to meaningful names
+* 3.0.0
+	– TYPO3 11.5 support only
+	– BREAKING CHANGES
+		– No more pagination widget but requires t3brightside/paginatedprocessors
+		– Removed paginator CSS, default can be activated from paginatedprocessors
+		– Changes in pagination XML in Templates/Personnel.html
+		- RouteEnhancers for pagination to be overlooked see README.txt
+		- In PageTS and Templates/Personnel.html template numbers are changed to meaningful names
+		– SQL to migrate yourself:
+			– tx_personnel_pagination to tx_paginatedprocessors_paginationenabled
+			– tx_personnel_paginateitems to tx_paginatedprocessors_itemsperpage

@@ -1,5 +1,5 @@
 # Personnel
-[![Software License](https://img.shields.io/badge/license-GPLv2-brightgreen.svg?style=flat)](LICENSE.txt)
+[![License](https://poser.pugx.org/t3brightside/personnel/license)](LICENSE.txt)
 [![Packagist](https://img.shields.io/packagist/v/t3brightside/personnel.svg?style=flat)](https://packagist.org/packages/t3brightside/personnel)
 [![Downloads](https://poser.pugx.org/t3brightside/personnel/downloads)](https://packagist.org/packages/t3brightside/personnel)
 [![Brightside](https://img.shields.io/badge/by-t3brightside.com-orange.svg?style=flat)](https://t3brightside.com)
@@ -8,10 +8,10 @@
 List of people from pages or individual records.
 **[Demo](https://microtemplate.t3brightside.com/)**
 
-### Breaking Changes
+## Breaking Changes
 **v3.0.0** see the [ChangeLog](ChangeLog)
 
-### Features
+## Features
 - List of persons from pages
 - List of selected persons
 - Sort by
@@ -20,22 +20,22 @@ List of people from pages or individual records.
 - Base templates for cards, list and table
 - Easy to add custom templates
 
-### System requirements
+## System requirements
 - TYPO3 8.7 – 11.5 LTS
 - fluid_styled_content
 - paginatedprocessors
 
-### Installation
+## Installation
 - **composer req t3brightside/personnel** or from TYPO3 extension repository **[personnel](https://extensions.typo3.org/extension/personnel/)**
 - Add static template
 - Include static template for Paginatedprocessors
 - Enable page types etc. in "Extension Configuration"
 
-### Usage
+## Usage
 - Create personnel records in a Page/Sysfolder
 - Add desired content element and point to the Page/Sysfolder or individual records
 
-#### Add custom template
+### Add custom template
 **TypoScript**
 Check the constant editor.
 
@@ -57,7 +57,7 @@ Add new section wheres IF condition determines template name 'minilist' to: _Res
 ```
 Create new partial: _Resources/Private/Partials/Minilist.html_
 
-#### routeEnhancers
+### routeEnhancers
 For the pagination routing check [t3brightside/paginatedprocessors](https://github.com/t3brightside/paginatedprocessors#readme)
 ```
 PersonnelVcard:
@@ -81,5 +81,5 @@ PageTypeSuffix:
     vcard.vcf: 888
 ```
 
-### Development & maintenance
+## Development & maintenance
 [Brightside OÜ – TYPO3 development and hosting specialised web agency](https://t3brightside.com/)

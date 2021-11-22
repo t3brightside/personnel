@@ -34,7 +34,7 @@
 			$tempColumns = array(
 		    'tx_personnel' => [
 					'exclude' => 1,
-					'label' => 'Selected records or pages',
+					'label' => 'Selected Persons',
 					'config' => [
 						'type' => 'group',
 						'internal_type' => 'db',
@@ -79,7 +79,7 @@
 				),
 				'tx_personnel_startfrom' => [
 					'exclude' => 1,
-					'label' => 'Start from item',
+					'label' => 'Start from Person',
 					'config' => [
 						'type' => 'input',
 						'eval' => 'num',
@@ -88,25 +88,13 @@
 				],
 				'tx_personnel_limit' => [
 					'exclude' => 1,
-					'label' => 'Items shown',
+					'label' => 'Persons Shown',
 					'config' => [
 						'type' => 'input',
 						'eval' => 'num',
 						'size' => '1',
 					],
 				],
-				'tx_paginatedprocessors_itemsperpage' => [
-					'exclude' => 1,
-					'label' => 'Items per page',
-					'config' => array(
-						'type' => 'input',
-						'eval' => 'num,trim',
-						'size' => '1',
-					),
-				],
-			);
-
-			$tempColumnsCheck = array(
 				'tx_personnel_images' => [
 					'exclude' => 1,
 					'label' => 'Images',
@@ -124,7 +112,7 @@
 				],
 				'tx_personnel_vcard' => [
 					'exclude' => 1,
-					'label' => 'vCard download',
+					'label' => 'vCard Download',
 					'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -152,90 +140,53 @@
                 ],
             ]
 				],
-				'tx_paginatedprocessors_paginationenabled' => [
-					'exclude' => 1,
-					'label' => 'Pagination',
-					'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        0 => '',
-                        1 => '',
-                    ]
-                ],
-            ]
-				],
 			);
 
 			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumnsCheck);
 
-			$GLOBALS['TCA']['tt_content']['types']['personnel_selected'] = array(
-				'showitem' => '
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-			        	--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
-			        	--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,tx_personnel,
-			        	--palette--;;personnelSettings,
-					--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
-						--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
-						--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-						--palette--;;language,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-						--palette--;;hidden,
-						--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,categories,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,rowDescription,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-					--div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
-		    	'
+			$GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['header']['showitem'];
+			$GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = str_replace(
+					';headers,',
+					';headers,
+					--palette--;Data;personnelSelectedData,
+					--palette--;Layout;personnelLayout,
+					--palette--;Pagination;paginatedprocessors,',
+					$GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem']
 			);
 
-			$GLOBALS['TCA']['tt_content']['palettes']['personnelSettings']['showitem'] = '
-				tx_personnel_template,
+			$GLOBALS['TCA']['tt_content']['palettes']['personnelSelectedData']['showitem'] = '
+			  tx_personnel,
+				--linebreak--,
+				tx_personnel_orderby,
+				tx_personnel_startfrom,
 				tx_personnel_limit,
-				tx_personnel_images,
-				tx_personnel_vcard,
-				tx_personnel_information,
-				tx_paginatedprocessors_paginationenabled,
-				tx_paginatedprocessors_itemsperpage,
 			';
 
-			$GLOBALS['TCA']['tt_content']['types']['personnel_frompages'] = array(
-				'showitem' => '
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-						--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
-						--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,pages,
-						--palette--;;personnelSettings,
-						selected_categories;Category Filter,
-					--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
-						--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
-						--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
-					--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.accessibility,
-						--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.menu_accessibility;menu_accessibility,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-						--palette--;;language,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-						--palette--;;hidden,
-						--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,categories,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,rowDescription,
-					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-					--div--;LLL:EXT:gridelements/Resources/Private/Language/locallang_db.xlf:gridElements, tx_gridelements_container, tx_gridelements_columns
-		    	'
+			$GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['header']['showitem'];
+			$GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem'] = str_replace(
+					';headers,',
+					';headers,
+					--palette--;Data;personnelFrompagesData,
+					--palette--;Layout;personnelLayout,
+					--palette--;Filter;personnelFilters,
+					--palette--;Pagination;paginatedprocessors,',
+					$GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem']
 			);
-
-			$GLOBALS['TCA']['tt_content']['palettes']['personnelSettings']['showitem'] = '
-				tx_personnel_template,
+			$GLOBALS['TCA']['tt_content']['palettes']['personnelFrompagesData']['showitem'] = '
+				pages,
+				--linebreak--,
 				tx_personnel_orderby,
-				tx_personnel_limit,
 				tx_personnel_startfrom,
+				tx_personnel_limit,
+			';
+			$GLOBALS['TCA']['tt_content']['palettes']['personnelFilters']['showitem'] = '
+				selected_categories;by Category,
+			';
+			$GLOBALS['TCA']['tt_content']['palettes']['personnelLayout']['showitem'] = '
+				tx_personnel_template,
 				tx_personnel_images,
-				tx_personnel_vcard,
 				tx_personnel_information,
-				tx_paginatedprocessors_paginationenabled,
-				tx_paginatedprocessors_itemsperpage,
+				tx_personnel_vcard,
 			';
 		}
 	);

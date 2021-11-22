@@ -45,9 +45,13 @@ tt_content.personnel_frompages {
     dataProcessing.10 = Brightside\Paginatedprocessors\DataProcessing\PaginatedDatabaseQueryProcessor
     dataProcessing.10 {
         pagination {
-          uniqueId.field = uid
           isActive.field = tx_paginatedprocessors_paginationenabled
-          itemsPerPage.field = tx_paginatedprocessors_itemsperpage
+          uniqueId.field = uid
+          uniqueId.override.field = tx_paginatedprocessors_urlsegment
+          itemsPerPage = 10
+          itemsPerPage.override.field = tx_paginatedprocessors_itemsperpage
+          pageLinksShown = 5
+          pageLinksShown.override.field = tx_paginatedprocessors_pagelinksshown
         }
         table = tx_personnel_domain_model_person
         selectFields = tx_personnel_domain_model_person.*
@@ -76,8 +80,12 @@ tt_content.personnel_selected {
     dataProcessing.10 {
         pagination {
           isActive.field = tx_paginatedprocessors_paginationenabled
-          itemsPerPage.field = tx_paginatedprocessors_itemsperpage
           uniqueId.field = uid
+          uniqueId.override.field = tx_paginatedprocessors_urlsegment
+          itemsPerPage = 10
+          itemsPerPage.override.field = tx_paginatedprocessors_itemsperpage
+          pageLinksShown = 5
+          pageLinksShown.override.field = tx_paginatedprocessors_pagelinksshown
         }
         if.isTrue.field = tx_personnel
         table = tx_personnel_domain_model_person

@@ -1,34 +1,39 @@
 * 2.2.1
-	– Add absolute URLs to vCard base64 images
+	- Add absolute URLs to vCard base64 images
 * 2.2.2
-	– Add xing.com and linkedin.com link fields
-	– Add utf-8 charset for Outlook
+	- Add xing.com and linkedin.com link fields
+	- Add utf-8 charset for Outlook
 * 2.2.3
-	– Add img srcset x2
+	- Add img srcset x2
 * 2.3.0
-	– Add category filter
-	– Add limit and start from fields
+	- Add category filter
+	- Add limit and start from fields
 * 2.3.1
-	– Add exclude for all fields for better user rights control
+	- Add exclude for all fields for better user rights control
 * 2.3.2
-	– Add 'noimages' classes to template
-	– Add 'Field of Responsibility'
+	- Add 'noimages' classes to template
+	- Add 'Field of Responsibility'
 * 2.4.0
-	– TYPO3 10 LTS compatibility
+	- TYPO3 10 LTS compatibility
 * 2.4.1
-	– Fix vCard image issues
+	- Fix vCard image issues
 * 2.4.2
-	– Fix demo link in README
-	– Basic usage explanation
-	– Remove jQuery breakpoints option for cards and leave Vanilla only
+	- Fix demo link in README
+	- Basic usage explanation
+	- Remove jQuery breakpoints option for cards and leave Vanilla only
 * 3.0.0
-	– TYPO3 11.5 support only
-	– BREAKING CHANGES
-		– No more pagination widget but requires t3brightside/paginatedprocessors
-		– Removed paginator CSS, default can be activated from paginatedprocessors
-		– Changes in pagination XML in Templates/Personnel.html
+	- TYPO3 11.5 support only
+	- BREAKING CHANGES
+		- No more pagination widget but requires t3brightside/paginatedprocessors
+		- Removed paginator CSS, default can be activated from paginatedprocessors
+		- Changes in pagination XML in Templates/Personnel.html
 		- RouteEnhancers for pagination to be overlooked see README.txt
 		- In PageTS and Templates/Personnel.html template numbers are changed to meaningful names
-		– SQL to migrate yourself:
-			– tx_personnel_pagination to tx_paginatedprocessors_paginationenabled
-			– tx_personnel_paginateitems to tx_paginatedprocessors_itemsperpage
+		- SQL to migrate yourself:
+			- tx_personnel_pagination to tx_paginatedprocessors_paginationenabled
+			- tx_personnel_paginateitems to tx_paginatedprocessors_itemsperpage
+* 3.1.0
+	- Code clean up
+	- Add URL segment field to pagination settings (check your TS template if customised)
+	- Use DataToPaginatedData::getPaginatedData from paginatedprocessors for selected person records
+	- Option to disable pagination in extension configuration

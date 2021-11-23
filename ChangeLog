@@ -37,3 +37,4 @@
 	- Add URL segment field to pagination settings (check your TS template if customised)
 	- Use DataToPaginatedData::getPaginatedData from paginatedprocessors for selected person records
 	- Option to disable pagination in extension configuration
+    - Set default template in PageTS

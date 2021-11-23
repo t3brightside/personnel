@@ -1,2 +1,4 @@
 # cat=basic/enable; type=options[Disabled=0,Enabled=1]; label=Enable as author for pages
 personnelEnableAuthors = 0
+# cat=basic/enable; type=options[Disabled=0,Enabled=1]; label=Enable pagination
+personnelEnablePagination = 1

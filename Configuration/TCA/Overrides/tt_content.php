@@ -11,30 +11,29 @@ $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 );
 $extensionConfiguration = $extensionConfiguration->get('personnel');
 
-array_splice(
-    $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'],
-    6,
-    0,
-    array(
-        array(
-            'Personnel: selected',
-            'personnel_selected',
-            'mimetypes-x-content-personnel'
-        ),
-
-    )
+// Content element type dropdown
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    "tt_content",
+    "CType",
+    [
+        'Personnel: selected',
+        'personnel_selected',
+        'mimetypes-x-content-personnel'
+    ],
+    'textmedia',
+    'after'
 );
-array_splice(
-    $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'],
-    6,
-    0,
-    array(
-        array(
-            'Personnel: from pages',
-            'personnel_frompages',
-            'mimetypes-x-content-personnel'
-        ),
-    )
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    "tt_content",
+    "CType",
+    [
+        'Personnel: from pages',
+        'personnel_frompages',
+        'mimetypes-x-content-personnel'
+    ],
+    'textmedia',
+    'after'
 );
 
 $tempColumns = array(

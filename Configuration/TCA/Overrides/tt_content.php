@@ -150,14 +150,6 @@ $tempColumns = array(
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
 
-$GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['header']['showitem'];
-$GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = str_replace(
-    ';headers,',
-    ';headers,
-	--palette--;Data;personnelSelectedData,
-	--palette--;Layout;personnelLayout,',
-    $GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem']
-);
 $GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
         --palette--;;general,

@@ -2,7 +2,7 @@
 
 defined('TYPO3_MODE') || die('Access denied.');
 
-$tx_personnel_domain_model_person = [
+return [
     'ctrl' => [
         'title' => 'Personnel',
         'label' => 'lastname',
@@ -178,16 +178,16 @@ $tx_personnel_domain_model_person = [
                 'maxitems' => 20,
                 'items' => [
                     [
-                    'LLL:EXT:lang/locallang_general.xlf:LGL.hide_at_login',
-                    -1,
+                        'LLL:EXT:lang/locallang_general.xlf:LGL.hide_at_login',
+                        -1,
                     ],
                     [
-                    'LLL:EXT:lang/locallang_general.xlf:LGL.any_login',
-                    -2,
+                        'LLL:EXT:lang/locallang_general.xlf:LGL.any_login',
+                        -2,
                     ],
                     [
-                    'LLL:EXT:lang/locallang_general.xlf:LGL.usergroups',
-                    '--div--',
+                        'LLL:EXT:lang/locallang_general.xlf:LGL.usergroups',
+                        '--div--',
                     ],
                 ],
                 'exclusiveKeys' => '-1,-2',
@@ -391,4 +391,3 @@ $tx_personnel_domain_model_person = [
         ],
     ],
 ];
-return $tx_personnel_domain_model_person;

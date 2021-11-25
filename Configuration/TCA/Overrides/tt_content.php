@@ -158,6 +158,26 @@ $GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = str_r
 	--palette--;Layout;personnelLayout,',
     $GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem']
 );
+$GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --palette--;;general,
+        --palette--;;headers,
+        --palette--;Data;personnelSelectedData,
+    	--palette--;Layout;personnelLayout,
+    --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+        --palette--;;frames,
+        --palette--;;appearanceLinks,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+        --palette--;;language,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+        --palette--;;hidden,
+        --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+        categories,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+        rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+';
 if ($extensionConfiguration['personnelEnablePagination']) {
     $GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = str_replace(
         ';personnelLayout,',
@@ -167,15 +187,27 @@ if ($extensionConfiguration['personnelEnablePagination']) {
     );
 }
 
-$GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem'] = $GLOBALS['TCA']['tt_content']['types']['header']['showitem'];
-$GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem'] = str_replace(
-    ';headers,',
-    ';headers,
-	--palette--;Data;personnelFrompagesData,
-	--palette--;Layout;personnelLayout,
-	--palette--;Filter;personnelFilters,',
-    $GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem']
-);
+$GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem'] = '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --palette--;;general,
+        --palette--;;headers,
+        --palette--;Data;personnelFrompagesData,
+    	--palette--;Layout;personnelLayout,
+    	--palette--;Filter;personnelFilters,
+    --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+        --palette--;;frames,
+        --palette--;;appearanceLinks,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+        --palette--;;language,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+        --palette--;;hidden,
+        --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+        categories,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+        rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+';
 if ($extensionConfiguration['personnelEnablePagination']) {
     $GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem'] = str_replace(
         ';personnelFilters,',

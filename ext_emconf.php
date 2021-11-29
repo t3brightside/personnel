@@ -3,7 +3,7 @@ $EM_CONF[$_EXTKEY] = [
 	'title' => 'Personnel',
 	'description' => 'Personnel lists with vCard download.',
 	'category' => 'fe',
-	'version' => '3.1.0',
+	'version' => '3.2.0',
 	'state' => 'stable',
 	'clearcacheonload' => true,
 	'author' => 'Tanel Põld, Nikolay Orlenko',
@@ -13,7 +13,7 @@ $EM_CONF[$_EXTKEY] = [
 		'depends' => [
 			'typo3' => '11.5.0 - 11.5.99',
 			'fluid_styled_content' => '11.5.0 - 11.5.99',
-			'paginatedprocessors' => '1.2.0 - 1.99.99',
+			'paginatedprocessors' => '1.3.0 - 1.99.99',
 		],
 	],
 	'autoload' => [

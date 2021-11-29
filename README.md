@@ -21,12 +21,12 @@ List of people from pages or individual records.
 - Easy to add custom templates
 
 ## System requirements
-- TYPO3 8.7 – 11.5 LTS
+- TYPO3
 - fluid_styled_content
 - paginatedprocessors
 
 ## Installation
-- **composer req t3brightside/personnel** or from TYPO3 extension repository **[personnel](https://extensions.typo3.org/extension/personnel/)**
+- `composer req t3brightside/personnel` or from TYPO3 extension repository **[personnel](https://extensions.typo3.org/extension/personnel/)**
 - Add static template
 - Include static template for Paginatedprocessors
 - Enable page types etc. in "Extension Configuration"
@@ -40,7 +40,7 @@ List of people from pages or individual records.
 Check the constant editor.
 
 **PageTS**
-```typoscript
+```
 TCEFORM.tt_content.tx_personnel_template.addItems {
   minilist = Mini List
 }
@@ -59,7 +59,7 @@ Create new partial: _Resources/Private/Partials/Minilist.html_
 
 ### routeEnhancers
 For the pagination routing check [t3brightside/paginatedprocessors](https://github.com/t3brightside/paginatedprocessors#readme)
-```
+```yaml
 PersonnelVcard:
   type: Simple
   limitToPages:

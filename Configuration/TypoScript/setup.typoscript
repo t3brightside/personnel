@@ -52,6 +52,9 @@ tt_content.personnel_frompages {
           itemsPerPage.override.field = tx_paginatedprocessors_itemsperpage
           pageLinksShown = 5
           pageLinksShown.override.field = tx_paginatedprocessors_pagelinksshown
+          anchorActive.field = tx_paginatedprocessors_anchor
+          anchorId.field = uid
+          anchorId.override.field = tx_paginatedprocessors_anchorid
         }
         table = tx_personnel_domain_model_person
         selectFields = tx_personnel_domain_model_person.*
@@ -86,6 +89,9 @@ tt_content.personnel_selected {
           itemsPerPage.override.field = tx_paginatedprocessors_itemsperpage
           pageLinksShown = 5
           pageLinksShown.override.field = tx_paginatedprocessors_pagelinksshown
+          anchorActive.field = tx_paginatedprocessors_anchor
+          anchorId.field = uid
+          anchorId.override.field = tx_paginatedprocessors_anchorid
         }
         if.isTrue.field = tx_personnel
         table = tx_personnel_domain_model_person

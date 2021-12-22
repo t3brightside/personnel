@@ -7,7 +7,7 @@ defined('TYPO3_MODE') or die();
   $iconRegistry->registerIcon(
     'mimetypes-x-content-personnel',
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:personnel/Resources/Public/Images/Icons/mimetypes-x-content-personnel.svg']
+    ['source' => 'EXT:personnel/Resources/Public/Icons/mimetypes-x-content-personnel.svg']
   );
 
   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =

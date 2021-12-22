@@ -29,7 +29,7 @@ return [
             'endtime' => 'endtime',
             'fe_group' => 'fe_group',
         ],
-        'iconfile' => 'EXT:personnel/Resources/Public/Images/Icons/mimetypes-x-content-personnel.svg',
+        'iconfile' => 'EXT:personnel/Resources/Public/Icons/mimetypes-x-content-personnel.svg',
         'searchFields' => 'uid,firstname,lastname,email,phone,profession,info',
     ],
     'types' => [

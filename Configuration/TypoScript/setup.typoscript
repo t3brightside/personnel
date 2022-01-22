@@ -27,12 +27,6 @@ tt_content.personnel_default {
         cardNameWrap = {$personnel.cardNameWrap}
         listNameWrap = {$personnel.listNameWrap}
     }
-    extbase {
-        controllerName = Personnel
-        controllerActionName = personnel
-        controllerExtensionName = Personnel
-        pluginName = Personnel
-    }
     stdWrap {
         editIcons = tt_content: header [header_layout], pages
         editIcons.iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu

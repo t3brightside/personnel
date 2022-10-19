@@ -45,3 +45,6 @@
 * 3.2.1
     - [TASK] Remove bold from link styles
     - [TASK] Remove extbase TS settings that are not needed any more
+* 3.3.0
+    - [TASK] TYPO3 12 compatibility
+    - [TASK] Code clean up

@@ -1,18 +1,19 @@
 <?php
 
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['personnel_selected'] =  'mimetypes-x-content-personnel';
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['personnel_frompages'] =  'mimetypes-x-content-personnel';
 
 // Get extension configuration
-$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-    \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
-);
+$extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
 $extensionConfiguration = $extensionConfiguration->get('personnel');
 
 // Content element type dropdown
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     "tt_content",
     "CType",
     [
@@ -24,7 +25,7 @@ $extensionConfiguration = $extensionConfiguration->get('personnel');
     'after'
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     "tt_content",
     "CType",
     [
@@ -147,8 +148,8 @@ $tempColumns = array(
     ],
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
-
+ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
+$GLOBALS['TCA']['tt_content']['types']['personnel_selected']['previewRenderer'] = \Brightside\Personnel\Preview\PersonnelPreviewRenderer::class;
 $GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
         --palette--;;general,
@@ -178,6 +179,7 @@ if ($extensionConfiguration['personnelEnablePagination']) {
     );
 }
 
+$GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['previewRenderer'] = \Brightside\Personnel\Preview\PersonnelPreviewRenderer::class;
 $GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem'] = '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
         --palette--;;general,

@@ -1,7 +1,7 @@
 TCEFORM.tt_content.tx_personnel_template.addItems {
-	cards = Cards
-	list = List
-	table = Table
+  cards = Cards
+  list = List
+  table = Table
 }
 TCAdefaults.tt_content.tx_personnel_template = cards
 

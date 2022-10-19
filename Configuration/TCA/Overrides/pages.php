@@ -1,10 +1,10 @@
 <?php
+defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
-defined('TYPO3_MODE') || die('Access denied.');
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 
-$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-    \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
-);
+$extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
 $personnelConiguration = $extensionConfiguration->get('personnel');
 
 $tempColumns = array(
@@ -23,10 +23,11 @@ $tempColumns = array(
         ]
     ],
 );
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $tempColumns, 1);
+
+ExtensionManagementUtility::addTCAcolumns('pages', $tempColumns, 1);
 
 if ($personnelConiguration['personnelEnableAuthors']) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    ExtensionManagementUtility::addToAllTCAtypes(
         'pages',
         '--palette--;Personnel;personnelcontact',
         '1',

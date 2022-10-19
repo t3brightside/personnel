@@ -1,25 +1,34 @@
 <?php
-defined('TYPO3_MODE') or die();
-(function () {
-  \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:personnel/Configuration/PageTS/setup.typoscript">');
+defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
-  $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-  $iconRegistry->registerIcon(
-    'mimetypes-x-content-personnel',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Imaging\IconRegistry;
+use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
+use Brightside\Personnel\Hooks\ContentPostProcessor;
+
+$versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
+if ($versionInformation->getMajorVersion() < 12) {
+    ExtensionManagementUtility::addPageTSConfig('
+        @import "EXT:personnel/Configuration/page.tsconfig"
+    ');
+}
+
+$iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
+$iconRegistry->registerIcon(
+    'mimetypes-x-content-personnel',SvgIconProvider::class,
     ['source' => 'EXT:personnel/Resources/Public/Icons/mimetypes-x-content-personnel.svg']
-  );
+);
 
-  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =
-    \Brightside\Personnel\Hooks\ContentPostProcessor::class . '->render';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =
+ContentPostProcessor::class . '->render';
 
-  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['personnel'] = \Brightside\Personnel\Hooks\PageLayoutView\PersonnelContentElementPreviewRenderer::class;
-})();
-
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'personnel',
-        'Personnel',
-        [
-            'Personnel' => 'personnel'
-        ]
-    );
+ExtensionUtility::configurePlugin(
+    'personnel',
+    'Personnel',
+    [
+        'Personnel' => 'personnel'
+    ]
+);

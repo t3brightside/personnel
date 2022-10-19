@@ -1,9 +1,9 @@
 <?php
+defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
-defined('TYPO3_MODE') || die('Access denied.');
+use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-// Add an entry in the static template list found in sys_templates for static TS
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+ExtensionManagementUtility::addStaticFile(
     'personnel',
     'Configuration/TypoScript/',
     'Personnel'

@@ -3,6 +3,7 @@ defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
 $personnelConiguration = $extensionConfiguration->get('personnel');
@@ -33,7 +34,5 @@ if ($personnelConiguration['personnelEnableAuthors']) {
         '1',
         'after:lastUpdated'
     );
-    $GLOBALS['TCA']['pages']['palettes']['personnelcontact']['showitem'] = '
-    tx_personnel_authors,
-    ';
+    $GLOBALS['TCA']['pages']['palettes']['personnelcontact']['showitem'] = 'tx_personnel_authors,';
 }

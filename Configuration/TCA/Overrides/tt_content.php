@@ -4,6 +4,8 @@ defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use Brightside\Personnel\Preview\PersonnelPreviewRenderer;
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['personnel_selected'] =  'mimetypes-x-content-personnel';
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['personnel_frompages'] =  'mimetypes-x-content-personnel';
@@ -149,7 +151,7 @@ $tempColumns = array(
 );
 
 ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
-$GLOBALS['TCA']['tt_content']['types']['personnel_selected']['previewRenderer'] = \Brightside\Personnel\Preview\PersonnelPreviewRenderer::class;
+$GLOBALS['TCA']['tt_content']['types']['personnel_selected']['previewRenderer'] = PersonnelPreviewRenderer::class;
 $GLOBALS['TCA']['tt_content']['types']['personnel_selected']['showitem'] = '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
         --palette--;;general,
@@ -179,7 +181,7 @@ if ($extensionConfiguration['personnelEnablePagination']) {
     );
 }
 
-$GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['previewRenderer'] = \Brightside\Personnel\Preview\PersonnelPreviewRenderer::class;
+$GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['previewRenderer'] = PersonnelPreviewRenderer::class;
 $GLOBALS['TCA']['tt_content']['types']['personnel_frompages']['showitem'] = '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
         --palette--;;general,

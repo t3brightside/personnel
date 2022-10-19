@@ -50,3 +50,5 @@
     - [TASK] Code clean up
 * 3.3.1
     - [BUGFIX] add use ExtensionManagementUtility to pages.php
+* 3.3.2
+    - [BUGFIX] add use ExtensionConfiguration to tt_content.php

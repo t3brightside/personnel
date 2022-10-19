@@ -48,3 +48,5 @@
 * 3.3.0
     - [TASK] TYPO3 12 compatibility
     - [TASK] Code clean up
+* 3.3.1
+    - [BUGFIX] add use ExtensionManagementUtility to pages.php

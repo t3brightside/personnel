@@ -13,7 +13,7 @@
   </f:if>
   <div class="text">
     <f:if condition="{person.data.responsibility}"><p class="responsibility">{person.data.responsibility}</p></f:if>
-    <f:if condition="{person.data.firstname} || {person.data.lastname}"><{settings.listNameWrap} class="name"><f:if condition="{person.data.title}">{person.data.title} </f:if>{person.data.firstname} {person.data.lastname}</{settings.listNameWrap}></f:if>
+    <f:if condition="{person.data.firstname} || {person.data.lastname}"><{f:if(condition: '{data.tx_personnel_titlewrap}', then: '{data.tx_personnel_titlewrap}', else: 'h3')} class="name"><f:if condition="{person.data.title}">{person.data.title} </f:if>{person.data.firstname} {person.data.lastname}</{f:if(condition: '{data.tx_personnel_titlewrap}', then: '{data.tx_personnel_titlewrap}', else: 'h3')}></f:if>
     <f:if condition="{person.data.profession}"><p class="profession">{person.data.profession}</p></f:if>
     <f:if condition="{person.data.phone} || {person.data.email}">
       <p class="contact">

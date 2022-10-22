@@ -148,6 +148,19 @@ $tempColumns = array(
             ],
         ]
     ],
+    'tx_personnel_titlewrap' => [
+        'exclude' => 1,
+        'label'   => 'Name wrap',
+        'config'  => [
+            'type'     => 'select',
+            'renderType' => 'selectSingle',
+            'default' => 0,
+            'items'    => array(), /* items set in page TsConfig */
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
+        ],
+    ],
 );
 
 ExtensionManagementUtility::addTCAcolumns('tt_content', $tempColumns);
@@ -231,6 +244,7 @@ $GLOBALS['TCA']['tt_content']['palettes']['personnelFilters']['showitem'] = '
 ';
 $GLOBALS['TCA']['tt_content']['palettes']['personnelLayout']['showitem'] = '
 	tx_personnel_template,
+    tx_personnel_titlewrap,
 	tx_personnel_images,
 	tx_personnel_information,
 	tx_personnel_vcard,

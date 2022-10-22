@@ -40,6 +40,12 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer
                 $content = $this->linkEditContent('<span style="display: block; margin-top: 0.3em;">Selected persons: '. $row['tx_personnel'] .'</span>', $row);
             }
             $content .= '<ul style="margin: 0; padding: 0.2em 1.4em;">';
+            if ($row['tx_personnel_template']) {
+                $content .= '<li>Template: ' . $this->linkEditContent($this->renderText($row['tx_personnel_template']), $row) . '</li>';
+            }
+            if ($row['tx_personnel_titlewrap']) {
+                $content .= '<li>Title tag: ' . $this->linkEditContent($this->renderText($row['tx_personnel_titlewrap']), $row) . '</li>';
+            }
             if ($row['tx_personnel_orderby']) {
                 $content .= '<li>Order by: ' . $this->linkEditContent($this->renderText($row['tx_personnel_orderby']), $row) . '</li>';
             }

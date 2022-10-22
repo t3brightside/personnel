@@ -45,6 +45,10 @@
   padding: 0;
 }
 
+.personnel>.card p.name {
+    font-weight: bold;
+}
+
 .personnel>.card-space {
   width: 4%;
   float: left;
@@ -119,6 +123,10 @@
 
 .personnel .listitem .name {
   margin: -0.2em 0 0.2em;
+}
+
+.personnel .listitem p.name{
+    font-weight: bold;
 }
 
 .personnel.table .image {

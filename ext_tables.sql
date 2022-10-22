@@ -7,6 +7,7 @@ CREATE TABLE tt_content (
 	tx_personnel_orderby tinytext,
 	tx_personnel_startfrom varchar(6),
 	tx_personnel_limit varchar(6),
+	tx_personnel_titlewrap varchar(2),
 );
 
 CREATE TABLE tx_personnel_domain_model_person (

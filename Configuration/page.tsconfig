@@ -5,6 +5,14 @@ TCEFORM.tt_content.tx_personnel_template.addItems {
 }
 TCAdefaults.tt_content.tx_personnel_template = cards
 
+TCEFORM.tt_content.tx_personnel_titlewrap.addItems {
+  0 = Default
+  h2 = H2
+  h3 = H3
+  h4 = H4
+  p = p
+}
+
 mod.wizards.newContentElement.wizardItems.common {
   elements {
     personnel_frompages {

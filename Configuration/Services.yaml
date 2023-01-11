@@ -4,5 +4,8 @@ services:
     autoconfigure: true
     public: false
 
-  Brightside\Personnel\:
-    resource: '../Classes/*'
+  Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor:
+    public: true
+
+  Brightside\Personnel\ViewHelpers\ImageViewHelper:
+    public: true

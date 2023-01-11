@@ -8,7 +8,7 @@ vCardURL.data = getEnv:HTTP_HOST
 
 page.includeCSS.personnel = {$personnel.stylesPath}
 
-tt_content.personnel_default =< lib.contentElement
+tt_content.personnel_default < lib.contentElement
 tt_content.personnel_default {
     templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
     templateRootPaths.20 = {$personnel.templateRootPaths}
@@ -33,7 +33,7 @@ tt_content.personnel_default {
     }
 }
 
-tt_content.personnel_frompages =< tt_content.personnel_default
+tt_content.personnel_frompages < tt_content.personnel_default
 tt_content.personnel_frompages {
 #    dataProcessing.10 = Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor
     dataProcessing.10 = Brightside\Paginatedprocessors\DataProcessing\PaginatedDatabaseQueryProcessor
@@ -71,7 +71,7 @@ tt_content.personnel_frompages {
     }
 }
 
-tt_content.personnel_selected =< tt_content.personnel_default
+tt_content.personnel_selected < tt_content.personnel_default
 tt_content.personnel_selected {
     dataProcessing.10 = Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor
     dataProcessing.10 {

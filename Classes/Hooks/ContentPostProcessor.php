@@ -21,7 +21,7 @@ class ContentPostProcessor
                 ->select('*')
                 ->from('tx_personnel_domain_model_person')
                 ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($personId, \PDO::PARAM_INT)))
-                ->execute();
+                ->executeQuery();
             $vcfFilename = 'person.vcf';
             while ($row = $statement->fetch()) {
                 if ($row['firstname'] || $row['lastname']) {

@@ -8,7 +8,7 @@ vCardURL.data = getEnv:HTTP_HOST
 
 page.includeCSS.personnel = {$personnel.stylesPath}
 
-tt_content.personnel_default < lib.contentElement
+tt_content.personnel_default =< lib.contentElement
 tt_content.personnel_default {
     templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
     templateRootPaths.20 = {$personnel.templateRootPaths}

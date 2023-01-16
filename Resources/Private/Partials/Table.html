@@ -5,7 +5,7 @@
       <f:then>
         <figure>
           <a href="{f:uri.image(image: person.files.0, maxWidth: settings.zoomedImageMaxWidth)}" class="lightbox">
-            <f:image image="{person.files.0}" width="{settings.tableImageWidth}c" height="{settings.tableImageHeight}c" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{tableImageWidth_x2}.c\', height:\'{tableImageHeight_x2}.c-100\')} 2x'}" /></figure>
+            <f:image image="{person.files.0}" loading="{f:if(condition: '!{data.tx_imagelazyload}', then: 'lazy')}" width="{settings.tableImageWidth}c" height="{settings.tableImageHeight}c" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{tableImageWidth_x2}.c\', height:\'{tableImageHeight_x2}.c-100\')} 2x'}" /></figure>
           </a>
       </f:then>
       <f:else>

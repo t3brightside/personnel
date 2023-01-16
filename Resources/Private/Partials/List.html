@@ -2,7 +2,7 @@
   <f:if condition="{data.tx_personnel_images} == 0">
     <f:if condition="{person.files.0}">
       <f:then>
-        <figure><f:image image="{person.files.0}" class="person" width="{settings.listImageWidth}c" height="{settings.listImageHeight}c-100" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{listImageWidth_x2}.c\', height:\'{listImageHeight_x2}.c-100\')} 2x'}" /></figure>
+        <figure><f:image image="{person.files.0}" class="person" loading="{f:if(condition: '!{data.tx_imagelazyload}', then: 'lazy')}" width="{settings.listImageWidth}c" height="{settings.listImageHeight}c-100" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{listImageWidth_x2}.c\', height:\'{listImageHeight_x2}.c-100\')} 2x'}" /></figure>
       </f:then>
       <f:else>
         <f:if condition="{settings.enableDummyImage}">

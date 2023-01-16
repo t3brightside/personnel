@@ -246,6 +246,7 @@ $GLOBALS['TCA']['tt_content']['palettes']['personnelLayout']['showitem'] = '
 	tx_personnel_template,
     tx_personnel_titlewrap,
 	tx_personnel_images,
+    tx_imagelazyload,
 	tx_personnel_information,
 	tx_personnel_vcard,
 ';

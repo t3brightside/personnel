@@ -54,3 +54,7 @@
     - [BUGFIX] add use ExtensionConfiguration to tt_content.php
 * 3.4.0
     - [FEATURE] add title tag option to content element
+* 3.4.1
+    - [TASK] TYPO3 12.1 compatibility
+    - [TASK] Configure dependency injection in Services.yaml
+	- [FEATURE] Add support for ext:imagelazyload

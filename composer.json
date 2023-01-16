@@ -15,7 +15,10 @@
   "require": {
     "typo3/cms-core": "^11.5 || ^12.0",
     "typo3/cms-fluid-styled-content": "^11.5 || ^12.0",
-    "t3brightside/paginatedprocessors": "^1.4 || @dev"
+    "t3brightside/paginatedprocessors": "^1.4.2 || @dev"
+  },
+  "suggest": {
+	  "t3brightside/imagelazyload": "Add an option to disable laziload in BE"
   },
   "autoload": {
     "psr-4": {

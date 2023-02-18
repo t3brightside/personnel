@@ -1,8 +1,7 @@
 <?php
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords('tx_personnel_domain_model_person');
+ExtensionManagementUtility::addToInsertRecords('tx_personnel_domain_model_person');
 
 return [
     'ctrl' => [
@@ -33,6 +32,9 @@ return [
         ],
         'iconfile' => 'EXT:personnel/Resources/Public/Icons/mimetypes-x-content-personnel.svg',
         'searchFields' => 'uid,firstname,lastname,email,phone,profession,info',
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ],
     ],
     'types' => [
         '0' => [
@@ -327,7 +329,7 @@ return [
         'images' => [
             'exclude' => 1,
             'label' => 'Image',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'images',
                 [
                     'behaviour' => [

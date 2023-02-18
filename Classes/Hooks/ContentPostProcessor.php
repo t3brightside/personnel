@@ -1,5 +1,4 @@
 <?php
-
 namespace Brightside\Personnel\Hooks;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;

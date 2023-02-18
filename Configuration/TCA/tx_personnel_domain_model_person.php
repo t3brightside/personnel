@@ -2,6 +2,8 @@
 
 defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords('tx_personnel_domain_model_person');
+
 return [
     'ctrl' => [
         'title' => 'Personnel',

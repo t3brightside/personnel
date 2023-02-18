@@ -1,5 +1,4 @@
 <?php
-defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
 use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -9,26 +8,30 @@ use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 use Brightside\Personnel\Hooks\ContentPostProcessor;
 
-$versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
-if ($versionInformation->getMajorVersion() < 12) {
-    ExtensionManagementUtility::addPageTSConfig('
-        @import "EXT:personnel/Configuration/page.tsconfig"
-    ');
-}
+defined('TYPO3') || die('Access denied.');
 
-$iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
-$iconRegistry->registerIcon(
-    'mimetypes-x-content-personnel',SvgIconProvider::class,
-    ['source' => 'EXT:personnel/Resources/Public/Icons/mimetypes-x-content-personnel.svg']
-);
+(function () {
+    $versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
+    if ($versionInformation->getMajorVersion() < 12) {
+        ExtensionManagementUtility::addPageTSConfig('
+            @import "EXT:personnel/Configuration/page.tsconfig"
+        ');
+    }
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =
-ContentPostProcessor::class . '->render';
+    $iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
+    $iconRegistry->registerIcon(
+        'mimetypes-x-content-personnel',SvgIconProvider::class,
+        ['source' => 'EXT:personnel/Resources/Public/Icons/mimetypes-x-content-personnel.svg']
+    );
 
-ExtensionUtility::configurePlugin(
-    'personnel',
-    'Personnel',
-    [
-        'Personnel' => 'personnel'
-    ]
-);
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =
+    ContentPostProcessor::class . '->render';
+
+    ExtensionUtility::configurePlugin(
+        'personnel',
+        'Personnel',
+        [
+            'Personnel' => 'personnel'
+        ]
+    );
+})();

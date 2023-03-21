@@ -1,4 +1,7 @@
 # by t3brightside.com
+["{$personnel.cssForceTs}" == "1"]
+  page.includeCSS.personnel = {$personnel.cssFile}
+[END]
 
 vCardOrgName = TEXT
 vCardOrgName.value = {$personnel.vCard.CompanyName}
@@ -6,7 +9,7 @@ vCardOrgName.value = {$personnel.vCard.CompanyName}
 vCardURL = TEXT
 vCardURL.data = getEnv:HTTP_HOST
 
-page.includeCSS.personnel = {$personnel.stylesPath}
+# page.includeCSS.personnel = {$personnel.cssFile}
 
 tt_content.personnel_default =< lib.contentElement
 tt_content.personnel_default {
@@ -16,6 +19,9 @@ tt_content.personnel_default {
     partialRootPaths.20 = {$personnel.partialRootPaths}
     templateName = Personnel
     settings {
+        cssFile = {$personnel.cssFile}
+        cssPriority = {$personnel.cssPriority}
+        cssForceTs = {$personnel.cssForceTs}
         cardImageWidth = {$personnel.cardImageWidth}
         cardImageHeight = {$personnel.cardImageHeight}
         listImageWidth = {$personnel.listImageWidth}
@@ -126,39 +132,3 @@ personnel_vCard  {
         }
     }
 }
-
-# JavaScript breakpoints for card layout depending on outer container width
-
-["{$personnel.enableBreakpoints}" == "1"]
-  page.jsFooterInline {
-    1098231282 = TEXT
-    1098231282.value (
-      function personnelDetectWidth(a){
-      	var container = document.getElementsByClassName(a);
-        for (var i = 0; i < container.length; ++i) {
-          var item = container[i];
-          var width = container[i].clientWidth;
-          if (width < {$personnel.cardsBreakThree}){
-            item.classList.add('break-three');
-          } else {
-            item.classList.remove('break-three');
-          }
-          if (width < {$personnel.cardsBreakTwo}){
-            item.classList.add('break-two');
-          } else {
-            item.classList.remove('break-two');
-          }
-          if (width < {$personnel.cardsBreakOne}) {
-            item.classList.add('break-one');
-          } else {
-            item.classList.remove('break-one');
-          }
-        }
-      }
-      personnelDetectWidth('personnel cards');
-      window.addEventListener("resize", function(){
-        personnelDetectWidth('personnel cards');
-      });
-    )
-  }
-[END]

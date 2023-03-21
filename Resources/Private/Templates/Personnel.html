@@ -1,6 +1,9 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ea="http://typo3.org/ns/Brightside/Embedassets/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
+    <f:if condition="!{settings.cssForceTs}">
+        <ea:asset.css embed="1" priority="{settings.cssPriority}" identifier="personnelDefault" href="{settings.cssFile}" />
+    </f:if>
 	<f:variable name="cardImageWidth_x2">{settings.cardImageWidth * 2}</f:variable>
 	<f:variable name="cardImageHeight_x2">{settings.cardImageHeight * 2}</f:variable>
 	<f:variable name="listImageWidth_x2">{settings.listImageWidth * 2}</f:variable>
@@ -19,38 +22,37 @@
 	</f:if>
 	<f:if condition="{data.tx_personnel_template} == list">
 		<div class="personnel list template-{data.tx_personnel_template}<f:if condition=" {data.tx_personnel_images}==1"> noimages</f:if>">
-	<f:for each="{personnel}" as="person" iteration="iterator">
-		<f:render partial="List" arguments="{_all}" />
-	</f:for>
-	<f:if condition="{pagination.numberOfPages} > 1">
-		<f:render partial="Pagination" arguments="{pagination:pagination}" />
-	</f:if>
-	</div>
+            <f:for each="{personnel}" as="person" iteration="iterator">
+                <f:render partial="List" arguments="{_all}" />
+            </f:for>
+            <f:if condition="{pagination.numberOfPages} > 1">
+                <f:render partial="Pagination" arguments="{pagination:pagination}" />
+            </f:if>
+	    </div>
 	</f:if>
 	<f:if condition="{data.tx_personnel_template} == table">
 		<div class="personnel table template-{data.tx_personnel_template}<f:if condition=" {data.tx_personnel_images}==1"> noimages</f:if>">
-	<table>
-		<tr>
-			<f:if condition="{data.tx_personnel_images} == 0">
-				<th>Image</th>
-			</f:if>
-			<th>Name</th>
-			<th>Profession</th>
-			<th>Phone</th>
-			<th>E-mail</th>
-			<f:if condition="{data.tx_personnel_vcard} == 0">
-				<th>vCard</th>
-			</f:if>
-		</tr>
-		<f:for each="{personnel}" as="person" iteration="iterator">
-			<f:render partial="Table" arguments="{_all}" />
-		</f:for>
-	</table>
-	<f:if condition="{pagination.numberOfPages} > 1">
-		<f:render partial="Pagination" arguments="{pagination:pagination}" />
-	</f:if>
-	</div>
+            <table>
+                <f:comment><tr>
+                    <f:if condition="{data.tx_personnel_images} == 0">
+                        <th>Image</th>
+                    </f:if>
+                    <th>Name</th>
+                    <th>Profession</th>
+                    <th>Phone</th>
+                    <th>E-mail</th>
+                    <f:if condition="{data.tx_personnel_vcard} == 0">
+                        <th>vCard</th>
+                    </f:if>
+                </tr></f:comment>
+                <f:for each="{personnel}" as="person" iteration="iterator">
+                    <f:render partial="Table" arguments="{_all}" />
+                </f:for>
+            </table>
+            <f:if condition="{pagination.numberOfPages} > 1">
+                <f:render partial="Pagination" arguments="{pagination:pagination}" />
+            </f:if>
+        </div>
 	</f:if>
 </f:section>
-
 </html>

@@ -3,14 +3,11 @@
     <td class="image">
     <f:if condition="{person.files.0}">
       <f:then>
-        <figure>
-          <a href="{f:uri.image(image: person.files.0, maxWidth: settings.zoomedImageMaxWidth)}" class="lightbox">
-            <f:image image="{person.files.0}" loading="{f:if(condition: '!{data.tx_imagelazyload}', then: 'lazy')}" width="{settings.tableImageWidth}c" height="{settings.tableImageHeight}c" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{tableImageWidth_x2}.c\', height:\'{tableImageHeight_x2}.c-100\')} 2x'}" /></figure>
-          </a>
+        <f:image image="{person.files.0}" loading="{f:if(condition: '!{data.tx_imagelazyload}', then: 'lazy')}" width="{settings.tableImageWidth}c" height="{settings.tableImageHeight}c" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{tableImageWidth_x2}.c\', height:\'{tableImageHeight_x2}.c-100\')} 2x'}" />
       </f:then>
       <f:else>
         <f:if condition="{settings.enableDummyImage}">
-          <figure><f:image src="EXT:personnel/Resources/Public/Images/clear.png" class="dummy person" width="{settings.tableImageWidth}" height="{settings.tableImageHeight}" alt="{person.data.firstname} {person.data.lastname}" /></figure>
+          <f:image src="EXT:personnel/Resources/Public/Images/clear.png" class="dummy person" width="{settings.tableImageWidth}" height="{settings.tableImageHeight}" alt="{person.data.firstname} {person.data.lastname}" />
         </f:if>
       </f:else>
     </f:if>
@@ -34,7 +31,7 @@
   </td>
   <f:if condition="{data.tx_personnel_vcard} == 0">
     <td class="vcard">
-      <f:link.page class="person-vCard" pageType="888" additionalParams="{person: '{person.data.uid}'}" additionalAttributes="{download: '{person.data.firstname}_{person.data.lastname}.vcf'}">Download</f:link.page>
+      <f:link.page class="person-vCard" pageType="888" additionalParams="{person: '{person.data.uid}'}" additionalAttributes="{download: '{person.data.firstname}_{person.data.lastname}.vcf'}">vCard</f:link.page>
     </td>
   </f:if>
 </tr>

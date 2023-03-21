@@ -1,0 +1,101 @@
+.personnel * {
+    box-sizing: border-box;
+}
+
+/* Setting icon color and few styles for Card and List view */
+.personnel .name {
+    font-size: 1.25em;
+}
+
+.personnel .icon {
+    max-height: 0.8em;
+    max-width: 0.94em;
+    width: auto;
+    height: auto;
+    margin-right: 0.8em;
+}
+
+.personnel img.dummy {
+    background: #eee;
+}
+
+.personnel .icon path {
+    fill: #222
+}
+
+.personnel .contact a {
+    display: block;
+}
+
+/* Card view */
+.personnel.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.align-center .personnel.cards {
+    justify-content: center;
+}
+
+.personnel>.card {
+    width: 100%;
+    max-width: 15rem;
+    min-width: 8rem;
+}
+
+.personnel>.card img.person {
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em
+}
+
+.personnel>.card .name {
+    margin: 0 0 0.2em;
+    padding: 0;
+}
+
+.personnel>.card p.name {
+    font-weight: bold;
+}
+
+/* list view */
+.personnel>.listitem {
+    float: left;
+    width: 100%;
+    margin-bottom: 3em;
+    text-align: left;
+}
+
+.personnel .listitem.last {
+    margin-bottom: 0;
+}
+
+.personnel .listitem img {
+    width: 8em;
+    height: auto;
+    float: left;
+}
+
+.personnel .listitem .text {
+    margin-left: 10em;
+}
+
+.personnel.noimages .listitem .text {
+    margin-left: 0;
+}
+
+.personnel .listitem .name {
+    margin-top: 0;
+}
+
+.personnel.table {
+    font-size: 0.85em;
+    vertical-align: middle;
+}
+
+.personnel.table .image {
+    vertical-align: middle;
+    width: 3em;
+}

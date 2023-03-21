@@ -1,6 +1,10 @@
 # customsubcategory=personnel=Personnel
 # cat=Personnel/personnel; type=string; label= Styles file
-personnel.stylesPath = EXT:personnel/Resources/Public/Styles/personnel.css
+personnel.cssFile = EXT:personnel/Resources/Public/Css/personnel.css
+# cat=Personnel/personnel; type=boolean; label= Css priority, 0 means CSS is in page footer
+personnel.cssPriority = 1
+# cat=Personnel/personnel; type=boolean; label= Force loading CSS with TypoScript
+personnel.cssForceTs = 0
 # cat=Personnel/personnel; type=string; label= Templates root path
 personnel.templateRootPaths = EXT:personnel/Resources/Private/Templates/
 # cat=Personnel/personnel; type=string; label= Partials root path
@@ -9,14 +13,6 @@ personnel.partialRootPaths = EXT:personnel/Resources/Private/Partials/
 personnel.vCard.templateRootPaths = EXT:personnel/Resources/Private/Templates/
 # cat=Personnel/personnel; type=string; label= Company name in vCard
 personnel.vCard.CompanyName =
-# cat=Personnel/personnel; type=boolean; label= Enable breakpoints for card layouts
-personnel.enableBreakpoints = 1
-# cat=Personnel/personnel; type=string; label= Max container width for three column card layout (px)
-personnel.cardsBreakThree = 1200
-# cat=Personnel/personnel; type=string; label= Max container width for two column card layout (px)
-personnel.cardsBreakTwo = 800
-# cat=Personnel/personnel; type=string; label= Max container width for one column card layout (px)
-personnel.cardsBreakOne = 500
 # cat=Personnel/personnel; type=string; label= Card image width (px)
 personnel.cardImageWidth = 400
 # cat=Personnel/personnel; type=string; label= Card image height (px)

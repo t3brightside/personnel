@@ -62,7 +62,11 @@ return [
                 images,--linebreak--,
                 info,--linebreak--,
                 linkedin,
-                xing
+                xing,
+                twitter,
+                github,
+                instagram,
+                youtube,
             '
         ],
         'paletteAccess' => [
@@ -371,7 +375,7 @@ return [
         ],
         'linkedin' => [
             'exclude' => 1,
-            'label' => 'linkedin.com link',
+            'label' => 'LinkedIn',
             'config' => [
                 'type' => 'input',
                 'size' => 20,
@@ -383,7 +387,55 @@ return [
         ],
         'xing' => [
             'exclude' => 1,
-            'label' => 'xing.com link',
+            'label' => 'Xing',
+            'config' => [
+                'type' => 'input',
+                'size' => 20,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
+        'twitter' => [
+            'exclude' => 1,
+            'label' => 'Twitter',
+            'config' => [
+                'type' => 'input',
+                'size' => 20,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
+        'github' => [
+            'exclude' => 1,
+            'label' => 'GitHub',
+            'config' => [
+                'type' => 'input',
+                'size' => 20,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
+        'instagram' => [
+            'exclude' => 1,
+            'label' => 'Instagram',
+            'config' => [
+                'type' => 'input',
+                'size' => 20,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
+        'youtube' => [
+            'exclude' => 1,
+            'label' => 'YouTube',
             'config' => [
                 'type' => 'input',
                 'size' => 20,

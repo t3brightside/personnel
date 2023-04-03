@@ -7,12 +7,22 @@
     font-size: 1.25em;
 }
 
-.personnel .icon {
+.personnel svg {
     max-height: 0.8em;
     max-width: 0.94em;
     width: auto;
     height: auto;
     margin-right: 0.8em;
+}
+
+.personnel-social-links a {
+    display: inline-block;
+    padding: 0.5em;
+    margin: 0.2em;
+}
+
+.personnel-social-links svg {
+    margin-right: 0;
 }
 
 .personnel img.dummy {
@@ -23,7 +33,7 @@
     fill: #222
 }
 
-.personnel .contact a {
+.personnel .contact .personnel-contact-link {
     display: block;
 }
 

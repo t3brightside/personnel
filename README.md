@@ -17,6 +17,7 @@ List of people from pages or individual records.
 - Sort by
 - Pagination with items per page and unique to the content element with [paginatedprocessors](https://github.com/t3brightside/paginatedprocessors)
 - Disable from back end: images, vCard link, extra information
+- Social links with icons (LinkedIn, Xing, Twitter, GitHub, YouTube, Instagram)
 - Base templates for cards, list and table
 - Easy to add custom templates
 

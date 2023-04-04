@@ -63,3 +63,7 @@
     - [TASK] Add ignorePageTypeRestriction for v12 and allow allowTableOnStandardPages only for v11
     - [TASK] Load CSS on demand with embedassets
     - [TASK] Remove default JS and use css flex for columns
+* 3.5.1
+    - [TASK] Add social links info
+    - [FEATURE] Add more social link options
+    - [UPGRADE] Update database tables

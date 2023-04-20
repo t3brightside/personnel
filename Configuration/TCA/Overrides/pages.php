@@ -30,7 +30,7 @@ if ($personnelConiguration['personnelEnableAuthors']) {
         'pages',
         '--palette--;Personnel;personnelcontact',
         '1',
-        'after:lastUpdated'
+        'after:subtitle'
     );
     $GLOBALS['TCA']['pages']['palettes']['personnelcontact']['showitem'] = 'tx_personnel_authors,';
 }

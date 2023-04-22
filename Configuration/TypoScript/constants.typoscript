@@ -37,3 +37,5 @@ personnel.listNameWrap = h3
 personnel.paginationItems = 8
 # cat=Personnel/personnel; type=string; label= Pagination links
 personnel.paginationLinks = 10
+# cat=Personnel/personnel; type=sting; label= Force image file format (make sure it's enabled in [GFX][imagefile_ext])
+personnel.forceImageFileFormat =

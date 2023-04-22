@@ -32,6 +32,7 @@ tt_content.personnel_default {
         enableDummyImage = {$personnel.enableDummyImage}
         cardNameWrap = {$personnel.cardNameWrap}
         listNameWrap = {$personnel.listNameWrap}
+        forceImageFileFormat = {$personnel.forceImageFileFormat}
     }
     stdWrap {
         editIcons = tt_content: header [header_layout], pages

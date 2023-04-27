@@ -67,3 +67,7 @@
     - [TASK] Add social links info
     - [FEATURE] Add more social link options
     - [UPGRADE] Update database tables
+* 3.6.0
+    - [TASK] Set constraints to v12.4
+    - [FEATURE] Force image file format TS constant
+    - [TASK] Move pages author field to general tab

@@ -12,7 +12,7 @@ $EM_CONF[$_EXTKEY] = [
 	'constraints' => [
 		'depends' => [
 			'typo3' => '11.5.0 - 12.99.99',
-			'fluid_styled_content' => '11.5.0 - 12.99.99',
+			'fluid_styled_content' => '11.5.0 - 12.4.99',
 			'paginatedprocessors' => '1.5.0 - 1.99.99',
             'embedassets' => '1.2.0-1.99.99',
 		],

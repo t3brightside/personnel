@@ -63,6 +63,7 @@ tt_content.personnel_frompages {
         max.field = tx_personnel_limit
         begin.field = tx_personnel_startfrom
         groupBy = uid
+        orderBy.field = tx_personnel_orderby
         join.data = field:selected_categories
         join.wrap = sys_category_record_mm ON uid = sys_category_record_mm.uid_foreign AND sys_category_record_mm.uid_local IN(|)
         join.wrap.if.isTrue.field = selected_categories

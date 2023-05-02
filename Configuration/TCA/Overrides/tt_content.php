@@ -73,6 +73,7 @@ $tempColumns = array(
             'items' => [
                 ['Manual (default)', '0'],
                 ['By the sort order', 'sorting ASC'],
+                ['By the sort order (reverse)', 'sorting DESC'],
                 ['Lastname (a → z)', 'lastname ASC'],
                 ['Lastname (z → a)', 'lastname DESC'],
                 ['First name (a → z)', 'firstname ASC'],

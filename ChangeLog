@@ -71,3 +71,5 @@
     - [TASK] Set constraints to v12.4
     - [FEATURE] Force image file format TS constant
     - [TASK] Move pages author field to general tab
+* 3.6.1
+    - [BUGFIX] add missing orderBy.field to TS

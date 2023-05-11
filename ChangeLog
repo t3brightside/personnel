@@ -73,3 +73,8 @@
     - [TASK] Move pages author field to general tab
 * 3.6.1
     - [BUGFIX] add missing orderBy.field to TS
+* 3.7.0
+    - [UPGRADE] Update database tables
+    - [TASK] Improve icons and social links
+    - [TASK] Add social links
+    - [TASK] Add FB and WWW urls

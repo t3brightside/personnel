@@ -100,6 +100,16 @@
     margin-top: 0;
 }
 
+.personnel .listitem .contact {
+    line-height: 1.75em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.personnel .listitem .personnel-social-links {
+    margin-left: -.65em;
+}
+
 .personnel.table {
     font-size: 0.85em;
     vertical-align: middle;

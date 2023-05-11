@@ -27,6 +27,8 @@ CREATE TABLE tx_personnel_domain_model_person (
 	github tinytext,
 	instagram tinytext,
 	youtube tinytext,
+	facebook tinytext,
+	website tinytext,
 	KEY parent (pid,sorting),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (sys_language_uid)

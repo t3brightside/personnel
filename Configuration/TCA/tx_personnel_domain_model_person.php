@@ -61,12 +61,14 @@ return [
                 email,--linebreak--,
                 images,--linebreak--,
                 info,--linebreak--,
+                website,
                 linkedin,
                 xing,
                 twitter,
                 github,
                 instagram,
                 youtube,
+                facebook,
             '
         ],
         'paletteAccess' => [
@@ -436,6 +438,30 @@ return [
         'youtube' => [
             'exclude' => 1,
             'label' => 'YouTube',
+            'config' => [
+                'type' => 'input',
+                'size' => 20,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
+        'facebook' => [
+            'exclude' => 1,
+            'label' => 'Facebook',
+            'config' => [
+                'type' => 'input',
+                'size' => 20,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
+        'website' => [
+            'exclude' => 1,
+            'label' => 'Website',
             'config' => [
                 'type' => 'input',
                 'size' => 20,

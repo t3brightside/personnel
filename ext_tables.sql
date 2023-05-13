@@ -37,3 +37,7 @@ CREATE TABLE tx_personnel_domain_model_person (
 CREATE TABLE pages (
 	tx_personnel_authors tinytext,
 );
+
+CREATE TABLE tx_news_domain_model_news (
+	tx_personnel_authors tinytext,
+);

@@ -1,0 +1,49 @@
+# Add this to your news detail template
+# <f:if condition="{newsItem.txPersonnelAuthors}">
+#    <f:cObject typoscriptObjectPath="lib.newsAuthorsDetail">{newsItem.txPersonnelAuthors}</f:cObject>
+# </f:if>
+
+# Add this to your news list partial
+# <f:if condition="{newsItem.newsAuthorsList}">
+#    <f:cObject typoscriptObjectPath="lib.newsAuthorsDetail">{newsItem.txPersonnelAuthors}</f:cObject>
+# </f:if>
+
+lib.newsAuthorsDetail = CONTENT
+lib.newsAuthorsDetail {
+    table = tx_personnel_domain_model_person
+    select {
+        pidInList = 0
+        uidInList.current = 1
+    }
+    renderObj = COA
+    renderObj {
+      wrap = <p class="news-detail-personnel-authors">|</p>
+      10 = TEXT
+      10.dataWrap = <strong>{field:title} {field:firstname} {field:lastname}</strong>
+      20 = TEXT
+      20.dataWrap = <br />{field:profession}
+      30 = TEXT
+      30 {
+        value.field = email
+        typolink.parameter.field = email
+        wrap = <br />|
+      }
+      40 = TEXT
+      40.dataWrap = <br /><a href="phone:{field:phone}|">{field:phone}</a>
+    }
+}
+
+lib.newsAuthorsList = CONTENT
+lib.newsAuthorsList {
+    table = tx_personnel_domain_model_person
+    select {
+        pidInList = 0
+        uidInList.current = 1
+    }
+    renderObj = COA
+    renderObj {
+      10 = TEXT
+      10.dataWrap = {field:title} {field:firstname} {field:lastname},
+    }
+    stdWrap.substring = 0, -1
+}

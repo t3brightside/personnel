@@ -58,7 +58,7 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer
             if ($row['tx_personnel_information'] == 1) {
                 $content .= '<li>' . $this->linkEditContent('Information: disabled', $row) . '</li>';
             }
-            if ($row['tx_pagelist_authors'] > 0) {
+            if ($row['tx_personnel_authors'] > 0) {
                 $content .= '<li>' . $this->linkEditContent('Author filter: active', $row) . '</li>';
             }
             if ($row['tx_paginatedprocessors_paginationenabled'] == 1) {

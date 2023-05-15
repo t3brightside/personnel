@@ -78,3 +78,7 @@
     - [TASK] Improve icons and social links
     - [TASK] Add social links
     - [TASK] Add FB and WWW urls
+* 3.8.0
+    - [BUGFIX] preview field name, thanks @JanJWinter
+    - [FEATURE] Add autor for ext:news FE
+    - [FEATURE] Add personnell author field to tx_news

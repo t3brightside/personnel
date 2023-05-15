@@ -36,6 +36,11 @@ List of people from pages or individual records.
 - Create personnel records in a Page/Sysfolder
 - Add desired content element and point to the Page/Sysfolder or individual records
 
+## Authors for news records
+Quite basic but extendable...
+- Add 'Personnel - News author' TypoScript template
+- See Configuration/TypoScript/NewsAuthor/setup.typoscript for guidance
+
 ### Add custom template
 **TypoScript**
 Check the constant editor.

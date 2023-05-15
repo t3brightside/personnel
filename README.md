@@ -38,6 +38,7 @@ List of people from pages or individual records.
 
 ## Authors for news records
 Quite basic but extendable...
+- Enable in Personnel extension configuration
 - Add 'Personnel - News author' TypoScript template
 - See Configuration/TypoScript/NewsAuthor/setup.typoscript for guidance
 

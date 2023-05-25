@@ -82,3 +82,7 @@
     - [BUGFIX] preview field name, thanks @JanJWinter
     - [FEATURE] Add autor for ext:news FE
     - [FEATURE] Add personnell author field to tx_news
+* 3.8.1
+    - [BUGFIX] Remove tx_personnel_authors row
+* 3.8.2
+    - [TASK] Update version number

@@ -39,5 +39,8 @@ CREATE TABLE pages (
 );
 
 CREATE TABLE tx_news_domain_model_news (
+	uid int(11) NOT NULL auto_increment,
 	tx_personnel_authors tinytext,
+
+	PRIMARY KEY (uid),
 );

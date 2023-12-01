@@ -1,9 +1,9 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
 	'title' => 'Personnel',
-	'description' => 'Personnel lists with vCard download.',
+	'description' => 'Personnel and contact lists with vCard support.',
 	'category' => 'fe',
-	'version' => '3.8.2',
+	'version' => '3.8.3',
 	'state' => 'stable',
 	'clearcacheonload' => true,
 	'author' => 'Tanel Põld, Nikolay Orlenko',

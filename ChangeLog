@@ -86,3 +86,5 @@
     - [BUGFIX] Remove tx_personnel_authors row
 * 3.8.2
     - [TASK] Update version number
+* 3.8.3
+    - [TASK] Improve compatibility with ext:news to avoid SQL update errors if installing news after personnel

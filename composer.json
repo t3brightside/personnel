@@ -19,6 +19,7 @@
 	"t3brightside/embedassets": "^1.2"
   },
   "suggest": {
+	  "georgringer/news": "Adds personnel as news authors",
 	  "t3brightside/imagelazyload": "Add an option to disable laziload in BE"
   },
   "autoload": {

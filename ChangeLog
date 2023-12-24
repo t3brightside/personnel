@@ -88,3 +88,5 @@
     - [TASK] Update version number
 * 3.8.3
     - [TASK] Improve compatibility with ext:news to avoid SQL update errors if installing news after personnel
+* 3.9.0
+    - [TASK] !BREAKING! Drop ext:news author feature

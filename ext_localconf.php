@@ -11,9 +11,6 @@ use Brightside\Personnel\Hooks\ContentPostProcessor;
 
 defined('TYPO3') || die('Access denied.');
 
-$GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['classes']['Domain/Model/News']['personnel'] = 'personnel';
-
-
 (function () {
     $versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
     if ($versionInformation->getMajorVersion() < 12) {

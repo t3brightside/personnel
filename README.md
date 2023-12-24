@@ -20,6 +20,7 @@ List of people from pages or individual records.
 - Social links with icons (LinkedIn, Xing, Twitter, GitHub, YouTube, Instagram)
 - Base templates for cards, list and table
 - Easy to add custom templates
+- Contact person/author records for pages and [pagelist](https://github.com/t3brightside/pagelist) page types
 
 ## System requirements
 - TYPO3
@@ -35,12 +36,6 @@ List of people from pages or individual records.
 ## Usage
 - Create personnel records in a Page/Sysfolder
 - Add desired content element and point to the Page/Sysfolder or individual records
-
-## Authors for news records
-Quite basic but extendable...
-- Enable in Personnel extension configuration
-- Add 'Personnel - News author' TypoScript template
-- See Configuration/TypoScript/NewsAuthor/setup.typoscript for guidance
 
 ### Add custom template
 **TypoScript**

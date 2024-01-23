@@ -90,3 +90,5 @@
     - [TASK] Improve compatibility with ext:news to avoid SQL update errors if installing news after personnel
 * 3.9.0
     - [TASK] !BREAKING! Drop ext:news author feature
+* 3.9.1
+    - [TASK] Replace file_get_contents() with getContents() for vCard images

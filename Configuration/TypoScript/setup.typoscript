@@ -107,6 +107,7 @@ tt_content.personnel_selected {
     }
 }
 
+
 personnel_vCard = PAGE
 personnel_vCard  {
     typeNum = 888
@@ -115,6 +116,16 @@ personnel_vCard  {
         xhtml_cleaning = 0
         debug = 0
         disableCharsetHeader = 1
+        additionalHeaders {
+          10 {
+              header = Content-Disposition: attachment;
+              replace = 1
+          }
+          20 {
+              header = Content-Type: text/x-vcard
+              replace = 1
+          }
+      }
     }
     10 = FLUIDTEMPLATE
     10 {

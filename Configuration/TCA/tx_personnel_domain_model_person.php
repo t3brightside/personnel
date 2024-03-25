@@ -335,34 +335,126 @@ return [
         'images' => [
             'exclude' => 1,
             'label' => 'Image',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'images',
-                [
-                    'behaviour' => [
-                        'allowLanguageSynchronization' => true,
-                    ],
-                    'appearance' => [
-                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-                    ],
-                    // custom configuration for displaying fields in the overlay/reference table
-                    // to use the image overlay palette instead of the basic overlay palette
-                    'overrideChildTca' => [
-                        'types' => [
-                            '0' => [
-                                'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                                'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 100,
+                'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+                'appearance' => [
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'crop' => [
+                            'config' => [
+                                'cropVariants' => [
+                                    'default' => [
+                                        'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
+                                        'allowedAspectRatios' => [
+
+                                            'NaN' => [
+                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                                                'value' => 0.0
+                                            ],
+                                        ],
+                                        'selectedRatio' => 'NaN',
+                                        'cropArea' => [
+                                            'x' => 0.0,
+                                            'y' => 0.0,
+                                            'width' => 1.0,
+                                            'height' => 1.0,
+                                        ],
+                                    ],
+                                    'tv' => [
+                                        'title' => 'TV (4:3)',
+                                        'selectedRatio' => '4:3',
+                                        'allowedAspectRatios' => [
+                                            '4:3' => [
+                                                'title' => 'TV',
+                                                'value' => 4 / 3,
+                                            ],
+                                        ],
+                                    ],
+                                    'widescreen' => [
+                                        'title' => 'Widescreen (16:9)',
+                                        'selectedRatio' => '16:9',
+                                        'allowedAspectRatios' => [
+                                            '16:9' => [
+                                                'title' => 'Widescreen',
+                                                'value' => 16 / 9,
+                                            ],
+                                        ],
+                                    ],
+                                    'anamorphic' => [
+                                        'title' => 'Anamorphic (2.39:1)',
+                                        'selectedRatio' => '2.39:1',
+                                        'allowedAspectRatios' => [
+                                            '2.39:1' => [
+                                                'title' => 'Anamorphic',
+                                                'value' => 2.39 / 1,
+                                            ],
+                                        ],
+                                    ],
+                                    'square' => [
+                                        'title' => 'Square (1:1)',
+                                        'selectedRatio' => '1:1',
+                                        'allowedAspectRatios' => [
+                                            '1:1' => [
+                                                'title' => 'Square',
+                                                'value' => 1 / 1,
+                                            ],
+                                        ],
+                                    ],
+                                    'portrait' => [
+                                        'title' => 'Portrait (3:4)',
+                                        'selectedRatio' => '3:4',
+                                        'allowedAspectRatios' => [
+                                            '3:4' => [
+                                                'title' => 'Portrait (three-four)',
+                                                'value' => 3 / 4,
+                                            ],
+                                        ],
+                                    ],
+                                    'tower' => [
+                                        'title' => 'Tower (9:16)',
+                                        'selectedRatio' => '9:16',
+                                        'allowedAspectRatios' => [
+                                            '9:16' => [
+                                                'title' => 'Tower',
+                                                'value' => 9 / 16,
+                                            ],
+                                        ],
+                                    ],
+                                    'skyscraper' => [
+                                        'title' => 'Skyscraper (1:2.39)',
+                                        'selectedRatio' => '1:2.39',
+                                        'allowedAspectRatios' => [
+                                            '1:2.39' => [
+                                                'title' => 'Skyscraper',
+                                                'value' => 1 / 2.39,
+                                            ],
+                                        ],
+                                    ],
+                                ],
                             ],
                         ],
                     ],
+                    'types' => [
+                        '0' => [
+                            'showitem' => '
+                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette'
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                            'showitem' => '
+                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette'
+                        ],
+                    ],
                 ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
+            ],
         ],
         'info' => [
             'exclude' => 1,

@@ -13,6 +13,8 @@ personnel.partialRootPaths = EXT:personnel/Resources/Private/Partials/
 personnel.vCard.templateRootPaths = EXT:personnel/Resources/Private/Templates/
 # cat=Personnel/personnel; type=string; label= Company name in vCard
 personnel.vCard.CompanyName =
+# cat=Personnel/personnel; type=string; label= Default image crop ratio
+personnel.imageCropRatio = default
 # cat=Personnel/personnel; type=string; label= Card image width (px)
 personnel.cardImageWidth = 400
 # cat=Personnel/personnel; type=string; label= Card image height (px)

@@ -16,21 +16,24 @@ ExtensionManagementUtility::addTcaSelectItem(
     "tt_content",
     "CType",
     [
-        'Personnel: selected',
-        'personnel_selected',
-        'mimetypes-x-content-personnel'
+        'label' => 'Personnel: selected',
+        'value' => 'personnel_selected',
+        'icon' => 'mimetypes-x-content-personnel',
+        'group' => 'default',
+        'description' => 'Shows selected person records.',
     ],
     'textmedia',
     'after'
 );
-
 ExtensionManagementUtility::addTcaSelectItem(
     "tt_content",
     "CType",
     [
-        'Personnel: from pages',
-        'personnel_frompages',
-        'mimetypes-x-content-personnel'
+        'label' => 'Personnel: from pages',
+        'value' => 'personnel_frompages',
+        'icon' => 'mimetypes-x-content-personnel',
+        'group' => 'default',
+        'description' => 'Shows persons from selected pages or sys folders.',
     ],
     'textmedia',
     'after'
@@ -115,6 +118,16 @@ $tempColumns = array(
                 ]
             ],
         ]
+    ],
+    'tx_personnel_cropratio' => [
+        'exclude' => 1,
+        'label'   => 'Image Crop',
+        'config'  => [
+            'type'     => 'select',
+            'renderType' => 'selectSingle',
+            'default' => '0',
+            'items'    => array(), /* items set in page TsConfig */
+        ],
     ],
     'tx_personnel_vcard' => [
         'exclude' => 1,
@@ -225,10 +238,6 @@ if ($extensionConfiguration['personnelEnablePagination']) {
 
 $GLOBALS['TCA']['tt_content']['palettes']['personnelSelectedData']['showitem'] = '
 	tx_personnel,
-	--linebreak--,
-	tx_personnel_orderby,
-	tx_personnel_startfrom,
-	tx_personnel_limit,
 ';
 $GLOBALS['TCA']['tt_content']['palettes']['personnelFrompagesData']['showitem'] = '
 	pages,
@@ -244,6 +253,7 @@ $GLOBALS['TCA']['tt_content']['palettes']['personnelLayout']['showitem'] = '
 	tx_personnel_template,
     tx_personnel_titlewrap,
 	tx_personnel_images,
+    tx_personnel_cropratio,
     tx_imagelazyload,
 	tx_personnel_information,
 	tx_personnel_vcard,

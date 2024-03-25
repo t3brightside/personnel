@@ -2,6 +2,7 @@ CREATE TABLE tt_content (
 	tx_personnel tinytext,
 	tx_personnel_template varchar(25),
 	tx_personnel_images int(1) DEFAULT '0' NOT NULL,
+	tx_personnel_cropratio varchar(25),
 	tx_personnel_vcard int(1) DEFAULT '0' NOT NULL,
 	tx_personnel_information int(1) DEFAULT '0' NOT NULL,
 	tx_personnel_orderby tinytext,

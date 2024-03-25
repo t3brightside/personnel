@@ -2,11 +2,11 @@
   <f:if condition="{data.tx_personnel_images} == 0">
     <f:if condition="{person.files.0}">
       <f:then>
-        <figure><f:image image="{person.files.0}" class="person" fileExtension="{settings.forceImageFileFormat}" loading="{f:if(condition: '!{data.tx_imagelazyload}', then: 'lazy')}" width="{settings.listImageWidth}c" height="{settings.listImageHeight}c-100" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{listImageWidth_x2}.c\', height:\'{listImageHeight_x2}.c-100\', fileExtension:\'{settings.forceImageFileFormat}\')} 2x'}" /></figure>
+        <figure><f:image image="{person.files.0}" class="person" cropVariant="{data.tx_personnel_cropratio}" fileExtension="{settings.forceImageFileFormat}" loading="{f:if(condition: '!{data.tx_imagelazyload}', then: 'lazy')}" width="{settings.listImageWidth}" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{listImageWidth_x2}\', cropVariant:\'{data.tx_personnel_cropratio}\', fileExtension:\'{settings.forceImageFileFormat}\')} 2x'}" /></figure>
       </f:then>
       <f:else>
         <f:if condition="{settings.enableDummyImage}">
-          <figure><f:image src="EXT:personnel/Resources/Public/Images/clear.png" class="dummy person" width="{settings.listImageWidth}" height="{settings.listImageHeight}" alt="{person.data.firstname} {person.data.lastname}" /></figure>
+          <figure><f:image src="EXT:personnel/Resources/Public/Images/clear.png" cropVariant="{data.tx_personnel_cropratio}" class="dummy person" width="{settings.listImageWidth}"  alt="{person.data.firstname} {person.data.lastname}" /></figure>
         </f:if>
       </f:else>
     </f:if>

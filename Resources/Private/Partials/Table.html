@@ -3,8 +3,8 @@
     <td class="image">
     <f:if condition="{person.files.0}">
       <f:then>
-        <f:image image="{person.files.0}" loading="{f:if(condition: '!{data.tx_imagelazyload}', then: 'lazy')}" width="{settings.tableImageWidth}c" height="{settings.tableImageHeight}c" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{tableImageWidth_x2}.c\', height:\'{tableImageHeight_x2}.c-100\')} 2x'}" />
-      </f:then>
+        <f:image image="{person.files.0}" cropVariant="{data.tx_personnel_cropratio}" class="person" fileExtension="{settings.forceImageFileFormat}" loading="{f:if(condition: '!{data.tx_imagelazyload}', then: 'lazy')}" width="{settings.tableImageWidth}" alt="{person.data.firstname} {person.data.lastname}" additionalAttributes="{srcset: '{f:uri.image(image:\'{person.files.0}\', width:\'{tableImageWidth_x2}\', cropVariant:\'{data.tx_personnel_cropratio}\', fileExtension:\'{settings.forceImageFileFormat}\')} 2x'}" />
+    </f:then>
       <f:else>
         <f:if condition="{settings.enableDummyImage}">
           <f:image src="EXT:personnel/Resources/Public/Images/clear.png" class="dummy person" width="{settings.tableImageWidth}" height="{settings.tableImageHeight}" alt="{person.data.firstname} {person.data.lastname}" />

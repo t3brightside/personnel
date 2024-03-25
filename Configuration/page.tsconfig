@@ -13,24 +13,16 @@ TCEFORM.tt_content.tx_personnel_titlewrap.addItems {
   p = p
 }
 
-mod.wizards.newContentElement.wizardItems.common {
-  elements {
-    personnel_frompages {
-      iconIdentifier = mimetypes-x-content-personnel
-      title = Personnel: from pages
-      description = Shows persons from selected pages or sys folders.
-      tt_content_defValues {
-        CType = personnel_frompages
-      }
-    }
-    personnel_selected {
-      iconIdentifier = mimetypes-x-content-personnel
-      title = Personnel: selected
-      description = Shows selected person records.
-      tt_content_defValues {
-        CType = personnel_selected
-      }
-    }
-  }
-  show := addToList(personnel_frompages,personnel_selected)
+
+
+TCEFORM.tt_content.tx_personnel_cropratio.addItems {
+  0 = Default
+  tv = TV (4:3)
+  widescreen = Widescreen (16:9)
+  anamorphic = Anamorphic (2.39:1)
+  square = Square (1:1)
+  portrait = Portrait (3:4)
+  tower = Tower (9:16)
+  skyscraper = Skyscraper (1:2.39)
+  none = None
 }

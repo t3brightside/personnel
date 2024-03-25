@@ -22,6 +22,7 @@ tt_content.personnel_default {
         cssFile = {$personnel.cssFile}
         cssPriority = {$personnel.cssPriority}
         cssForceTs = {$personnel.cssForceTs}
+        imageCropRatio = {$personnel.imageCropRatio}
         cardImageWidth = {$personnel.cardImageWidth}
         cardImageHeight = {$personnel.cardImageHeight}
         listImageWidth = {$personnel.listImageWidth}

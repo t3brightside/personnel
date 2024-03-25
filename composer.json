@@ -13,10 +13,10 @@
       }
   ],
   "require": {
-    "typo3/cms-core": "^11.5 || ^12.4",
-    "typo3/cms-fluid-styled-content": "^11.5 || ^12.4",
-    "t3brightside/paginatedprocessors": "^1.5.1",
-	"t3brightside/embedassets": "^1.2"
+	"typo3/cms-core": "^12.4 || ^13.0",
+	"typo3/cms-fluid-styled-content": "^12.4 || ^13.0",
+	"t3brightside/paginatedprocessors": "^1.6",
+	"t3brightside/embedassets": "^1.3"
   },
   "suggest": {
 	  "t3brightside/imagelazyload": "Add an option to disable laziload in BE"

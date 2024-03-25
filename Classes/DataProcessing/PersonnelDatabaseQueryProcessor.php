@@ -71,15 +71,22 @@ class PersonnelDatabaseQueryProcessor extends DatabaseQueryProcessor
         //MO: Make default sorting according to manual sorting
         if(
             isset($cObj->data['tx_personnel_orderby'])
-            && $cObj->data['tx_personnel_orderby'] === "0"
+            && $cObj->data['CType'] === "personnel_selected"
             && isset($cObj->data['tx_personnel'])
-            && $cObj->data['tx_personnel'])
+            && $cObj->data['tx_personnel']
+        )
         {
             $defaultSorting = array_flip(GeneralUtility::intExplode(",", $cObj->data['tx_personnel']));
-            $processedRecordVariablesSorted = array_replace($defaultSorting, $processedRecordVariables);
-            if(count($processedRecordVariablesSorted)){
-                $processedRecordVariables = $processedRecordVariablesSorted;
-                unset($processedRecordVariablesSorted);
+            function filterIntegerItems($item) {
+                // Check if the item is not an integer
+                return !is_int($item);
+            }
+            $processedRecordVariablesSortedCleaned = array_filter(array_replace($defaultSorting, $processedRecordVariables), function($item) {
+                return !is_int($item);
+            });
+            if(count($processedRecordVariablesSortedCleaned)){
+                $processedRecordVariables = $processedRecordVariablesSortedCleaned;
+                unset($processedRecordVariablesSortedCleaned);
             }
         }
 

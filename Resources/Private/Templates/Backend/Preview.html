@@ -1,0 +1,35 @@
+
+<html xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:if condition="!{personnelitem.tx_personnel_images}">
+        <div class="preview-thumbnails" style="--preview-thumbnails-size: 64px">
+            <f:for each="{personnelRecords}" as="person" iteration="iterator">
+                <div class="preview-thumbnails-element">
+                    <f:if condition="!{person.resolvedImages.0.properties.hidden} && {person.resolvedImages.0}">
+                        <f:then>
+                            <f:image image="{person.resolvedImages.0}" width="64" cropVariant="{personnelitem.tx_personnel_cropratio}" alt="{person.firstname} {person.lastname}" />
+                        </f:then>
+                        <f:else>
+                            <div style="width: 64px; height: 100%; background: #ccc;"></div>
+                        </f:else>
+                    </f:if>
+                    {person.firstname}
+                </div>
+            </f:for>
+        </div>
+    </f:if>
+
+    <ul style="margin: 0; margin-top: 0.5em; padding: 0.2em 1.4em;">
+        <f:if condition="{pageTitles}"><li>Records from: <f:for each="{pageTitles}" as="title" iteration="iterator">{title}{f:if(condition: iterator.isLast, then: '', else: ', ')}</f:for></li></f:if>
+        <f:if condition="{catTitles}"><li>Category filter (OR): <f:for each="{catTitles}" as="category" iteration="iterator">{category.title}{f:if(condition: iterator.isLast, then: '', else: ', ')}</f:for></li></f:if>
+        <f:if condition="{personnelitem.tx_personnel_orderby}"><li>Order by: {personnelitem.tx_personnel_orderby}</li></f:if>
+        <f:if condition="{personnelitem.tx_personnel_startfrom}"><li>Start from record: {personnelitem.tx_personnel_startfrom}</li></f:if>
+        <f:if condition="{personnelitem.tx_personnel_limit}"><li>Show that many: {personnelitem.tx_personnel_limit}</li></f:if>
+        <f:if condition="{personnelitem.tx_personnel_template}"><li>Layout: {personnelitem.tx_personnel_template}</li></f:if>
+        <f:if condition="{personnelitem.tx_personnel_titlewrap}"><li>Name wrap: {personnelitem.tx_personnel_titlewrap}</li></f:if>
+        <f:if condition="{personnelitem.tx_personnel_images}"><li>Images: disabled</li></f:if>
+        <f:if condition="!{personnelitem.tx_personnel_images} && {personnelitem.tx_personnel_cropratio}"><li>Image crop: {personnelitem.tx_personnel_cropratio}</li></f:if>
+        <f:if condition="!{personnelitem.tx_personnel_information}"><li>Information: enabled</li></f:if>
+        <f:if condition="!{personnelitem.tx_personnel_vcard}"><li>vCard: enabled</li></f:if>
+        <f:if condition="{personnelitem.tx_paginatedprocessors_paginationenabled}"><li>Pagination: enabled</li></f:if>
+    </ul>
+</html>

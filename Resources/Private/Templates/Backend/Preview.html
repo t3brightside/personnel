@@ -12,12 +12,10 @@
                             <div style="width: 64px; height: 100%; background: #ccc;"></div>
                         </f:else>
                     </f:if>
-                    {person.firstname}
                 </div>
             </f:for>
         </div>
     </f:if>
-
     <ul style="margin: 0; margin-top: 0.5em; padding: 0.2em 1.4em;">
         <f:if condition="{pageTitles}"><li>Records from: <f:for each="{pageTitles}" as="title" iteration="iterator">{title}{f:if(condition: iterator.isLast, then: '', else: ', ')}</f:for></li></f:if>
         <f:if condition="{catTitles}"><li>Category filter (OR): <f:for each="{catTitles}" as="category" iteration="iterator">{category.title}{f:if(condition: iterator.isLast, then: '', else: ', ')}</f:for></li></f:if>

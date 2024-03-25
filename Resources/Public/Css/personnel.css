@@ -53,9 +53,12 @@
     max-width: 15rem;
     min-width: 8rem;
 }
-
+.personnel figure {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
 .personnel>.card img.person {
-    border-radius: 50%;
     width: 100%;
     height: auto;
     margin-bottom: 1em

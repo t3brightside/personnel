@@ -92,3 +92,13 @@
     - [TASK] !BREAKING! Drop ext:news author feature
 * 3.9.1
     - [TASK] Replace file_get_contents() with getContents() for vCard images
+* 4.0.0
+    - [UPGRADE] Update database tables & check the front end for image crop and sizes
+    - [TASK] remove name field
+    - [FEATURE] vastly improved back end preview
+    - [TASK] add v13 compatibility and drop support for v11
+    - [TASK] clean up
+    - [TASK] remove border radius from card images
+    - [FEATURE]add image cropping
+    - [BUGFIX] remove empty item from array if selected record is hidden
+    - [BUGFIX] #13 add content-type and disposition to vCards for improving mobile downloading

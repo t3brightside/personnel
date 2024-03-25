@@ -14,6 +14,7 @@ List of people from pages or individual records.
 ## Features
 - List of persons from pages
 - List of selected persons
+- Image crop
 - Sort by
 - Pagination with items per page and unique to the content element with [paginatedprocessors](https://github.com/t3brightside/paginatedprocessors)
 - Disable from back end: images, vCard link, extra information
@@ -21,6 +22,7 @@ List of people from pages or individual records.
 - Base templates for cards, list and table
 - Easy to add custom templates
 - Contact person/author records for pages and [pagelist](https://github.com/t3brightside/pagelist) page types
+- Back end preview images
 
 ## System requirements
 - TYPO3

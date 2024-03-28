@@ -17,8 +17,8 @@
         </div>
     </f:if>
     <ul style="margin: 0; margin-top: 0.5em; padding: 0.2em 1.4em;">
-        <f:if condition="{pageTitles}"><li>Records from: <f:for each="{pageTitles}" as="title" iteration="iterator">{title}{f:if(condition: iterator.isLast, then: '', else: ', ')}</f:for></li></f:if>
-        <f:if condition="{catTitles}"><li>Category filter (OR): <f:for each="{catTitles}" as="category" iteration="iterator">{category.title}{f:if(condition: iterator.isLast, then: '', else: ', ')}</f:for></li></f:if>
+        <f:if condition="{pageTitles}"><li>Records from: <b><f:for each="{pageTitles}" as="title" iteration="iterator">{title}{f:if(condition: iterator.isLast, then: '', else: ', ')}</f:for></b></li></f:if>
+        <f:if condition="{catTitles}"><li>Category filter (ANY): <f:for each="{catTitles}" as="category" iteration="iterator">{category.title}{f:if(condition: iterator.isLast, then: '', else: ', ')}</f:for></li></f:if>
         <f:if condition="{personnelitem.tx_personnel_orderby}"><li>Order by: {personnelitem.tx_personnel_orderby}</li></f:if>
         <f:if condition="{personnelitem.tx_personnel_startfrom}"><li>Start from record: {personnelitem.tx_personnel_startfrom}</li></f:if>
         <f:if condition="{personnelitem.tx_personnel_limit}"><li>Show that many: {personnelitem.tx_personnel_limit}</li></f:if>

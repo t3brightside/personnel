@@ -102,3 +102,6 @@
     - [FEATURE]add image cropping
     - [BUGFIX] remove empty item from array if selected record is hidden
     - [BUGFIX] #13 add content-type and disposition to vCards for improving mobile downloading
+* 4.0.1
+    - [BUGFIX] remove not needed filterIntegerItems function
+    - [TASK] improve BE readability

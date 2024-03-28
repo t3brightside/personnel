@@ -77,10 +77,6 @@ class PersonnelDatabaseQueryProcessor extends DatabaseQueryProcessor
         )
         {
             $defaultSorting = array_flip(GeneralUtility::intExplode(",", $cObj->data['tx_personnel']));
-            function filterIntegerItems($item) {
-                // Check if the item is not an integer
-                return !is_int($item);
-            }
             $processedRecordVariablesSortedCleaned = array_filter(array_replace($defaultSorting, $processedRecordVariables), function($item) {
                 return !is_int($item);
             });

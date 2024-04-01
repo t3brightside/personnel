@@ -50,7 +50,7 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer
         $selectedRecords = $record['tx_personnel'];
 
         // Query for selected personnel records
-        if ($CType == 'personnel_selected') {
+        if ($CType == 'personnel_selected' && $selectedRecords) {
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_personnel_domain_model_person');
             $query = $queryBuilder
                 ->select('*')
@@ -62,23 +62,22 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer
 
         // Query for personnel records from selected pages/sysfolders
 
-        if ($CType == 'personnel_frompages') {
+        if ($CType == 'personnel_frompages' && $pids) {
             // Get titles of selected startingpoints
-            if($record['CType'] == 'personnel_frompages') {
-                if ($record['pages']) {
-                    $pageIds = explode(',', $record['pages']);
-                    $pageIds = array_map('intval', $pageIds);
-                    $pageRepository = GeneralUtility::makeInstance(PageRepository::class);
-                    $pageTitles = [];
-                    foreach ($pageIds as $pageUid) {
-                        $pageData = $pageRepository->getPage($pageUid);
-                        if ($pageData && isset($pageData['title'])) {
-                            $pageTitles[] = $pageData['title'];
-                        }
+            if ($record['pages']) {
+                $pageIds = explode(',', $record['pages']);
+                $pageIds = array_map('intval', $pageIds);
+                $pageRepository = GeneralUtility::makeInstance(PageRepository::class);
+                $pageTitles = [];
+                foreach ($pageIds as $pageUid) {
+                    $pageData = $pageRepository->getPage($pageUid);
+                    if ($pageData && isset($pageData['title'])) {
+                        $pageTitles[] = $pageData['title'];
                     }
-                    $view->assign('pageTitles', $pageTitles);
                 }
+                $view->assign('pageTitles', $pageTitles);
             }
+
 
             // Get selected catefories
             if ($selectedCategories) {
@@ -136,9 +135,12 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer
         }
 
         // Query execution
-        $query->executeQuery();
-        $queryResult = $query->executeQuery();
-        $personnelRecords = $queryResult->fetchAllAssociative();
+        if ($selectedRecords || $pids){
+            $query->executeQuery();
+            $queryResult = $query->executeQuery();
+            $personnelRecords = $queryResult->fetchAllAssociative();
+        }
+
 
 
         // Reorder array to sort by selected records order
@@ -173,7 +175,9 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer
         }
 
         // Assign to template
-        $view->assign('personnelRecords', $personnelRecords);
+        if ($selectedRecords || $pids){
+            $view->assign('personnelRecords', $personnelRecords);
+        }
         $out = $view->render();
         return $this->linkEditContent($out, $record);
     }

@@ -105,3 +105,5 @@
 * 4.0.1
     - [BUGFIX] remove not needed filterIntegerItems function
     - [TASK] improve BE readability
+* 4.0.2
+    - [BUGFIX] avoid SQL error in BE preview if no pages or persons selected

@@ -1,9 +1,9 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
 	'title' => 'Personnel',
-	'description' => 'Personnel and contact lists with vCard support.',
+	'description' => 'Persons contact lists with vCard support. Demo: microtemplate.t3brightside.com',
 	'category' => 'fe',
-	'version' => '4.0.2',
+	'version' => '4.1.0',
 	'state' => 'stable',
 	'clearcacheonload' => true,
 	'author' => 'Tanel Põld, Nikolay Orlenko',

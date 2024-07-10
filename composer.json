@@ -19,7 +19,8 @@
 	"t3brightside/embedassets": "^1.3"
   },
   "suggest": {
-	  "t3brightside/imagelazyload": "Add an option to disable laziload in BE"
+	  "t3brightside/imagelazyload": "Add an option to disable laziload in BE",
+	  "t3brightside/addressespersonnel": "Connect Personnel and Addresses records"
   },
   "autoload": {
     "psr-4": {

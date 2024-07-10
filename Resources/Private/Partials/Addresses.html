@@ -1,0 +1,38 @@
+<f:comment>
+    <!-- Available fields for connected addresses -->
+    {address.data.name}
+	{address.data.info}
+	{address.data.phone}
+	{address.data.fax}
+	{address.data.email}
+	{address.data.address}
+	{address.data.city}
+	{address.data.zip}
+	{address.data.region}
+	{address.data.country}
+	{address.data.latitude}
+	{address.data.longitude}
+	{address.images}
+	{address.data.selected_categories}
+	{address.data.linkedin}
+	{address.data.xing}
+	{address.data.x}
+	{address.data.github}
+	{address.data.instagram}
+	{address.data.youtube}
+	{address.data.facebook}
+	{address.data.website}
+</f:comment>
+<f:for each="{person.addresses}" as="address">
+    <p class="personnel-address">
+        <f:comment>
+            <f:if condition="{address.images.0}">
+                <f:image image="{address.images.0}" fileExtension="{settings.forceImageFileFormat}"  width="100" cropVariant="square" />
+            </f:if>
+        </f:comment>
+        <strong>{address.data.name}</strong><br />
+        {address.data.address}<br />
+        {address.data.city}, {address.data.zip}<br />
+        {address.data.region}, {address.data.country}<br />
+    </p>
+</f:for>

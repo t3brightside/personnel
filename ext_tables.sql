@@ -30,6 +30,7 @@ CREATE TABLE tx_personnel_domain_model_person (
 	youtube tinytext,
 	facebook tinytext,
 	website tinytext,
+	pages INT UNSIGNED DEFAULT 0 NOT NULL,
 	KEY parent (pid,sorting),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (sys_language_uid)

@@ -46,6 +46,7 @@ return [
                 --palette--;;paletteLanguage,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
                 selected_categories,
+                --div--;Pages,pages,
             '
         ]
     ],
@@ -562,6 +563,38 @@ return [
                     'allowLanguageSynchronization' => true,
                 ],
             ]
+        ],
+        'pages' => [
+            'exclude' => 1,
+            'label' => 'Pages',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'pages',
+                'MM' => 'tx_personnel_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'pages',
+                    'fieldname' => 'tx_personnel',
+                ],
+                'size' => 5,
+                'autoSizeMax' => 5,
+                'maxitems' => 9999,
+                'multiple' => 0,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => true,
+                        'options' => [
+                            'windowOpenParameters' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
+                        ],
+                    ],
+                    'addRecord' => [
+                        'disabled' => true,
+                    ],
+                    'listModule' => [
+                        'disabled' => true,
+                    ],
+                ],
+            ],
         ],
     ],
 ];

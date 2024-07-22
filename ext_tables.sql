@@ -37,4 +37,17 @@ CREATE TABLE tx_personnel_domain_model_person (
 
 CREATE TABLE pages (
 	tx_personnel_authors tinytext,
+	tx_personnel INT UNSIGNED DEFAULT 0 NOT NULL,
+);
+
+CREATE TABLE tx_personnel_mm (
+    uid_local int(11) DEFAULT '0' NOT NULL,
+    uid_foreign int(11) DEFAULT '0' NOT NULL,
+    sorting int(11) DEFAULT '0' NOT NULL,
+    sorting_foreign int(11) DEFAULT '0' NOT NULL,
+		tablenames varchar(255) DEFAULT '' NOT NULL,
+		fieldname varchar(255) DEFAULT '' NOT NULL,
+    PRIMARY KEY (uid_local, uid_foreign),
+    KEY uid_local (uid_local),
+    KEY uid_foreign (uid_foreign)
 );

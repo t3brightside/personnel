@@ -111,3 +111,7 @@
     [FEATURE] add ext:addressespersonnel template
     [TASK] rename Author label to Persons
     [TASK] recommend addressespersonnel
+* 4.2.0
+    [TASK] add pages field
+    [TASK] clean up
+    [FEATURE] !BREAKING! bidirectional contact records for pages

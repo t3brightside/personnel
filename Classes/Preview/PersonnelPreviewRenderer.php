@@ -135,19 +135,23 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer
         }
 
         // Query execution
-        if ($selectedRecords || $pids){
+
+        if ($CType == 'personnel_frompages' && $pids){
             $query->executeQuery();
             $queryResult = $query->executeQuery();
             $personnelRecords = $queryResult->fetchAllAssociative();
         }
-
-
 
         // Reorder array to sort by selected records order
         if (
             $CType == 'personnel_selected' &&
             $selectedRecords
         ) {
+            // Query execution
+            $query->executeQuery();
+            $queryResult = $query->executeQuery();
+            $personnelRecords = $queryResult->fetchAllAssociative();
+
             $personnelRecordsReindex = [];
             foreach ($personnelRecords as $item) {
                 $personnelRecordsReindex[$item['uid']] = $item;

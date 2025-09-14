@@ -117,3 +117,5 @@
     [FEATURE] !BREAKING! bidirectional contact records for pages
 * 4.2.1
     [BUGFIX] clear error for BE rendering if no contact selected but page is
+* 4.2.2
+    [BUGFIX] remove 'type' => '0'

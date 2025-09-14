@@ -118,4 +118,5 @@
 * 4.2.1
     [BUGFIX] clear error for BE rendering if no contact selected but page is
 * 4.2.2
+    [BUGFIX] Remove obsolete configuration flag for news
     [BUGFIX] remove 'type' => '0'

@@ -17,7 +17,6 @@ return [
         'versioningWS' => true,
         'origUid' => 't3_origuid',
         'editlock' => 'editlock',
-        'type' => '0',
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',

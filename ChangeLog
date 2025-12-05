@@ -120,3 +120,8 @@
 * 4.2.2
     [BUGFIX] Remove obsolete configuration flag for news
     [BUGFIX] remove 'type' => '0'
+* 5.0.0
+    [TASK] update to v14 compatibility
+    [TASK] modernise icon registration
+    [TASK] add site sets
+    [TASK] rework the BE preview

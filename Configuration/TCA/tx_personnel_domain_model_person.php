@@ -1,11 +1,19 @@
 <?php
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Resource\FileType;
+use TYPO3\CMS\Core\Resource\File;
 
-ExtensionManagementUtility::addToInsertRecords('tx_personnel_domain_model_person');
+defined('TYPO3') || die('Access denied.');
+
+if (class_exists(FileType::class)) {
+    $imageFileType = FileType::IMAGE->value;
+} else {
+    $imageFileType = File::FILETYPE_IMAGE;
+}
 
 return [
     'ctrl' => [
-        'title' => 'Personnel',
+        'title' => 'Person',
         'label' => 'lastname',
         'label_alt' => 'firstname, profession',
         'label_alt_force' => 1,
@@ -353,7 +361,6 @@ return [
                                     'default' => [
                                         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
                                         'allowedAspectRatios' => [
-
                                             'NaN' => [
                                                 'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
                                                 'value' => 0.0
@@ -447,7 +454,7 @@ return [
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'
                         ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                         $imageFileType => [
                             'showitem' => '
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'
@@ -597,3 +604,5 @@ return [
         ],
     ],
 ];
+
+ExtensionManagementUtility::addToInsertRecords('tx_personnel_domain_model_person');

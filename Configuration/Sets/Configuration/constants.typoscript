@@ -1,0 +1,43 @@
+# customsubcategory=personnel=Personnel
+# cat=Personnel/personnel; type=string; label= Styles file
+personnel.cssFile = EXT:personnel/Resources/Public/Css/personnel.css
+# cat=Personnel/personnel; type=boolean; label= Css priority, 0 means CSS is in page footer
+personnel.cssPriority = 1
+# cat=Personnel/personnel; type=boolean; label= Force loading CSS with TypoScript
+personnel.cssForceTs = 0
+# cat=Personnel/personnel; type=string; label= Templates root path
+personnel.templateRootPaths = EXT:personnel/Resources/Private/Templates/
+# cat=Personnel/personnel; type=string; label= Partials root path
+personnel.partialRootPaths = EXT:personnel/Resources/Private/Partials/
+# cat=Personnel/personnel; type=string; label= vCard template root path
+personnel.vCard.templateRootPaths = EXT:personnel/Resources/Private/Templates/
+# cat=Personnel/personnel; type=string; label= Company name in vCard
+personnel.vCard.CompanyName =
+# cat=Personnel/personnel; type=string; label= Default image crop ratio
+personnel.imageCropRatio = default
+# cat=Personnel/personnel; type=string; label= Card image width (px)
+personnel.cardImageWidth = 400
+# cat=Personnel/personnel; type=string; label= Card image height (px)
+personnel.cardImageHeight = 250
+# cat=Personnel/personnel; type=string; label= List image width (px)
+personnel.listImageWidth = 225
+# cat=Personnel/personnel; type=string; label= List image height (px)
+personnel.listImageHeight = 225
+# cat=Personnel/personnel; type=string; label= Table image width (px)
+personnel.tableImageWidth = 50
+# cat=Personnel/personnel; type=string; label= Table image height (px)
+personnel.tableImageHeight = 50
+# cat=Personnel/personnel; type=string; label= Zoomed image max width (px)
+personnel.zoomedImageMaxWidth = 1200
+# cat=Personnel/personnel; type=boolean; label= Enable dummy image if no image present
+personnel.enableDummyImage = 1
+# cat=Personnel/personnel; type=string; label= Person's name element in card layout (h2, h3 etc)
+personnel.cardNameWrap = h3
+# cat=Personnel/personnel; type=string; label= Person's name element in list layout (h2, h3 etc)
+personnel.listNameWrap = h3
+# cat=Personnel/personnel; type=string; label= Pagination items per page
+personnel.paginationItems = 8
+# cat=Personnel/personnel; type=string; label= Pagination links
+personnel.paginationLinks = 10
+# cat=Personnel/personnel; type=sting; label= Force image file format (make sure it's enabled in [GFX][imagefile_ext])
+personnel.forceImageFileFormat =

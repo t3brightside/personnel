@@ -1,0 +1,148 @@
+# by t3brightside.com
+["{$personnel.cssForceTs}" == "1"]
+  page.includeCSS.personnel = {$personnel.cssFile}
+[END]
+
+vCardOrgName = TEXT
+vCardOrgName.value = {$personnel.vCard.CompanyName}
+
+vCardURL = TEXT
+vCardURL.data = getEnv:HTTP_HOST
+
+# page.includeCSS.personnel = {$personnel.cssFile}
+
+tt_content.personnel_default =< lib.contentElement
+tt_content.personnel_default {
+    templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
+    templateRootPaths.20 = {$personnel.templateRootPaths}
+    partialRootPaths.10 = EXT:personnel/Resources/Private/Partials/
+    partialRootPaths.20 = {$personnel.partialRootPaths}
+    templateName = Personnel
+    settings {
+        cssFile = {$personnel.cssFile}
+        cssPriority = {$personnel.cssPriority}
+        cssForceTs = {$personnel.cssForceTs}
+        imageCropRatio = {$personnel.imageCropRatio}
+        cardImageWidth = {$personnel.cardImageWidth}
+        cardImageHeight = {$personnel.cardImageHeight}
+        listImageWidth = {$personnel.listImageWidth}
+        listImageHeight = {$personnel.listImageHeight}
+        tableImageWidth = {$personnel.tableImageWidth}
+        tableImageHeight = {$personnel.tableImageHeight}
+        zoomedImageMaxWidth = {$personnel.zoomedImageMaxWidth}
+        enableDummyImage = {$personnel.enableDummyImage}
+        cardNameWrap = {$personnel.cardNameWrap}
+        listNameWrap = {$personnel.listNameWrap}
+        forceImageFileFormat = {$personnel.forceImageFileFormat}
+    }
+    stdWrap {
+        editIcons = tt_content: header [header_layout], pages
+        editIcons.iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.menu
+    }
+}
+
+tt_content.personnel_frompages < tt_content.personnel_default
+tt_content.personnel_frompages {
+#    dataProcessing.10 = Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor
+    dataProcessing.10 = Brightside\Paginatedprocessors\DataProcessing\PaginatedDatabaseQueryProcessor
+    dataProcessing.10 {
+        pagination {
+          isActive.field = tx_paginatedprocessors_paginationenabled
+          uniqueId.field = uid
+          uniqueId.override.field = tx_paginatedprocessors_urlsegment
+          itemsPerPage = 10
+          itemsPerPage.override.field = tx_paginatedprocessors_itemsperpage
+          pageLinksShown = 5
+          pageLinksShown.override.field = tx_paginatedprocessors_pagelinksshown
+          anchorActive.field = tx_paginatedprocessors_anchor
+          anchorId.field = uid
+          anchorId.override.field = tx_paginatedprocessors_anchorid
+        }
+        table = tx_personnel_domain_model_person
+        selectFields = tx_personnel_domain_model_person.*
+        pidInList.field = pages
+        max.field = tx_personnel_limit
+        begin.field = tx_personnel_startfrom
+        groupBy = uid
+        orderBy.field = tx_personnel_orderby
+        join.data = field:selected_categories
+        join.wrap = sys_category_record_mm ON uid = sys_category_record_mm.uid_foreign AND sys_category_record_mm.uid_local IN(|)
+        join.wrap.if.isTrue.field = selected_categories
+        where.stdWrap.orderedStdWrap {
+            10.wrap = AND tablenames='tx_personnel_domain_model_person' AND fieldname='categories'
+            10.wrap.if.isTrue.field = selected_categories
+        }
+        as = personnel
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10.references.fieldName = images
+        }
+    }
+}
+
+tt_content.personnel_selected < tt_content.personnel_default
+tt_content.personnel_selected {
+    dataProcessing.10 = Brightside\Personnel\DataProcessing\PersonnelDatabaseQueryProcessor
+    dataProcessing.10 {
+        pagination {
+          isActive.field = tx_paginatedprocessors_paginationenabled
+          uniqueId.field = uid
+          uniqueId.override.field = tx_paginatedprocessors_urlsegment
+          itemsPerPage = 10
+          itemsPerPage.override.field = tx_paginatedprocessors_itemsperpage
+          pageLinksShown = 5
+          pageLinksShown.override.field = tx_paginatedprocessors_pagelinksshown
+          anchorActive.field = tx_paginatedprocessors_anchor
+          anchorId.field = uid
+          anchorId.override.field = tx_paginatedprocessors_anchorid
+        }
+        if.isTrue.field = tx_personnel
+        table = tx_personnel_domain_model_person
+        pidInList = 0
+        uidInList.field = tx_personnel
+        as = personnel
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10.references.fieldName = images
+        }
+    }
+}
+
+
+personnel_vCard = PAGE
+personnel_vCard  {
+    typeNum = 888
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        debug = 0
+        disableCharsetHeader = 1
+        additionalHeaders {
+          10 {
+              header = Content-Disposition: attachment;
+              replace = 1
+          }
+          20 {
+              header = Content-Type: text/x-vcard
+              replace = 1
+          }
+      }
+    }
+    10 = FLUIDTEMPLATE
+    10 {
+        templateName = Vcard
+        templateRootPaths.10 = EXT:personnel/Resources/Private/Templates/
+        templateRootPaths.20 = {$personnel.vCard.templateRootPaths}
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        dataProcessing.10 {
+            table = tx_personnel_domain_model_person
+            pidInList = 0
+            uidInList.data = GP:person
+            as = person
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10.references.fieldName = images
+            }
+        }
+    }
+}

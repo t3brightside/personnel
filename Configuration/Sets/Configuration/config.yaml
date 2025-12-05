@@ -1,0 +1,4 @@
+name: 't3brightside/personnel'
+label: 'Personnel'
+dependencies:
+    - typo3/fluid-styled-content

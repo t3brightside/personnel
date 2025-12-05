@@ -4,8 +4,6 @@ declare(strict_types=1);
 use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-use TYPO3\CMS\Core\Imaging\IconRegistry;
-use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 use Brightside\Personnel\Hooks\ContentPostProcessor;
 
 defined('TYPO3') || die('Access denied.');
@@ -18,12 +16,6 @@ defined('TYPO3') || die('Access denied.');
             @import "EXT:personnel/Configuration/TSConfig/wizard.tsconfig"
         ');
     }
-
-    $iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
-    $iconRegistry->registerIcon(
-        'mimetypes-x-content-personnel',SvgIconProvider::class,
-        ['source' => 'EXT:personnel/Resources/Public/Icons/mimetypes-x-content-personnel.svg']
-    );
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =
     ContentPostProcessor::class . '->render';

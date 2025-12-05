@@ -125,3 +125,5 @@
     [TASK] modernise icon registration
     [TASK] add site sets
     [TASK] rework the BE preview
+* 5.0.1
+    [BUGFIX] bring back v13.4 to composer.json

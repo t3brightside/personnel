@@ -1,6 +1,6 @@
 {
   "name": "t3brightside/personnel",
-  "description": "TYPO3 CMS extension for personnel lists with vCard support.",
+  "description": "Personnel Records",
   "type": "typo3-cms-extension",
   "keywords": ["TYPO3", "vCard", "personnel", "contacts", "persons"],
   "license": "GPL-2.0-or-later",
@@ -13,10 +13,10 @@
       }
   ],
   "require": {
-	"typo3/cms-core": "^12.4 || ^13.0",
-	"typo3/cms-fluid-styled-content": "^12.4 || ^13.0",
-	"t3brightside/paginatedprocessors": "^1.6",
-	"t3brightside/embedassets": "^1.3"
+	"typo3/cms-core": "^12.4 || ^14.0",
+	"typo3/cms-fluid-styled-content": "^12.4 || ^14.0",
+	"t3brightside/paginatedprocessors": "^1.7",
+	"t3brightside/embedassets": "^1.4"
   },
   "suggest": {
 	  "t3brightside/imagelazyload": "Add an option to disable laziload in BE",

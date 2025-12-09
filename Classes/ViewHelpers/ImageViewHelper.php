@@ -10,8 +10,8 @@ use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\File as FalFile;
 use TYPO3\CMS\Core\Resource\ProcessedFile;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
-use TYPO3\CMS\Fluid\Core\ViewHelper\Exception;
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper; // <<-- CHANGED BASE CLASS
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Extbase\Service\ImageService;
 use TYPO3\CMS\Core\Resource\FileInterface;
 

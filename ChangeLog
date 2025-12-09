@@ -127,3 +127,16 @@
     [TASK] rework the BE preview
 * 5.0.1
     [BUGFIX] bring back v13.4 to composer.json
+* 5.1.0
+    062d7ed [TASK] remove deprecations and clean up
+        D - Classes/Hooks/ContentPostProcessor.php
+        M - Classes/ViewHelpers/ImageViewHelper.php
+        D - Configuration/TSConfig/wizard.tsconfig
+        M - ext_localconf.php
+        D - ext_tables.php
+    414b2c9 [TASK] make BE preview fields respect TSConfig and user rights
+        M - Classes/Preview/PersonnelPreviewRenderer.php
+    e9827eb [TASK] code clean up
+        D - Resources/Private/Templates/Backend/Preview.html
+    dc4bf10 (HEAD -> master, origin/master, origin/HEAD) [BUGFIX] bring back wizards.newContentElement for v12
+        M - Configuration/page.tsconfig

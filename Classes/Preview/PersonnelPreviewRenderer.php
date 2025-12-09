@@ -13,14 +13,12 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Domain\RecordInterface;
 use TYPO3\CMS\Core\Domain\Repository\PageRepository;
-use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Imaging\ImageService;
-use Exception;
 
 class PersonnelPreviewRenderer extends StandardContentPreviewRenderer implements PreviewRendererInterface
 {
     private const PERSONNEL_TABLE = 'tx_personnel_domain_model_person';
+    private const TT_CONTENT_TABLE = 'tt_content'; // Added constant
 
     /**
      * Safely retrieves a field value from the record, supporting both array (v12)
@@ -34,6 +32,67 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer implements
             return $record->has($field) ? $record->get($field) : $default;
         }
         return $default;
+    }
+
+    /**
+     * Checks if a field is available for editing based on permissions AND TSconfig overrides (User/Page).
+     */
+    private function isFieldAvailableForRecord(array|RecordInterface $record, string $fieldName): bool
+    {
+        // 1. Check if the field exists in tt_content columns array (TCA structure check)
+        if (!isset($GLOBALS['TCA'][self::TT_CONTENT_TABLE]['columns'][$fieldName])) {
+            return false;
+        }
+        
+        // 2. Permission Check (non_exclude_fields)
+        if (!isset($GLOBALS['BE_USER']) || !$GLOBALS['BE_USER']->check('non_exclude_fields', self::TT_CONTENT_TABLE . ':' . $fieldName)) {
+            return false;
+        }
+
+        // --- 3. TSconfig Removal/Disabled Check (User + Page) ---
+        
+        $pid = $this->getRecordValueSafely($record, 'pid', 0);
+        $CType = $this->getRecordValueSafely($record, 'CType', '');
+
+        // Fetch both configurations (using documented API)
+        $userTsConfig = $GLOBALS['BE_USER']->getTSConfig();
+        $pageTsConfig = $pid > 0 ? BackendUtility::getPagesTSconfig((int)$pid) : [];
+        
+        // Define all places where the field config might live:
+        $tsConfigPaths = [
+            // [Table/Field config array, CType specific config array]
+            [
+                $userTsConfig['TCEFORM.'][self::TT_CONTENT_TABLE . '.'][$fieldName . '.'] ?? [],
+                $userTsConfig['TCEFORM.'][self::TT_CONTENT_TABLE . '.'][$fieldName . '.']['types.'][$CType . '.'] ?? [],
+            ],
+            [
+                $pageTsConfig['TCEFORM.'][self::TT_CONTENT_TABLE . '.'][$fieldName . '.'] ?? [],
+                $pageTsConfig['TCEFORM.'][self::TT_CONTENT_TABLE . '.'][$fieldName . '.']['types.'][$CType . '.'] ?? [],
+            ],
+        ];
+
+        foreach ($tsConfigPaths as [$globalConfig, $typeConfig]) {
+            // Check 3a: Global Field Rule (TCEFORM.tt_content.field.disabled = 1)
+            $isDisabledGlobal = (bool)($globalConfig['disabled'] ?? false);
+            if ($isDisabledGlobal) {
+                return false;
+            }
+
+            // Check 3b: Conditional Type Rule (TCEFORM.tt_content.field.types.CType.disabled = 1)
+            $isDisabledType = (bool)($typeConfig['disabled'] ?? false);
+            if ($isDisabledType) {
+                return false;
+            }
+
+            // Check 3c: Explicit Removal (TCEFORM.field.removeItems = fieldname)
+            $removeItems = $globalConfig['removeItems'] ?? '';
+            if (GeneralUtility::inList($removeItems, $fieldName)) {
+                return false;
+            }
+        }
+        
+        // If all checks pass, the field is available for viewing/editing.
+        return true;
     }
 
     /**
@@ -102,44 +161,6 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer implements
             ->fetchAllAssociative() ?: [];
     }
 
-    /**
-     * Renders an <img> tag for a given FileReference using ImageService.
-     * NOTE: This function is currently unused as the image strip was removed from the preview content.
-     */
-    private function renderImageTagForPreview(FileReference $fileReference, int $width, string $cropVariant = null, string $alt = ''): string
-    {
-        $imageService = GeneralUtility::makeInstance(ImageService::class);
-        $defaultStyle = 'width: 64px; height: 64px; background: #eee; border: 1px solid #ccc; display: inline-block;';
-
-        try {
-            $processingInstructions = [
-                'width' => $width,
-                'height' => $width, // Fixed height for a square thumbnail
-                'crop' => $fileReference->getProperty('crop') ?: null,
-                'min' => $width . ',' . $width, // Ensure minimum size for processing
-            ];
-            
-            if ($cropVariant) {
-                $processingInstructions['cropVariant'] = $cropVariant;
-            }
-
-            $processedImage = $imageService->applyProcessingInstructions($fileReference, $processingInstructions);
-            $imageUri = $imageService->getImageUri($processedImage);
-
-            return sprintf(
-                '<img src="%s" width="%d" height="%d" alt="%s" style="max-width: 100%%; max-height: 100%%; object-fit: cover;" />',
-                htmlspecialchars($imageUri),
-                $width,
-                $width,
-                htmlspecialchars($alt)
-            );
-        } catch (Exception $e) {
-            // Return a visible placeholder with the error message for debugging purposes.
-            $fallbackTitle = 'Image Processing Failed. Error: ' . $e->getMessage();
-            return '<div title="' . htmlspecialchars($fallbackTitle) . '" style="' . $defaultStyle . '">❌</div>';
-        }
-    }
-
     // ------------------------------
     // Preview Rendering Methods
     // ------------------------------
@@ -148,8 +169,10 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer implements
     {
         $record = $item->getRecord();
         $getValue = fn(string $field, mixed $default = null) => $this->getRecordValueSafely($record, $field, $default);
+        
+        // Helper function to check field availability
+        $isFieldAvailable = fn(string $field) => $this->isFieldAvailableForRecord($record, $field);
 
-        // Safely retrieve all fields
         $CType = $getValue('CType', '');
         $pids = $getValue('pages');
         $orderBy = $getValue('tx_personnel_orderby');
@@ -163,7 +186,6 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer implements
         $disableInformation = (bool)$getValue('tx_personnel_information', 0);
         $disableVcard = (bool)$getValue('tx_personnel_vcard', 0);
         
-        // Pagination fields
         $paginationEnabled = (bool)$getValue('tx_paginatedprocessors_paginationenabled', 0);
         $itemsPerPage = $getValue('tx_paginatedprocessors_itemsperpage');
         $pageLinksShown = $getValue('tx_paginatedprocessors_pagelinksshown');
@@ -261,10 +283,8 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer implements
             $content = '<strong style="' . $labelStyle . '">' . htmlspecialchars($label) . '</strong>' . htmlspecialchars($value);
             return '<div>' . $this->linkEditContent($content, $record) . '</div>';
         };
-        
-        // 1. Details List (Configuration)
-        
-        if ($CType === 'personnel_selected' && !empty($personnelRecords)) {
+      
+        if ($CType === 'personnel_selected' && $isFieldAvailable('tx_personnel') && !empty($personnelRecords)) {
             $personNames = [];
             foreach ($personnelRecords as $person) {
                 $name = trim(($person['firstname'] ?? '') . ' ' . ($person['lastname'] ?? ''));
@@ -274,89 +294,96 @@ class PersonnelPreviewRenderer extends StandardContentPreviewRenderer implements
                 $personNames[] = $name;
             }
             $value = implode(', ', $personNames);
-            $output .= $createDetailLine('Persons:', $value);
+            $output .= $createDetailLine('Selected Persons:', $value);
         }
-        // ----------------------------------------------------
         
-        if (!empty($pageTitles)) {
+        if ($isFieldAvailable('pages') && !empty($pageTitles)) {
             $value = '<span>' . implode(', ', $pageTitles) . '</span>';
             $content = '<strong style="' . $labelStyle . '">Persons from:</strong>' . $value;
             $output .= '<div>' . $this->linkEditContent($content, $record) . '</div>';
         }
         
-        if (!empty($categoryTitles)) {
+        if ($isFieldAvailable('selected_categories') && !empty($categoryTitles)) {
             $value = implode(', ', $categoryTitles);
             $output .= $createDetailLine('Category filter (ANY):', $value);
         }
         
-        if ($orderBy) {
+        if ($isFieldAvailable('tx_personnel_orderby') && $orderBy) {
             $output .= $createDetailLine('Order by:', $orderBy);
         }
         
-        if ($firstResult) {
+        if ($isFieldAvailable('tx_personnel_startfrom') && $firstResult) {
             $output .= $createDetailLine('Start from record:', $firstResult);
         }
         
-        if ($maxResults) {
+        if ($isFieldAvailable('tx_personnel_limit') && $maxResults) {
             $output .= $createDetailLine('Limit to:', $maxResults);
         }
         
-        if ($getValue('tx_personnel_template')) {
+        if ($isFieldAvailable('tx_personnel_template') && $getValue('tx_personnel_template')) {
             $output .= $createDetailLine('Layout:', $getValue('tx_personnel_template'));
         }
         
-        if ($getValue('tx_personnel_titlewrap')) {
+        if ($isFieldAvailable('tx_personnel_titlewrap') && $getValue('tx_personnel_titlewrap')) {
             $output .= $createDetailLine('Name wrap:', $getValue('tx_personnel_titlewrap'));
         }
         
-        if ($disableImages) {
-            $output .= $createDetailLine('Images:', 'disabled');
-        } else {
-            $output .= $createDetailLine('Images:', 'enabled');
-            if ($cropRatio) {
-                $output .= $createDetailLine('Image crop:', $cropRatio);
+        if ($isFieldAvailable('tx_personnel_images')) {
+            if ($disableImages) {
+                $output .= $createDetailLine('Images:', 'disabled');
+            } else {
+                $output .= $createDetailLine('Images:', 'enabled');
+                
+                if ($isFieldAvailable('tx_personnel_cropratio') && $cropRatio) {
+                    $output .= $createDetailLine('Image crop:', $cropRatio);
+                }
             }
         }
         
-        if (!$disableInformation) { 
-            $output .= $createDetailLine('Information:', 'enabled');
-        } else {
-            $output .= $createDetailLine('Information:', 'disabled');
+        if ($isFieldAvailable('tx_personnel_information')) {
+            if (!$disableInformation) { 
+                $output .= $createDetailLine('Information:', 'enabled');
+            } else {
+                $output .= $createDetailLine('Information:', 'disabled');
+            }
         }
         
-        if (!$disableVcard) { 
-            $output .= $createDetailLine('vCard:', 'enabled');
-        } else {
-            $output .= $createDetailLine('vCard:', 'disabled');
+        if ($isFieldAvailable('tx_personnel_vcard')) {
+            if (!$disableVcard) { 
+                $output .= $createDetailLine('vCard:', 'enabled');
+            } else {
+                $output .= $createDetailLine('vCard:', 'disabled');
+            }
         }
-        
-        // Pagination
-        if ($paginationEnabled) {
+            
+        $isPaginationConfigAvailable = $isFieldAvailable('tx_paginatedprocessors_paginationenabled');
+
+        if ($paginationEnabled && $isPaginationConfigAvailable) {
+            
             $paginationContent = '<br /><strong>Pagination:</strong> active';
 
-            if ($itemsPerPage) {
+            if ($isFieldAvailable('tx_paginatedprocessors_itemsperpage') && $itemsPerPage) {
                 $paginationContent .= ' •&nbsp;items per page: ' . htmlspecialchars($itemsPerPage);
             }
-            if ($pageLinksShown) {
+            if ($isFieldAvailable('tx_paginatedprocessors_pagelinksshown') && $pageLinksShown) {
                 $paginationContent .= ' •&nbsp;page links shown: ' . htmlspecialchars($pageLinksShown);
             }
             
-            if (is_numeric($anchorId) && (int)$anchorId > 0) { 
+            if ($isFieldAvailable('tx_paginatedprocessors_anchorid') && is_numeric($anchorId) && (int)$anchorId > 0) {
                 $paginationContent .= ' •&nbsp;focus on page change: ' . htmlspecialchars($anchorId);
             } else {
-                if ($anchor) {
+                if ($isFieldAvailable('tx_paginatedprocessors_anchor') && $anchor) {
                     $paginationContent .= ' •&nbsp;focus self on page change';
                 }
             }
-            if ($urlSegment) {
+            if ($isFieldAvailable('tx_paginatedprocessors_urlsegment') && $urlSegment) {
                 $paginationContent .= ' •&nbsp;anchor: ' . htmlspecialchars($urlSegment);
             }
-            
+
             $output .= '<div>' . $this->linkEditContent($paginationContent, $record) . '</div>';
         }
 
         $output .= '</div>';
-
         return $output;
     }
 }

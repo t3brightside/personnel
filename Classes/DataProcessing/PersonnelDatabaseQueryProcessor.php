@@ -3,11 +3,26 @@ namespace Brightside\Personnel\DataProcessing;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
+
+// The Interface
+use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
+
+// The Processor
 use TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor;
+
 use Brightside\Paginatedprocessors\Processing\DataToPaginatedData;
 
-class PersonnelDatabaseQueryProcessor extends DatabaseQueryProcessor
+class PersonnelDatabaseQueryProcessor implements DataProcessorInterface
 {
+    // Hold the ContentDataProcessor locally since we no longer inherit it
+    private ContentDataProcessor $contentDataProcessor;
+
+    public function __construct(ContentDataProcessor $contentDataProcessor = null)
+    {
+        $this->contentDataProcessor = $contentDataProcessor ?? GeneralUtility::makeInstance(ContentDataProcessor::class);
+    }
+
     /**
      * Fetches records from the database as an array
      *
@@ -61,6 +76,8 @@ class PersonnelDatabaseQueryProcessor extends DatabaseQueryProcessor
             $recordContentObjectRenderer = GeneralUtility::makeInstance(ContentObjectRenderer::class);
             $recordContentObjectRenderer->start($record, $tableName);
             $processedRecordVariables[$record['uid']] = ['data' => $record];
+            
+            // Uses our local property now
             $processedRecordVariables[$record['uid']] = $this->contentDataProcessor->process(
                 $recordContentObjectRenderer,
                 $processorConfiguration,
@@ -87,10 +104,24 @@ class PersonnelDatabaseQueryProcessor extends DatabaseQueryProcessor
         }
 
         $processedData[$targetVariableName] = $processedRecordVariables;
-        $allProcessedData = parent::process($cObj, $contentObjectConfiguration, $processorConfiguration, $processedData);
+        
+        // --- THE MAGIC HAPPENS HERE ---
+        
+        // Instantiate the core DatabaseQueryProcessor manually
+        $databaseProcessor = GeneralUtility::makeInstance(DatabaseQueryProcessor::class);
 
-        $paginationSettings = $processorConfiguration['pagination.'];
-        if ((int)($cObj->stdWrapValue('isActive', $paginationSettings ?? []))) {
+        // Call the core process method instead of parent::process
+        $allProcessedData = $databaseProcessor->process(
+            $cObj, 
+            $contentObjectConfiguration, 
+            $processorConfiguration, 
+            $processedData
+        );
+
+        // ------------------------------
+
+        $paginationSettings = $processorConfiguration['pagination.'] ?? [];
+        if ((int)($cObj->stdWrapValue('isActive', $paginationSettings))) {
           $paginatedData = new DataToPaginatedData();
           $allProcessedData = $paginatedData->getPaginatedData(
               $cObj,
